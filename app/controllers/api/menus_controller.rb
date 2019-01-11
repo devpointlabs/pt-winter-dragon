@@ -1,4 +1,5 @@
 class Api::MenusController < ApplicationController
+  before_action :set_menu, only: [:show, :edit, :update, :destroy]
   
   def index
     render json: Menu.all
@@ -30,15 +31,15 @@ class Api::MenusController < ApplicationController
   end
 
   def destroy
-    @blog.destroy
+    @menu.destroy
   end
 
   private
     def menu_params 
-      @menu = Menu.find(params[:id])
+      params.require(:menu).permit(:name, :isactive)
     end
 
     def set_menu
-      
+      @menu = Menu.find(params[:id])
     end
 end

@@ -1,28 +1,30 @@
 import React from 'react';
 
 class MenuForm extends React.Component {
-  defaultValues = { name: ' '}
-  state = {...this.defaultValues}
+  state = { menu: {name: '', isActive:false} };
 
   handleSubmit = (e) => {
     e.preventDefault();
+    const { menu } = this.state
     this.props.submit(menu)
-    this.setState({...this.defaultValues})
+    this.setState({menu: {name: ''}})
   }
 
   handleChange = (e) => {
-    const target = e.target;
-    const value = target.value;
-    const name = target.name;
+    // const target = e.target;
+    // const value = target.type === 'checkbox' ? target.checked : target.value;
+    // const name = target.name;
 
-    this.setState({
-      [name]: value
-    })
+    if (e.target.type === "checkbox") {
+      this.setState({menu: {isActive:true}})
+    }
+
+    this.setState({menu: {name:e.target.value}})
   }
 
 
   render () {
-    const { name } = this.state;
+    const { menu: {name, isactive}} = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
       <h3>Menu Name</h3>
@@ -32,6 +34,13 @@ class MenuForm extends React.Component {
         value={name}
         onChange={this.handleChange}
       />
+      <input
+        name="isActive"
+        type="checkbox"
+        checked={this.state.isActive}
+        onChange={this.handleChange}
+      />
+      <button>Submit</button>
       </form>
     )
   }

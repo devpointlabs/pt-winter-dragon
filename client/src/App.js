@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 // import Home from '/components/Home';
 import Menu from './components/Menu';
+import Menus from './components/Menus';
 // import Cart from '/components/Cart';
 // import ReservationForm from './components/ReservationForm';
 // import ContactForm from './components/ContactForm';
