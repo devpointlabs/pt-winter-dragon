@@ -1,5 +1,8 @@
 class Api::MenusController < ApplicationController
+<<<<<<< HEAD
   before_action :set_menu, only: [:show, :edit, :update, :destroy]
+=======
+>>>>>>> 114ded194ede54988150cb5146155c24915771dd
   
   def index
     render json: Menu.all
@@ -31,15 +34,27 @@ class Api::MenusController < ApplicationController
   end
 
   def destroy
+<<<<<<< HEAD
     @menu.destroy
+=======
+    @blog.destroy
+>>>>>>> 114ded194ede54988150cb5146155c24915771dd
   end
 
   private
     def menu_params 
+<<<<<<< HEAD
       params.require(:menu).permit(:name, :isactive)
     end
 
     def set_menu
       @menu = Menu.find(params[:id])
+=======
+      @menu = Menu.find(params[:id])
+    end
+
+    def set_menu
+      
+>>>>>>> 114ded194ede54988150cb5146155c24915771dd
     end
 end
