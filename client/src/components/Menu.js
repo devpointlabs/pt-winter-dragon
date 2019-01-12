@@ -1,41 +1,39 @@
 import React from 'react';
 // import MenuForm from './MenuForm';
 import { Button } from 'semantic-ui-react';
-import Menus from './Menus';
 import { Link } from 'react-router-dom';
+
 import axios from 'axios';
 
+//CHILD COMPONENT
+
 class Menu extends React.Component {
-  state = { menu: [], showAllMenus: false }
+  state = { menu: [], menus: [] }
 
-  componentDidMount() {
-    axios.get(`/api/menus/${this.props.match.id}`)
-      .then( res => {
-        this.setState({ menu:res.data })
+  currMenu = () => {
+    return(
+    this.props.getCurrMenu.map(m => {
+        if (m.isactive == true) {
+          return (
+            <div>
+            <h2>{m.name}</h2>
+              <Link to={`/edit-menu/${m.id}`} key={m.id} id={m.id} name={m.name}><Button>Edit current menu</Button></Link>
+            </div>
+          )
+        }
+        else 
+          return (
+            console.log(m.name)
+          )
       })
-  }
-
-  showMenu = () => {
-    return (
-      console.log("menu")
     )
-  }
-
-  toggleAllMenus = () => {
-    this.setState({ showAllMenus: !this.state.showAllMenus });
-    console.log(this.state.showAllMenus);
   }
 
 
   render() {
-    const { menu } = this.state
     return (
       <div>
-        <h1>Current Menu:</h1>
-        <Link to={`/edit-menu/${menu.id}`} key={menu.id} id={menu.id} name={menu.name}><Button>Edit this menu</Button></Link>
-        <br />
-        <a href="#" onClick={this.toggleAllMenus}><Button>View All Created Menus</Button></a>
-          {this.state.showAllMenus ? <Menus /> : <div></div>}
+        {this.currMenu()}
       </div>
     )
   }
