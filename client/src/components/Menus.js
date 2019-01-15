@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Menu from './Menu';
-import CreateMenu from './CreateMenu';
+// import CreateMenu from './CreateMenu';
+import MenuForm from './MenuForm';
 
 import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
@@ -17,6 +18,27 @@ class Menus extends React.Component {
       .then( res => {
         this.setState({ menus:res.data })
       });
+  }
+
+  submit = (name, isactive) => {
+    const menu = {name, isactive}
+    if (isactive == true) {
+      this.state.menus.map(m => {
+        if (m.isactive == true){
+          //set all actives to inactive
+          m.isactive = false
+          isactive = false
+          axios.put(`/api/menus/${m.id}`, {isactive})
+            .then( res => {
+              console.log(res.data);
+            })
+        }
+      })
+    }
+    axios.post(`api/menus`, {menu})
+      .then(res => {
+        this.setState({menus: [...this.state.menus, res.data]})
+      })
   }
 
  
@@ -46,8 +68,10 @@ class Menus extends React.Component {
           <a href="#" onClick={this.toggleAllMenus}><Button>View All Created Menus</Button></a>
           {this.state.showAllMenus ? this.showAllMenus() : <div></div>}
           <br />
-          {/* <Link to={`/create-new-menu`}><Button>Add New Menu</Button></Link> */}
-          <CreateMenu getMenus={this.state.menus}/>
+          <h1>Add New Menu</h1>
+          <MenuForm submit={this.submit} />
+          {/* <CreateMenu getMenus={this.state.menus}/> */}
+          {console.log(...this.state.menus)}
       </div>
     )
   }

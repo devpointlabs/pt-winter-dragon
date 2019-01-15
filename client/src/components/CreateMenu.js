@@ -10,13 +10,13 @@ import axios from 'axios';
 class CreateMenu extends React.Component {
   state = { menus: [] }
 
-  // componentWillReceiveProps(menusArr) {
-  //   this.state.props.getMenus.map (m => {
-  //     this.setState({menus: menusArr })
-  //   })
-  //   // if(menusArr.value !== this.props.value){
-  //   //   this.setState({menus: menusArr.value});
-  // }
+  componentWillReceiveProps(menusArr) {
+    this.state.props.getMenus.map (m => {
+      this.setState({menus: menusArr })
+    })
+    // if(menusArr.value !== this.props.value){
+    //   this.setState({menus: menusArr.value});
+  }
 
   submit = (name, isactive) => {
     const menu = {name, isactive}
@@ -53,8 +53,8 @@ class CreateMenu extends React.Component {
   render() {
     return (
       <div>
-        {this.getMenus()}
-        {this.createMenu()}
+        {/* {this.getMenus()} */}
+        <MenuForm submit={this.submit} />
       </div>
       
     )
