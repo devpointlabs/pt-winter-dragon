@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
+
 import Reservations from './components/Reservations';
 import Reservation from './components/Reservation';
+
 // import Menu from './components/Menu';
 // import Cart from '/components/Cart';
 import Contact from './components/Contact';
