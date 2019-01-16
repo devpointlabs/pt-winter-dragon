@@ -2,7 +2,8 @@ import React from 'react';
 
 class CatForm extends React.Component {
   state = { 
-      name: ''
+      name: '', 
+      description: '',
     }
 
   componentWillMount () {
@@ -13,9 +14,9 @@ class CatForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { name } = this.state;
-    this.props.submit(name)
-    this.setState( {name: ''})
+    const { name, description } = this.state;
+    this.props.submit(name, description)
+    this.setState( {name: '', description: ''})
   };
 
   handleInputChange = (e) => {
@@ -31,7 +32,7 @@ class CatForm extends React.Component {
 
 
   render () {
-    const { name } = this.state;
+    const { name, description } = this.state;
 
     return (
         <form onSubmit={this.handleSubmit}>
@@ -40,6 +41,12 @@ class CatForm extends React.Component {
           name="name"
           title="name"
           value={name}
+          onChange={this.handleInputChange}
+        />
+        <input 
+          name="description"
+          title="description"
+          value={description}
           onChange={this.handleInputChange}
         />
         <button>Add</button>

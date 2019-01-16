@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import CatForm from './CatForm';
+import Items from './Items';
 
 import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
@@ -8,7 +9,7 @@ import { Link } from 'react-router-dom';
 //CHILD COMPONENT
 
 class Categories extends React.Component { 
-  state = { categories: [] }
+  state = { categories: [], }
 
   componentDidMount() {
     axios.get(`/api/menus/${this.props.menuId}/categories`)
@@ -17,8 +18,8 @@ class Categories extends React.Component {
     })
   }
 
-  submit = (name) => {
-    const category = {name}
+  submit = (name, description) => {
+    const category = {name, description}
     axios.post(`/api/menus/${this.props.menuId}/categories`, {category})
       .then(res => {
         this.setState({categories: [...this.state.categories, res.data]})
@@ -46,6 +47,8 @@ class Categories extends React.Component {
       return (
         <ul key={c.id}>
           <h3>Category Name: {c.name}</h3> 
+          <h4>Description: {c.description}</h4>
+          <Items catId={c.id}/>
           <Button onClick={(e) => this.deleteCat(c.id)}>Delete</Button>
         </ul>
       )
@@ -53,7 +56,7 @@ class Categories extends React.Component {
 
   }
   render () {
-    console.log(this.props.menuId)
+    
     return (
       <div>
         {this.showCategories()}
