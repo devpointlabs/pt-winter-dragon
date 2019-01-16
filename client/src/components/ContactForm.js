@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 
-const Reservation = () => (
+const ContactForm = () => (
 
 <div>
-  <h1>Reservation</h1>
+  <h1>Contact Form</h1>
   
   </div>
 
 );
 
-export default Reservation;
+export default ContactForm;

@@ -22,36 +22,21 @@ class Reservations extends React.Component {
         })
     }
 
-    // showReservations = () => {
-    //     return this.state.reservations.map(d => {
-    //         return (
-    //             <Button inverted color='red' key={d.id}>
-    //             <Link to={`/reservations/${d.id}`}>{d.name}
-    //             </Link>
-    //       </Button>
-    //         )
-
-    //     })
-    // }
     showReservations = () => {
-        const { reservations: { name, phone, email, date, time, party }} = this.state
-
-        return (
-            <div>
-                <h1>{name}</h1>
-                <h2>{phone}</h2>
-                <h2>{email}</h2>
-                <h2>{date}</h2>
-                <h2>{time}</h2>
-                <h2>{party}</h2>
-            </div>
-        )
+        return this.state.reservations.map(d => {
+            return (
+                <Button inverted color='red' key={d.id}>
+                <Link to={`/reservations/${d.id}`}>{d.name}
+                </Link>
+          </Button>
+            )
+        })
     }
 
     render() {
         return (
             <Container>
-                {this.showReservations()}
+                {/* {this.showReservations()} */}
                 <ReservationForm submit={this.addReserv} />
             </Container>
         );

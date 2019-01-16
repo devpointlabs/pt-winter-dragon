@@ -24,6 +24,10 @@ const NavBar = () => (
           Reservations</NavLink>
       </Menu.Item>
       <Menu.Item>
+          <NavLink activeStyle={styles.active} style={{color:'#f2f2f2', fontSize:'20px',}} exact to='/reservations'>
+          Contact Us</NavLink>
+      </Menu.Item>
+      <Menu.Item>
         <Button primary style={{backgroundColor:'#e0d538', 
           color:'black',
           height:'75px',
