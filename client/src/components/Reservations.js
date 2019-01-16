@@ -6,7 +6,7 @@ import { Button, Container, Header, Segment } from 'semantic-ui-react';
 
 
 class Reservations extends React.Component {
-    state= { reservations: {} }
+    state= { reservations: [] }
 
     componentDidMount() {
         axios.get('/api/reservations')
