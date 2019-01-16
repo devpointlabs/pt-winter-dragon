@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Segment, Button, Menu } from 'semantic-ui-react'
 import styled from 'styled-components';
-import { red } from 'ansi-colors';
 
 
 const NavBar = () => (
@@ -10,24 +9,24 @@ const NavBar = () => (
     {/* <NavLink activeStyle={styles.active} exact to='/'>Home</NavLink> */}
     
     <Menu secondary>
+    <Logo />
     <Menu.Menu position='right' >
-    
       <Menu.Item>
-         <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'20px',}} exact to='/'>
+         <NavLink activeStyle={styles.active} style={{color:'#f2f2f2', fontSize:'20px',}} exact to='/'>
          Home</NavLink>
       </Menu.Item>
       <Menu.Item >
-          <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'20px',}} exact to='/Menu'>
+          <NavLink activeStyle={styles.active} style={{color:'#f2f2f2', fontSize:'20px',}} exact to='/Menu'>
           Menu</NavLink>
       </Menu.Item>
       <Menu.Item>
-          <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'20px',}} exact to='/reservations'>
+          <NavLink activeStyle={styles.active} style={{color:'#f2f2f2', fontSize:'20px',}} exact to='/reservations'>
           Reservations</NavLink>
       </Menu.Item>
       <Menu.Item>
         <Button primary style={{backgroundColor:'#e0d538', 
           color:'black',
-          height:'60px',
+          height:'75px',
           fontSize:'20px'}}>Order Online</Button>
       </Menu.Item>
     </Menu.Menu>
@@ -38,8 +37,21 @@ const NavBar = () => (
 const Transparent = styled.div`
   padding: 40px 0px !important;
   background: transparent !important;
-  // background-color: rgba(52,52,52, 0.5) !important;
-  position: sticky;
+  // background-color: rgba(52,52,52, 0.3) !important;
+  // position: sticky;
+`
+
+const Logo = styled.div`
+  display: flex;
+  border: 0.5px #f2f2f2 solid;
+  height: 115px;
+  width: 115px;
+  border-radius: 50%;
+  justify-content: center;
+  text-align:center;
+  background-color: #e0d538;
+  position: relative;
+  left: 40px;
 `
 
 const styles = {
