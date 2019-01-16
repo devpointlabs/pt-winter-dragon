@@ -9,6 +9,7 @@ import EditMenu from './components/EditMenu';
 // import ContactForm from './components/ContactForm';
 // import NavBar from '/components/NavBar';
 // import NoMatch from '/components/NoMatch';
+import Footer from './components/Footer'
 
 const App = () => (
   <Fragment>
@@ -23,6 +24,7 @@ const App = () => (
       {/* <Route exact path='/contact' component={ContactForm} /> */}
       {/* <Route component={NoMatch} /> */}
     </Switch>
+    <Footer />
   </Fragment>
 );
 
