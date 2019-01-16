@@ -12,19 +12,19 @@ const NavBar = () => (
     <Logo />
     <Menu.Menu position='right' >
       <Menu.Item>
-         <NavLink activeStyle={styles.active} style={{color:'#f2f2f2', fontSize:'20px',}} exact to='/'>
+         <NavLink activeStyle={styles.active} style={{color:'grey', fontSize:'20px',}} exact to='/'>
          Home</NavLink>
       </Menu.Item>
       <Menu.Item >
-          <NavLink activeStyle={styles.active} style={{color:'#f2f2f2', fontSize:'20px',}} exact to='/Menu'>
+          <NavLink activeStyle={styles.active} style={{color:'grey', fontSize:'20px',}} exact to='/Menu'>
           Menu</NavLink>
       </Menu.Item>
       <Menu.Item>
-          <NavLink activeStyle={styles.active} style={{color:'#f2f2f2', fontSize:'20px',}} exact to='/reservations'>
+          <NavLink activeStyle={styles.active} style={{color:'grey', fontSize:'20px',}} exact to='/reservations'>
           Reservations</NavLink>
       </Menu.Item>
       <Menu.Item>
-          <NavLink activeStyle={styles.active} style={{color:'#f2f2f2', fontSize:'20px',}} exact to='/reservations'>
+          <NavLink activeStyle={styles.active} style={{color:'grey', fontSize:'20px',}} exact to='/contacts'>
           Contact Us</NavLink>
       </Menu.Item>
       <Menu.Item>

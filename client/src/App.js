@@ -5,7 +5,7 @@ import Reservations from './components/Reservations';
 import Reservation from './components/Reservation';
 // import Menu from './components/Menu';
 // import Cart from '/components/Cart';
-import ContactForm from './components/ContactForm';
+import Contact from './components/Contact';
 import NavBar from './components/NavBar';
 // import NoMatch from '/components/NoMatch';
 import Footer from './components/Footer'
@@ -19,7 +19,7 @@ const App = () => (
       {/* <Route exact path='/cart' component={Cart} /> */}
       <Route exact path='/reservations' component={Reservations} />
       {/* <Route exact path='/reservations/:id' component={Reservation} /> */}
-      <Route exact path='/contacts' component={ContactForm} />
+      <Route exact path='/contacts' component={Contact} />
       {/* <Route component={NoMatch} /> */}
 
     </Switch>
