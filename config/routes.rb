@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   namespace :api do
     resources :menus do 
-      resources :categories do 
-        resources :items
-      end
+      resources :categories
     end
-  end
+    resources :categories do
+      resources :items
+    end
+
+end
 
   namespace :api do
     resources :orders

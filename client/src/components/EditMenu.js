@@ -1,11 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import MenuForm from './MenuForm';
+import CatForm from './CatForm';
 
 import { Link } from 'react-router-dom';
+import Categories from './Categories';
 
 class EditMenu extends React.Component {
-  state = { menu: [], editName: false }
+  state = { menu: {}, categories: [], editName: false, addCat: false }
 
   componentDidMount() {
     axios.get(`/api/menus/${this.props.match.params.id}`)
@@ -33,10 +35,6 @@ class EditMenu extends React.Component {
       })
   }
 
-  addCat = () => {
-    //ADD NEW CATEGORY
-  }
-
   render() {
     const id = this.props.match.params.id
     const { menu } = this.state
@@ -49,12 +47,12 @@ class EditMenu extends React.Component {
             {this.state.editName ? <MenuForm id={menu.id} name={menu.name} submit={this.submit} /> : <div></div>}
             <br />
             <h2>Categories</h2>
-    
-            <Link to={"#"} onClick={(e) => this.addCat(id, e)}>Add New Category</Link>
+            <Categories menuId={id} />
             <br />
             <Link to={"#"} onClick={(e) => this.deleteMenu(id, e)}>Delete</Link>
       </div>
     )
+    
   }
 }
 
