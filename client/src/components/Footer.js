@@ -1,32 +1,50 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Grid} from 'semantic-ui-react';
 
 const Footer = () => (
 <Main>
+    <Grid columns={4}>
     <Container>
         <Header>Location</Header>
+        <div style={{margin: '10px 0px'}}>
+        <p>New Golden Dragon Restaurant</p>
+        <p>1716 South State Street</p>
+        <p>Salt Lake City, Utah 84115</p>
+        </div>
     </Container>
-    <div>
-
-    </div>
-    <div>
-
-    </div>
+    <Container>
+        <Header>Hours</Header>
+        <div style={{margin: '10px 0px'}}>
+        <p>Weekday Hours: Mon - Thurs: 11am - 10pm - Fri: 11am - 10:30pm</p>
+        <p>Weekend Hours: Sat: 11am - 10:30pm - Sun 10:30am - 9:30pm</p>
+        </div>
+    </Container>
+    <Grid.Column floated="right">
+    <Container>
+     <p>{"\u00A9"}2018 New Golden Dragon Restaurant</p>
+     <p>All Rights Reserved</p>
+    </Container>
+    </Grid.Column>
+    </Grid>
 </Main>
 );
 
 export default Footer;
 
 const Main = styled.div`
-height: 200px;
-background-color: grey;
+height: 250px;
+background-color: #171616;
 `
 const Container = styled.div`
     margin: 25px;
     padding: 30px;
     color: white;
+    max-width: 250px;
 `
-const Header = styled.h1`
+const Header = styled.p`
 font-size: 20px !important;
-font-decoration: underlined
+border-bottom: solid 1px white;
+display: inline;
+padding-bottom: 3px;
 `
