@@ -1,6 +1,6 @@
 import React from 'react';
 // import MenuForm from './MenuForm';
-import { Button } from 'semantic-ui-react';
+import { Button, } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 import axios from 'axios';
@@ -8,7 +8,7 @@ import axios from 'axios';
 //CHILD COMPONENT
 
 class Menu extends React.Component {
-  state = { menu: [], menus: [] }
+  // state = { menu: [], menus: [] }
 
   currMenu = () => {
     return(
@@ -21,10 +21,6 @@ class Menu extends React.Component {
             </div>
           )
         }
-        else 
-          return (
-            console.log(m.name)
-          )
       })
     )
   }

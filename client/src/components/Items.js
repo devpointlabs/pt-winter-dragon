@@ -9,16 +9,16 @@ import { Button } from 'semantic-ui-react';
 class Items extends React.Component { 
   state = { items: [], item: {}, addItemToggle: false }
 
-  // componentDidMount() {
-  //   axios.get(`/api/menus/${this.props.menuId}/categories`)
-  //   .then( res => {
-  //     this.setState({ categories:res.data })
-  //   })
-  // }
+  componentDidMount() {
+    axios.get(`/api/categories/${this.props.catId}/items`)
+    .then( res => {
+      this.setState({ items:res.data })
+    })
+  }
 
-  submit = (name, price, description, spice, image) => {
-    const category = {name, description, price, spice, image}
-    axios.post(`/api/categories/${this.props.catId}/items`, {category})
+  submit = (name, price, spice, image) => {
+    const item = {name, price, spice, image}
+    axios.post(`/api/categories/${this.props.catId}/items`, {item})
       .then(res => {
         this.setState({items: [...this.state.items, res.data]})
       })
@@ -29,8 +29,7 @@ class Items extends React.Component {
       return (
         <ul key={i.id}>
           <h4>Item Name: {i.name}</h4> 
-          <h4>Item Price: {i.price}</h4> 
-          <h4>Item Description: {i.description}</h4> 
+          <h4>Item Price: {i.price}</h4>  
           <h4>Item Spice: {i.spice}</h4>
           <h4>Item Image: {i.image}</h4>
         </ul>

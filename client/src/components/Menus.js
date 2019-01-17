@@ -4,14 +4,14 @@ import Menu from './Menu';
 // import CreateMenu from './CreateMenu';
 import MenuForm from './MenuForm';
 
-import { Button } from 'semantic-ui-react';
+import { Button, Container, Segment } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 
 // PARENT COMPONENT
 
 class Menus extends React.Component { 
-  state = { menus: [], active: false, showAllMenus: false}
+  state = { menus: [], active: false, showAllMenus: false, currMenu: { }}
 
   componentWillMount() {
     axios.get('/api/menus')
@@ -19,6 +19,17 @@ class Menus extends React.Component {
         this.setState({ menus:res.data })
       });
   }
+
+  // componentWillMount() {
+  //   axios.get('/api/menus')
+  //     .then( res => {
+  //       this.state.menus.map(m => {
+  //         if (m.isactive == true) {
+  //           this.setState({ currMenu: {m.id, m.name, m.isactive})
+  //         }
+  //       })
+  //     });
+  // }
 
   submit = (name, isactive) => {
     const menu = {name, isactive}
@@ -41,6 +52,23 @@ class Menus extends React.Component {
       })
   }
 
+  makeActive = (id) => {
+    this.state.menus.map(m => {
+      if(m.isactive) {
+        m.isactive = false
+          axios.put(`/api/menus/${m.id}`, {isactive:false})
+            .then( res => {
+            console.log(m.id + " is now false")
+          })
+      }
+    
+    })
+    axios.put(`/api/menus/${id}`, {isactive:true})
+          .then( res => {
+            console.log(id + " is now true");
+      })
+  }
+
  
 
   showAllMenus = () => {
@@ -48,7 +76,8 @@ class Menus extends React.Component {
     return this.state.menus.map(m => {
       return (
         <ul key={m.id}>
-        <Link to={`/edit-menu/${m.id}`} key={m.id} id={m.id} name={m.name}>{m.name}</Link>
+        <h3><Link to={`/edit-menu/${m.id}`} key={m.id} id={m.id} name={m.name}>{m.name}</Link></h3>
+        <Link to='/#' onClick={(e) => this.makeActive(m.id, e)}>Make Active</Link>
         </ul>
       )
     })
@@ -61,18 +90,22 @@ class Menus extends React.Component {
   render() {
     
     return (
-      <div>
-        <h1>Current Menu:</h1>
-          <Menu getCurrMenu={this.state.menus}/>
-          <br />
-          <a href="#" onClick={this.toggleAllMenus}><Button>View All Created Menus</Button></a>
-          {this.state.showAllMenus ? this.showAllMenus() : <div></div>}
-          <br />
-          <h1>Add New Menu</h1>
-          <MenuForm submit={this.submit} />
-          {/* <CreateMenu getMenus={this.state.menus}/> */}
-          {console.log(...this.state.menus)}
-      </div>
+      <Container>
+        <Segment>
+          <div>
+            <h1>Current Menu:</h1>
+              <Menu getCurrMenu={this.state.menus}/>
+              <br />
+              <a href="#" onClick={this.toggleAllMenus}><Button>View All Created Menus</Button></a>
+              {this.state.showAllMenus ? this.showAllMenus() : <div></div>}
+              <br />
+              <h1>Add New Menu</h1>
+              <MenuForm submit={this.submit} />
+              {/* <CreateMenu getMenus={this.state.menus}/> */}
+              {console.log(...this.state.menus)}
+          </div>
+        </Segment>
+      </Container>
     )
   }
 }

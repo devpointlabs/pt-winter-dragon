@@ -4,6 +4,7 @@ import MenuForm from './MenuForm';
 import CatForm from './CatForm';
 
 import { Link } from 'react-router-dom';
+import { Container, Button } from 'semantic-ui-react';
 import Categories from './Categories';
 
 class EditMenu extends React.Component {
@@ -39,18 +40,20 @@ class EditMenu extends React.Component {
     const id = this.props.match.params.id
     const { menu } = this.state
     return (
-      <div>
-        <h1>Current Menu:</h1>
-        <br />
-          <h2>Menu Name: {this.state.menu.name}</h2>
-            <Link to={"#"} onClick={() => this.setState({ editName: !this.state.editName })}>Edit Menu Name</Link>
-            {this.state.editName ? <MenuForm id={menu.id} name={menu.name} submit={this.submit} /> : <div></div>}
-            <br />
-            <h2>Categories</h2>
-            <Categories menuId={id} />
-            <br />
-            <Link to={"#"} onClick={(e) => this.deleteMenu(id, e)}>Delete</Link>
-      </div>
+      <Container>
+        <div>
+          <h1>Current Menu:</h1>
+          <br />
+            <h2>Menu Name: {this.state.menu.name}</h2>
+              <Link to={"#"} onClick={() => this.setState({ editName: !this.state.editName })}>Edit Menu Name</Link>
+              {this.state.editName ? <MenuForm id={menu.id} name={menu.name} submit={this.submit} /> : <div></div>}
+              <br />
+              <h2>Categories</h2>
+              <Categories menuId={id} />
+              <br />
+              <Button onClick={(e) => this.deleteMenu(id, e)}>Delete Menu</Button>
+        </div>
+      </Container>
     )
     
   }

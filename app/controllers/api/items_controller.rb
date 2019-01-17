@@ -11,9 +11,9 @@ class Api::ItemsController < ApplicationController
   end
 
   def create
-    
-    item = @categories.items.new(item_params)
     # binding.pry
+    item = @category.items.new(item_params)
+    
     if item.save
       render json: item
     else
@@ -47,6 +47,6 @@ class Api::ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :price, :spice, :category_id)
+    params.require(:item).permit(:name, :price, :spice, :category_id)
   end
 end

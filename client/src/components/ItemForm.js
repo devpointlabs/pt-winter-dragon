@@ -4,7 +4,6 @@ class ItemForm extends React.Component {
   state = { 
       name: '',
       price: '', 
-      description: '',
       image: '',
       spice: false,
     }
@@ -17,9 +16,9 @@ class ItemForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { name, price, description, spice, image } = this.state;
-    this.props.submit(name, price, description, image, spice)
-    this.setState( {name: '', price: '', description: '', spice: false })
+    const { name, price, spice, image } = this.state;
+    this.props.submit(name, price, image, spice)
+    this.setState( {name: '', price: '', spice: false })
   };
 
   handleInputChange = (e) => {
@@ -35,7 +34,7 @@ class ItemForm extends React.Component {
 
 
   render () {
-    const { name, description, price, spice, image } = this.state;
+    const { name, price, spice, image } = this.state;
 
     return (
         <form onSubmit={this.handleSubmit}>
@@ -52,14 +51,6 @@ class ItemForm extends React.Component {
           name="price"
           title="price"
           value={price}
-          onChange={this.handleInputChange}
-        />
-        <br />
-        <h4>Item Description</h4>
-        <input 
-          name="description"
-          title="description"
-          value={description}
           onChange={this.handleInputChange}
         />
          <br />
