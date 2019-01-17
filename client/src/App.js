@@ -21,7 +21,7 @@ const App = () => (
       {/* <Route exact path='/menu' component={Menu} /> */}
       {/* <Route exact path='/cart' component={Cart} /> */}
       <Route exact path='/reservations' component={Reservations} />
-      {/* <Route exact path='/reservations/:id' component={Reservation} /> */}
+      <Route exact path='/reservationform' component={ReservationForm} />
       <Route exact path='/contacts' component={Contact} />
       <Route component={NoMatch} />
 
