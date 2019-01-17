@@ -5,27 +5,30 @@ import Menus from './components/Menus';
 import EditMenu from './components/EditMenu';
 // import CreateMenu from './components/CreateMenu';
 // import Cart from '/components/Cart';
-// import ReservationForm from './components/ReservationForm';
-// import ContactForm from './components/ContactForm';
-// import NavBar from '/components/NavBar';
+import Contact from './components/Contact';
+import NavBar from './components/NavBar';
 // import NoMatch from '/components/NoMatch';
-import Footer from './components/Footer'
+import Footer from './components/Footer';
+import Reservations from './components/Reservations';
 
 const App = () => (
   <Fragment>
-    {/* <NavBar /> */}
+     <NavBar /> 
     <Switch>
       <Route exact path='/' component={Home} />
       <Route exact path='/menu' component={Menus} />
       <Route exact path='/edit-menu/:id' component={EditMenu} />
       {/* <Route exact path='/create-new-menu' component={CreateMenu} /> */}
       {/* <Route exact path='/cart' component={Cart} /> */}
-      {/* <Route exact path='/reservations' component={ReservationForm} /> */}
-      {/* <Route exact path='/contact' component={ContactForm} /> */}
+      <Route exact path='/reservations' component={Reservations} />
+      {/* <Route exact path='/reservations/:id' component={Reservation} /> */}
+      <Route exact path='/contacts' component={Contact} />
       {/* <Route component={NoMatch} /> */}
+
     </Switch>
     <Footer />
   </Fragment>
 );
+
 
 export default App;
