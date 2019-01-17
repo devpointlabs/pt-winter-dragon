@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import {Form, Container, Button, List, Header } from 'semantic-ui-react';
 import { Calendar } from 'react-calendar';
 import TimePicker from 'react-time-picker';
@@ -26,15 +27,24 @@ class ReservationForm extends React.Component {
         this.setState({ [name]: value })
     }
 
+    addReserv = (reservation) => {
+        axios.post('/api/reservations', { reservation })
+        .then(res =>{
+            this.setState()
+        })
+    }
+
+
     handleSubmit = (e) => {
         const { submit } = this.props
         e.preventDefault();
         const reservation = { ...this.state }
         
-        this.props.submit(reservation)
+        this.addReserv(reservation)
         this.setState({...this.defaultValues})
     }
 
+  
     render() {
         const {name, phone, email, date, time, party}=this.state;
         return(

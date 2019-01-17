@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 
 import Reservations from './components/Reservations';
-import Reservation from './components/Reservation';
+import ReservationForm from  './components/ReservationForm';
 
 // import Menu from './components/Menu';
 // import Cart from '/components/Cart';
@@ -20,7 +20,7 @@ const App = () => (
       {/* <Route exact path='/menu' component={Menu} /> */}
       {/* <Route exact path='/cart' component={Cart} /> */}
       <Route exact path='/reservations' component={Reservations} />
-      {/* <Route exact path='/reservations/:id' component={Reservation} /> */}
+      <Route exact path='/reservationform' component={ReservationForm} />
       <Route exact path='/contacts' component={Contact} />
       {/* <Route component={NoMatch} /> */}
 
