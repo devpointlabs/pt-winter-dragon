@@ -32,7 +32,10 @@ const App = () => (
       <Route exact path='/register' component={Register} />
       <Route exact path='/login' component={Login} />
       <ProtectedRoute exact path="/admin" component={Admin} />
-      {/* <Route component={NoMatch} /> */}
+
+
+      <Route component={NoMatch} />
+
 
     </Switch>
     </FetchUser>
