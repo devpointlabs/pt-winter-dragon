@@ -25,12 +25,12 @@ const App = () => (
       <Route exact path='/' component={Home} />
       {/* <Route exact path='/menu' component={Menu} /> */}
       {/* <Route exact path='/cart' component={Cart} /> */}
-      {/* <Route exact path='/reservations' component={Reservations} /> */}
-      {/* <Route exact path='/reservationform' component={ReservationForm} /> */}
-      {/* <Route exact path='/contacts' component={Contact} /> */}
+      <Route exact path='/reservations' component={Reservations} />
+      <Route exact path='/reservationform' component={ReservationForm} />
+      <Route exact path='/contacts' component={Contact} />
       <Route exact path='/register' component={Register} />
       <Route exact path='/login' component={Login} />
-      <AdminRoute exact path="/admin" component={Admin} />
+      <ProtectedRoute exact path="/admin" component={Admin} />
       {/* <Route component={NoMatch} /> */}
       <Route exact path='/admindash' component={AdminDash} />
 

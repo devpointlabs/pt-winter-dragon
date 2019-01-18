@@ -1,7 +1,10 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { Button, Form, Segment, Header, } from 'semantic-ui-react';
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
+=======
+>>>>>>> authorization
 
 class Login extends React.Component {
   state = { email: '', password: '' }
@@ -46,7 +49,10 @@ class Login extends React.Component {
             <Button primary type='submit'>Submit</Button>
           </Segment>
         </Form>
+<<<<<<< HEAD
         <Link to="/register">Register</Link>
+=======
+>>>>>>> authorization
       </Segment>
     )
   }

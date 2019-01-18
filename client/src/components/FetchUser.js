@@ -39,9 +39,8 @@ class FetchUser extends React.Component {
 
 const ConnectedFetchUser = (props) => (
   <AuthConsumer>
-    { auth => {
-        return   <FetchUser { ...props } auth={auth} />
-    }
+    { auth => 
+      <FetchUser { ...props } auth={auth} />
     }
   </AuthConsumer>
 )
