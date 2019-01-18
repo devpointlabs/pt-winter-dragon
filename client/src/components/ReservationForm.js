@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import {Form, Container, Button, List, Header } from 'semantic-ui-react';
-// import { Calendar } from 'react-calendar';
-// import TimePicker from 'react-time-picker';
+import { Calendar } from 'react-calendar';
+import TimePicker from 'react-time-picker';
 
 class ReservationForm extends React.Component {
 

@@ -8,7 +8,6 @@ import AdminDash from './components/AdminDash';
 // import Cart from '/components/Cart';
 // import Contact from './components/Contact';
 import NavBar from './components/NavBar';
-// import NoMatch from '/components/NoMatch';
 import Footer from './components/Footer'
 import Login from './components/Login';
 import Register from './components/Register';
