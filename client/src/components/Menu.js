@@ -10,19 +10,19 @@ import axios from 'axios';
 class Menu extends React.Component {
   // state = { menu: [], menus: [] }
 
+  // componentWillMount() {
+  //   axios.get(`api/menus/`)
+  // }
+
   currMenu = () => {
+    // const { currMenu} = this.props.getCurrMenu
     return(
-    this.props.getCurrMenu.map(m => {
-        if (m.isactive == true) {
-          return (
-            <div>
-            <h2>{m.name}</h2>
-              <Link to={`/edit-menu/${m.id}`} key={m.id} id={m.id} name={m.name}><Button>Edit current menu</Button></Link>
-            </div>
-          )
-        }
-      })
-    )
+      <div>
+        <h2>{this.props.getCurrMenu.name}</h2>
+        <Link to={`/edit-menu/${this.props.getCurrMenu.id}`} key={this.props.getCurrMenu.id} id={this.props.getCurrMenu.id} name={this.props.getCurrMenu.name}><Button>Edit current menu</Button></Link>
+      </div>
+      ) 
+
   }
 
 

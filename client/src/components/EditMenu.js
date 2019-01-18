@@ -17,8 +17,7 @@ class EditMenu extends React.Component {
       })
   }
 
-  deleteMenu = (id, e) => {
-    e.preventDefault();
+  deleteMenu = (id) => {
       axios.delete(`/api/menus/${id}`)
           .then(res => {
             console.log(res.data + " deleted");

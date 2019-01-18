@@ -33,7 +33,6 @@ class Api::ItemsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @item.destroy
   end
 

@@ -24,6 +24,17 @@ class Items extends React.Component {
       })
   }
 
+  deleteItem = (id) => {
+    debugger
+      axios.delete(`/api/categories/${this.props.catId}/items/${id}`)
+          .then(res => {
+            console.log(res.data + " deleted");
+        }) 
+    return  (
+        window.location.href = `/edit-menu/${this.props.catId}`
+      )
+  }
+
   showItems = () => {
     return this.state.items.map(i => {
       return (
@@ -32,7 +43,8 @@ class Items extends React.Component {
           <h4>Item Price: {i.price}</h4>  
           <h4>Item Spice: {i.spice}</h4>
           <h4>Item Image: {i.image}</h4>
-        </ul>
+          <Button onClick={() => this.deleteItem(i.id)}>Delete Item</Button>
+        </ul>   
       )
     })
   }
