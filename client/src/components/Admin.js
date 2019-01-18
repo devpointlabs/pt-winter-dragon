@@ -3,14 +3,7 @@ import { AuthConsumer } from '../providers/AuthProvider';
 import { Segment, Header, Button } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-
-import { withRouter } from 'react-router-dom';
-import {Link} from 'react-router-dom';
-import {Header, Segment, Menu, Container} from 'semantic-ui-react';
 import AdminNav from './AdminNav';
-
-class Admin extends React.Component {
-
 import { withRouter } from 'react-router-dom'
 import axios from 'axios';
 import Users from './Users';
@@ -29,25 +22,12 @@ class Admin extends React.Component {
             this.setState({reservations: res.data})
         })
     }
-
     
     render() {
         const { auth: {handleLogout} } = this.props
         
         return(
             <div>
-
-                <Segment raised align="center">
-                 <h1>Welcome to the Admin Page</h1>
-                 <Header as="h3">Admin Dashboard</Header>
-                </Segment>
-                {/* <Link to="/reservations/">View All Reservations</Link> */}
-                <Main style={{margin: '0px 0px 0px 15px'}}>
-                <ButtonLink onClick={() => handleLogout(this.props.history)}>
-                Logout
-                </ButtonLink>
-                <br/>
-
                 <Main>
                     <h1>Welcome to the Admin Page</h1>
                     <div>
