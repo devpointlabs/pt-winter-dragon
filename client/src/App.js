@@ -1,11 +1,9 @@
 import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
-// import NoMatch from './components/NoMatch'
-
-// import Reservations from './components/Reservations';
-// import ReservationForm from  './components/ReservationForm';
-
+import Reservations from './components/Reservations';
+import ReservationForm from  './components/ReservationForm';
+import AdminDash from './components/AdminDash';
 // import Menu from './components/Menu';
 // import Cart from '/components/Cart';
 // import Contact from './components/Contact';
@@ -34,6 +32,7 @@ const App = () => (
       <Route exact path='/login' component={Login} />
       <AdminRoute exact path="/admin" component={Admin} />
       {/* <Route component={NoMatch} /> */}
+      <Route exact path='/admindash' component={AdminDash} />
 
     </Switch>
     </FetchUser>

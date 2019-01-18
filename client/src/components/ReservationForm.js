@@ -6,16 +6,15 @@ import {Form, Container, Button, List, Header } from 'semantic-ui-react';
 
 class ReservationForm extends React.Component {
 
-    defaultValues = {name:'', phone:'', email:'', date:'', time:'', party:''}
+    defaultValues = {id: '', name:'', phone:'', email:'', date:'', time:'', party:''}
     state = {...this.defaultValues}
-    // state= { time: '10:00'}
-    // state={ date: new Date(), }
+    state= { time: '10:00'}
+    state={ date: new Date(), } 
 
-    // onChange = date => this.setState({date})
-    // onChange = time => this.setState({time})
+    onChange = date => this.setState({date})
+    onChange = time => this.setState({time})
 
     componentDidMount(){
-
         if(this.props.id){
             this.setState({...this.props})
         }
@@ -87,24 +86,16 @@ class ReservationForm extends React.Component {
                     placeholder="Email address"
                     />
                     <br />
-                    <Form.Input fluid
+                    {/* <Form.Input fluid
                     value={date}
                     label="Date"
                     name={"date"}
                     onChange={this.handleChange}
                     placeholder="Date Requested"
                     />
-                    <br />
-                    <Form.Input fluid
-                    value={time}
-                    label="Time"
-                    name={"time"}
-                    onChange={this.handleChange}
-                    placeholder="Time Requested"
-                    />
-                    <br />
+                    <br /> */}
 
-                    {/* <div>
+                    <div>
                     <strong>Date Requested *</strong><br/><br/>
                     <Calendar fluid
                     style={{boxSizing:"border-box"}}                    l
@@ -115,27 +106,29 @@ class ReservationForm extends React.Component {
                     required
                     placeholder="Date Requested"/>
                     </div>
-                    <br /> */}
-
-                    {/* <div>
-                    <strong>Time Requested *</strong><br/><br/>
-                    <TimePicker
-                    style={{boxSizing:"None"}}
-                    name={time}
-                    value={this.state.time}
-                    onChange={this.onChange}/>
-                    </div>
-                    <br/><br/> */}
-
+                    <br /><br/>
 
                     {/* <Form.Input fluid
                     value={time}
                     label="Time"
                     name={"time"}
                     onChange={this.handleChange}
-                    required
-                    placeholder="Time Requested"/>
+                    placeholder="Time Requested"
+                    />
                     <br /> */}
+                
+                    <div>
+                    <strong>Time Requested *</strong><br/><br/>
+                    <TimePicker
+                    style={{boxSizing:"None"}}
+                    name={"time"}
+                    value={time}
+                    value={this.state.time}
+                    onChange={this.onChange}
+                    required
+                    />
+                    </div>
+                    <br/><br/>
 
                     <Form.Input fluid
                     value={party}
@@ -153,6 +146,7 @@ class ReservationForm extends React.Component {
                         height:'60px',
                         fontSize:'20px'}}>Submit</Form.Button>
                 </Form>
+                <br/><br/><br/>
             </Container>
         )
     }
