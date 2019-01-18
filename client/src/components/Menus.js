@@ -1,7 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import Menu from './Menu';
-// import CreateMenu from './CreateMenu';
 import MenuForm from './MenuForm';
 
 import { Button, Container, Segment } from 'semantic-ui-react';
@@ -37,18 +35,18 @@ class Menus extends React.Component {
       this.state.menus.map(m => {
         if (m.isactive == true){
           //set all actives to inactive
+
           m.isactive = false
-          // isactive = false
+          isactive = false
           axios.put(`/api/menus/${m.id}`, {isactive})
-            .then( res => {
-              console.log(res.data);
-            })
         }
       })
     }
     axios.post(`api/menus`, {menu})
       .then(res => {
-        this.setState({menus: [...this.state.menus, res.data]})
+        this.setState({menus: [...this.state.menus, res.data]}, () => {
+          this.setState({currMenu: menu})
+        })
       })
   }
 
@@ -57,9 +55,6 @@ class Menus extends React.Component {
       if(m.isactive) {
         m.isactive = false
           axios.put(`/api/menus/${m.id}`, {isactive:false})
-            .then( res => {
-            console.log(m.id + " is now false")
-          })
       }
     
     })
@@ -69,10 +64,7 @@ class Menus extends React.Component {
       })
   }
 
- 
-
   showAllMenus = () => {
-    // <h2>All Menus</h2>
     return this.state.menus.map(m => {
       return (
         <ul key={m.id}>
@@ -87,6 +79,15 @@ class Menus extends React.Component {
     this.setState({ showAllMenus: !this.state.showAllMenus });
   }
 
+  currMenu = () => {
+    return(
+    <div>
+      <h2>{this.state.currMenu.name}</h2>
+      <Link to={`/edit-menu/${this.state.currMenu.id}`} key={this.state.currMenu.id} id={this.state.currMenu.id} name={this.state.currMenu.name}><Button>Edit current menu</Button></Link>
+    </div>
+    )
+}
+
   render() {
     
     return (
@@ -94,15 +95,13 @@ class Menus extends React.Component {
         <Segment>
           <div>
             <h1>Current Menu:</h1>
-              <Menu getCurrMenu={this.state.currMenu}/>
+              {this.currMenu()}
               <br />
               <a href="#" onClick={this.toggleAllMenus}><Button>View All Created Menus</Button></a>
               {this.state.showAllMenus ? this.showAllMenus() : <div></div>}
               <br />
               <h1>Add New Menu</h1>
               <MenuForm submit={this.submit} />
-              {/* <CreateMenu getMenus={this.state.menus}/> */}
-              {console.log(...this.state.menus)}
           </div>
         </Segment>
       </Container>
