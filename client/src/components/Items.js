@@ -16,6 +16,13 @@ class Items extends React.Component {
     })
   }
 
+  getItems = () => {
+    axios.get(`/api/categories/${this.props.catId}/items`)
+    .then( res => {
+      this.setState({ items:res.data })
+    })
+  }
+
   submit = (name, price, spice, image) => {
     const item = {name, price, spice, image}
     axios.post(`/api/categories/${this.props.catId}/items`, {item})
@@ -25,14 +32,13 @@ class Items extends React.Component {
   }
 
   deleteItem = (id) => {
-    debugger
       axios.delete(`/api/categories/${this.props.catId}/items/${id}`)
           .then(res => {
-            console.log(res.data + " deleted");
+            this.getItems()
         }) 
-    return  (
-        window.location.href = `/edit-menu/${this.props.catId}`
-      )
+    // return  (
+    //     window.location.href = `/edit-menu/${this.props.catId}`
+    //   )
   }
 
   showItems = () => {

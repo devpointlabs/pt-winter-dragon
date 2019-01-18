@@ -13,7 +13,6 @@ class Api::CategoriesController < ApplicationController
   def create
     
     category = @menu.categories.new(category_params)
-    # binding.pry
     if category.save
       render json: category
     else
@@ -33,7 +32,6 @@ class Api::CategoriesController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @category.destroy
   end
 
@@ -43,7 +41,7 @@ class Api::CategoriesController < ApplicationController
   end
 
   def set_category
-    @category = Category.find(params[:category_id])
+    @category = Category.find(params[:id])
   end
 
   def category_params

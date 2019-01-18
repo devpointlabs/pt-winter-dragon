@@ -7,7 +7,6 @@ import MenuForm from './MenuForm';
 import { Button, Container, Segment } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-
 // PARENT COMPONENT
 
 class Menus extends React.Component { 
@@ -16,7 +15,6 @@ class Menus extends React.Component {
   componentWillMount() {
     axios.get('/api/menus')
       .then( res => {
-        
         this.setState({ menus:res.data }, () => {
           this.state.menus.map(m => {
             if (m.isactive == true) {
@@ -27,7 +25,7 @@ class Menus extends React.Component {
       }); 
     }
 
-  addToCurr =(id, name) => {
+  addToCurr = (id, name) => {
     return(
       this.setState({currMenu: {id, name}})
     )
@@ -40,7 +38,7 @@ class Menus extends React.Component {
         if (m.isactive == true){
           //set all actives to inactive
           m.isactive = false
-          isactive = false
+          // isactive = false
           axios.put(`/api/menus/${m.id}`, {isactive})
             .then( res => {
               console.log(res.data);

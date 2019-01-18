@@ -11,7 +11,6 @@ class Api::ItemsController < ApplicationController
   end
 
   def create
-    # binding.pry
     item = @category.items.new(item_params)
     
     if item.save
@@ -42,7 +41,7 @@ class Api::ItemsController < ApplicationController
   end
 
   def set_item
-    @item = Item.find(params[:item_id])
+    @item = Item.find(params[:id])
   end
 
   def item_params
