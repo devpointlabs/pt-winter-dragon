@@ -1,154 +1,154 @@
-import React from 'react';
-import {Form, Container, Button, List, Header } from 'semantic-ui-react';
-import { Calendar } from 'react-calendar';
-import TimePicker from 'react-time-picker';
-
-class ReservationForm extends React.Component {
-
-    defaultValues = {name:'', phone:'', email:'', date:'', time:'', party:''}
-    state = {...this.defaultValues}
-    // state= { time: '10:00'}
-    // state={ date: new Date(), } 
-
-    // onChange = date => this.setState({date})
-    // onChange = time => this.setState({time})
-
-    componentDidMount(){
-        
-        if(this.props.id){
-            this.setState({...this.props})
-        }
-    }
-
-
-   handleChange = (e) => {
-        const { target: {name, value}} = e;
-        this.setState({ [name]: value })
-    }
-
-    handleSubmit = (e) => {
-        const { submit } = this.props
-        e.preventDefault();
-        const reservation = { ...this.state }
-        
-        this.props.submit(reservation)
-        this.setState({...this.defaultValues})
-    }
-
-    render() {
-        const {name, phone, email, date, time, party}=this.state;
-        return(
-            <Container>
-                <div>
-                    <br/>
-                    <h1>Reservation</h1>
-                    <br/>
-                    <p>Please fill out the information in the Form.<br/>
-                    </p>
-                    Please Note: Submitting this form does not guarantee the reservation.
-                    <br/><br />
-
-                </div>
-                <Form onSubmit={this.handleSubmit}>
-                    <Form.Group widths="equal">
-                    <List> 
-                    <Form.Input fluid
-                    style={{width:'500px'}}
-                    value={name}
-                    label="Name"
-                    name={"name"}
-                    onChange={this.handleChange}
-                    required
-                    placeholder="Please Enter Your Full Name"/>
-                    <br />
-
-                    <Form.Input fluid
-                    value={phone}
-                    label="Phone"
-                    name={"phone"}
-                    onChange={this.handleChange}
-                    required
-                    placeholder="Phone Number"/>
-                    <br />
-
-                    <Form.Input fluid
-                    value={email}
-                    label="Email"
-                    name={"email"}
-                    onChange={this.handleChange}
-                    placeholder="Email address"
-                    />
-                    <br />
-                    <Form.Input fluid
-                    value={date}
-                    label="Date"
-                    name={"date"}
-                    onChange={this.handleChange}
-                    placeholder="Date Requested"
-                    />
-                    <br />
-                    <Form.Input fluid
-                    value={time}
-                    label="Time"
-                    name={"time"}
-                    onChange={this.handleChange}
-                    placeholder="Time Requested"
-                    />
-                    <br />
-
-                    {/* <div>
-                    <strong>Date Requested *</strong><br/><br/>
-                    <Calendar fluid
-                    style={{boxSizing:"border-box"}}                    l
-                    label="Date"
-                    name={"date"}
-                    value={date}
-                    onChange={this.onChange}
-                    required
-                    placeholder="Date Requested"/>
-                    </div>
-                    <br /> */}
-
-                    {/* <div>
-                    <strong>Time Requested *</strong><br/><br/>
-                    <TimePicker
-                    style={{boxSizing:"None"}}
-                    name={time}
-                    value={this.state.time}
-                    onChange={this.onChange}/>
-                    </div>
-                    <br/><br/> */}
-
-
-                    {/* <Form.Input fluid
-                    value={time}
-                    label="Time"
-                    name={"time"}
-                    onChange={this.handleChange}
-                    required
-                    placeholder="Time Requested"/>
-                    <br /> */}
-
-                    <Form.Input fluid
-                    value={party}
-                    label="Party"
-                    name={"party"}
-                    onChange={this.handleChange}
-                    required
-                    placeholder="Please Enter the Number of People Attending"/>
-                    <br />
-
-                    </List>
-                    </Form.Group>
-                    <Form.Button primary style={{backgroundColor:'#e0d538', 
-                        color:'black',
-                        height:'60px',
-                        fontSize:'20px'}}>Submit</Form.Button>                
-                </Form>
-            </Container>
-        )
-    }
-}
-
-
-export default ReservationForm;
+// import React from 'react';
+// import {Form, Container, Button, List, Header } from 'semantic-ui-react';
+// import { Calendar } from 'react-calendar';
+// import TimePicker from 'react-time-picker';
+//
+// class ReservationForm extends React.Component {
+//
+//     defaultValues = {name:'', phone:'', email:'', date:'', time:'', party:''}
+//     state = {...this.defaultValues}
+//     // state= { time: '10:00'}
+//     // state={ date: new Date(), }
+//
+//     // onChange = date => this.setState({date})
+//     // onChange = time => this.setState({time})
+//
+//     componentDidMount(){
+//
+//         if(this.props.id){
+//             this.setState({...this.props})
+//         }
+//     }
+//
+//
+//    handleChange = (e) => {
+//         const { target: {name, value}} = e;
+//         this.setState({ [name]: value })
+//     }
+//
+//     handleSubmit = (e) => {
+//         const { submit } = this.props
+//         e.preventDefault();
+//         const reservation = { ...this.state }
+//
+//         this.props.submit(reservation)
+//         this.setState({...this.defaultValues})
+//     }
+//
+//     render() {
+//         const {name, phone, email, date, time, party}=this.state;
+//         return(
+//             <Container>
+//                 <div>
+//                     <br/>
+//                     <h1>Reservation</h1>
+//                     <br/>
+//                     <p>Please fill out the information in the Form.<br/>
+//                     </p>
+//                     Please Note: Submitting this form does not guarantee the reservation.
+//                     <br/><br />
+//
+//                 </div>
+//                 <Form onSubmit={this.handleSubmit}>
+//                     <Form.Group widths="equal">
+//                     <List>
+//                     <Form.Input fluid
+//                     style={{width:'500px'}}
+//                     value={name}
+//                     label="Name"
+//                     name={"name"}
+//                     onChange={this.handleChange}
+//                     required
+//                     placeholder="Please Enter Your Full Name"/>
+//                     <br />
+//
+//                     <Form.Input fluid
+//                     value={phone}
+//                     label="Phone"
+//                     name={"phone"}
+//                     onChange={this.handleChange}
+//                     required
+//                     placeholder="Phone Number"/>
+//                     <br />
+//
+//                     <Form.Input fluid
+//                     value={email}
+//                     label="Email"
+//                     name={"email"}
+//                     onChange={this.handleChange}
+//                     placeholder="Email address"
+//                     />
+//                     <br />
+//                     <Form.Input fluid
+//                     value={date}
+//                     label="Date"
+//                     name={"date"}
+//                     onChange={this.handleChange}
+//                     placeholder="Date Requested"
+//                     />
+//                     <br />
+//                     <Form.Input fluid
+//                     value={time}
+//                     label="Time"
+//                     name={"time"}
+//                     onChange={this.handleChange}
+//                     placeholder="Time Requested"
+//                     />
+//                     <br />
+//
+//                     {/* <div>
+//                     <strong>Date Requested *</strong><br/><br/>
+//                     <Calendar fluid
+//                     style={{boxSizing:"border-box"}}                    l
+//                     label="Date"
+//                     name={"date"}
+//                     value={date}
+//                     onChange={this.onChange}
+//                     required
+//                     placeholder="Date Requested"/>
+//                     </div>
+//                     <br /> */}
+//
+//                     {/* <div>
+//                     <strong>Time Requested *</strong><br/><br/>
+//                     <TimePicker
+//                     style={{boxSizing:"None"}}
+//                     name={time}
+//                     value={this.state.time}
+//                     onChange={this.onChange}/>
+//                     </div>
+//                     <br/><br/> */}
+//
+//
+//                     {/* <Form.Input fluid
+//                     value={time}
+//                     label="Time"
+//                     name={"time"}
+//                     onChange={this.handleChange}
+//                     required
+//                     placeholder="Time Requested"/>
+//                     <br /> */}
+//
+//                     <Form.Input fluid
+//                     value={party}
+//                     label="Party"
+//                     name={"party"}
+//                     onChange={this.handleChange}
+//                     required
+//                     placeholder="Please Enter the Number of People Attending"/>
+//                     <br />
+//
+//                     </List>
+//                     </Form.Group>
+//                     <Form.Button primary style={{backgroundColor:'#e0d538',
+//                         color:'black',
+//                         height:'60px',
+//                         fontSize:'20px'}}>Submit</Form.Button>
+//                 </Form>
+//             </Container>
+//         )
+//     }
+// }
+//
+//
+// export default ReservationForm;

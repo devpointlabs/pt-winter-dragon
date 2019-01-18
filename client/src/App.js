@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
+import NoMatch from './components/NoMatch'
 
 import Reservations from './components/Reservations';
 import Reservation from './components/Reservation';
@@ -14,7 +15,7 @@ import Footer from './components/Footer'
 
 const App = () => (
   <Fragment>
-     <NavBar /> 
+     <NavBar />
     <Switch>
       <Route exact path='/' component={Home} />
       {/* <Route exact path='/menu' component={Menu} /> */}
@@ -22,7 +23,7 @@ const App = () => (
       <Route exact path='/reservations' component={Reservations} />
       {/* <Route exact path='/reservations/:id' component={Reservation} /> */}
       <Route exact path='/contacts' component={Contact} />
-      {/* <Route component={NoMatch} /> */}
+      <Route component={NoMatch} />
 
     </Switch>
     <Footer />

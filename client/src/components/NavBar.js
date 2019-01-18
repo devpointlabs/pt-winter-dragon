@@ -7,7 +7,7 @@ import styled from 'styled-components';
 const NavBar = () => (
   <Segment as={Transparent}>
     {/* <NavLink activeStyle={styles.active} exact to='/'>Home</NavLink> */}
-    
+
     <Menu secondary>
     <Logo />
     <Menu.Menu position='right' >
@@ -28,7 +28,7 @@ const NavBar = () => (
           Contact Us</NavLink>
       </Menu.Item>
       <Menu.Item>
-        <Button primary style={{backgroundColor:'#e0d538', 
+        <Button primary style={{backgroundColor:'#e0d538',
           color:'black',
           height:'75px',
           fontSize:'20px'}}>Order Online</Button>
