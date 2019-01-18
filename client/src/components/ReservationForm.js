@@ -9,13 +9,13 @@ class ReservationForm extends React.Component {
     defaultValues = {name:'', phone:'', email:'', date:'', time:'', party:''}
     state = {...this.defaultValues}
     // state= { time: '10:00'}
-    // state={ date: new Date(), } 
+    // state={ date: new Date(), }
 
     // onChange = date => this.setState({date})
     // onChange = time => this.setState({time})
 
     componentDidMount(){
-        
+
         if(this.props.id){
             this.setState({...this.props})
         }
@@ -39,12 +39,10 @@ class ReservationForm extends React.Component {
         const { submit } = this.props
         e.preventDefault();
         const reservation = { ...this.state }
-        
         this.addReserv(reservation)
         this.setState({...this.defaultValues})
     }
 
-  
     render() {
         const {name, phone, email, date, time, party}=this.state;
         return(
@@ -61,7 +59,7 @@ class ReservationForm extends React.Component {
                 </div>
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group widths="equal">
-                    <List> 
+                    <List>
                     <Form.Input fluid
                     style={{width:'500px'}}
                     value={name}
@@ -150,10 +148,10 @@ class ReservationForm extends React.Component {
 
                     </List>
                     </Form.Group>
-                    <Form.Button primary style={{backgroundColor:'#e0d538', 
+                    <Form.Button primary style={{backgroundColor:'#e0d538',
                         color:'black',
                         height:'60px',
-                        fontSize:'20px'}}>Submit</Form.Button>                
+                        fontSize:'20px'}}>Submit</Form.Button>
                 </Form>
             </Container>
         )
