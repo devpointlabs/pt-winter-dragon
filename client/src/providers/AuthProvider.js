@@ -5,7 +5,7 @@ const AuthContext = React.createContext();
 export const AuthConsumer = AuthContext.Consumer;
 
 export class AuthProvider extends React.Component {
-    state = { user: null };
+    state = { user: {} };
 
     handleRegister = (user, history) => {
         axios.post("/api/auth", user)
@@ -32,8 +32,8 @@ export class AuthProvider extends React.Component {
     handleLogout = (history) => {
         axios.delete("/api/auth/sign_out")
         .then(res => {
-            this.setState({user: null,});
-            history.push('/login')
+            this.setState({user: {},});
+            history.push('/')
         })
         .catch( res => {
             console.log(res);
@@ -44,7 +44,7 @@ export class AuthProvider extends React.Component {
         return (
             <AuthContext.Provider value={{
                 ...this.state,
-                authenticated: this.state.user !== null,
+                authenticated: this.state.user.id ? true : false,
                 handleRegister: this.handleRegister,
                 handleLogin: this.handleLogin,
                 handleLogout: this.handleLogout,
