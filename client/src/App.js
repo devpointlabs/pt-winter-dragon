@@ -19,7 +19,7 @@ import Admin from './components/Admin';
 
 const App = () => (
   <Fragment>
-     <NavBar /> 
+     <NavBar />
      <FetchUser>
     <Switch>
       <Route exact path='/' component={Home} />
