@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :admins
   mount_devise_token_auth_for 'User', at: 'api/auth'
   namespace :api do
     resources :menus do 

@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 
 class Admin extends React.Component {
     
+    
     render() {
         const { auth: {handleLogout} } = this.props
         return(
