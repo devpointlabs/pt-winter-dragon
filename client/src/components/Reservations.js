@@ -14,7 +14,6 @@ class Reservations extends React.Component {
             this.setState({ reservations: res.data})
         })
     }
-
     removeReserv = (id) => {
         axios.delete(`/api/reservations'/${id}`)
         const delReserv = this.state.reservations.filter( del => del.id !== id)
@@ -24,8 +23,6 @@ class Reservations extends React.Component {
     showReservations = () => {
         return this.state.reservations.map(d => {
             return (
-        //         {/* <Link to={`/reservations/${d.id}`}>{d.name}
-    
           <Table singleLine>
               <Table.Header>
                   <Table.Row >

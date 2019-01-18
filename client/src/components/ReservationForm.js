@@ -93,17 +93,9 @@ class ReservationForm extends React.Component {
                     onChange={this.handleChange}
                     placeholder="Date Requested"
                     />
-                    <br />
-                    <Form.Input fluid
-                    value={time}
-                    label="Time"
-                    name={"time"}
-                    onChange={this.handleChange}
-                    placeholder="Time Requested"
-                    />
-                    <br />
+                    <br /> */}
 
-                    {/* <div>
+                    <div>
                     <strong>Date Requested *</strong><br/><br/>
                     <Calendar fluid
                     style={{boxSizing:"border-box"}}                    l
@@ -114,18 +106,7 @@ class ReservationForm extends React.Component {
                     required
                     placeholder="Date Requested"/>
                     </div>
-                    <br /> */}
-
-                    {/* <div>
-                    <strong>Time Requested *</strong><br/><br/>
-                    <TimePicker
-                    style={{boxSizing:"None"}}
-                    name={time}
-                    value={this.state.time}
-                    onChange={this.onChange}/>
-                    </div>
-                    <br/><br/> */}
-
+                    <br /><br/>
 
                     {/* <Form.Input fluid
                     value={time}
