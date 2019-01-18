@@ -39,11 +39,9 @@ class ReservationForm extends React.Component {
         const { submit } = this.props
         e.preventDefault();
         const reservation = { ...this.state }
-
         this.addReserv(reservation)
         this.setState({...this.defaultValues})
     }
-
 
     render() {
         const {name, phone, email, date, time, party}=this.state;

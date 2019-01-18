@@ -4,7 +4,7 @@ import Home from './components/Home';
 import NoMatch from './components/NoMatch'
 
 import Reservations from './components/Reservations';
-import Reservation from './components/Reservation';
+import ReservationForm from  './components/ReservationForm';
 
 // import Menu from './components/Menu';
 // import Cart from '/components/Cart';
