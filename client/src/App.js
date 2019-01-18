@@ -8,7 +8,6 @@ import Menus from './components/Menus';
 import EditMenu from './components/EditMenu';
 import Menu from './components/Menu';
 
-
 // import Cart from '/components/Cart';
 import Contact from './components/Contact';
 import NavBar from './components/NavBar';
@@ -58,6 +57,8 @@ const App = () => (
       <AdminRoute exact path="/users" component={Users} />
       <AdminRoute exact path="/users/:id" component={User} />
       <Route component={NoMatch} />
+      {/* <Route component={NoMatch} /> */}
+      <Route exact path='/admindash' component={AdminDash} />
 
 
     </Switch>

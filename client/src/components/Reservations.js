@@ -1,11 +1,11 @@
 import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom';
-import ReservationForm from './ReservationForm';
-import { Container, Header, Table, Button } from 'semantic-ui-react';
+import { Card, Container, Header, Table, Button, Segment } from 'semantic-ui-react';
+
 
 class Reservations extends React.Component {
-    state = { reservations: [] } 
+    state = { reservations: [] }
 
     componentDidMount() {
         axios.get('/api/reservations')
@@ -28,6 +28,7 @@ class Reservations extends React.Component {
         return this.state.reservations.map(d => {
             return ( 
               <Table.Body>
+                  <Table.Cell>{d.id}</Table.Cell>
                   <Table.Cell>{d.name}</Table.Cell>
                   <Table.Cell>{d.phone}</Table.Cell>
                   <Table.Cell>{d.email}</Table.Cell>
@@ -47,6 +48,13 @@ class Reservations extends React.Component {
             )
         })
     }
+
+    // removeReservation = (id) => {
+    //     let delReserv = this.state.reservations.filter()
+
+    // }
+
+
 
     render() {
         return (
