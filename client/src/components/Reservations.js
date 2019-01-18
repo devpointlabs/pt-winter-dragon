@@ -51,7 +51,7 @@ class Reservations extends React.Component {
             </Container>
         );
     }
-}   
+}
 
 
 export default Reservations
