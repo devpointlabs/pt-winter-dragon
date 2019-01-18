@@ -1,10 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import MenuForm from './MenuForm';
-import CatForm from './CatForm';
 
 import { Link } from 'react-router-dom';
-import { Container, Button } from 'semantic-ui-react';
+import { Container, Button, Segment, Icon } from 'semantic-ui-react';
 import Categories from './Categories';
 
 class EditMenu extends React.Component {
@@ -40,18 +39,20 @@ class EditMenu extends React.Component {
     const { menu } = this.state
     return (
       <Container>
+        <Segment>
         <div>
-          <h1>Current Menu:</h1>
-          <br />
-            <h2>Menu Name: {this.state.menu.name}</h2>
+          <h1>Active Menu</h1>
+          <hr />
+            <h2>{this.state.menu.name}</h2>
               <Link to={"#"} onClick={() => this.setState({ editName: !this.state.editName })}>Edit Menu Name</Link>
               {this.state.editName ? <MenuForm id={menu.id} name={menu.name} submit={this.submit} /> : <div></div>}
               <br />
               <h2>Categories</h2>
               <Categories menuId={id} />
               <br />
-              <Button onClick={(e) => this.deleteMenu(id, e)}>Delete Menu</Button>
+              <Button trash negative onClick={(e) => this.deleteMenu(id, e)}><Icon name='trash' />Delete Menu</Button>
         </div>
+        </Segment>
       </Container>
     )
     

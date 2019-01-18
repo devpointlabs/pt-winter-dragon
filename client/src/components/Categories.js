@@ -3,13 +3,13 @@ import axios from 'axios';
 import CatForm from './CatForm';
 import Items from './Items';
 
-import { Button } from 'semantic-ui-react';
+import { Button, Icon, Segment } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 //CHILD COMPONENT
 
 class Categories extends React.Component { 
-  state = { categories: [], }
+  state = { categories: [], toggleEditCat: false }
 
   componentDidMount() {
     axios.get(`/api/menus/${this.props.menuId}/categories`)
@@ -42,14 +42,22 @@ class Categories extends React.Component {
       )
   }
 
+  editCategory = (name, description, id) => {
+    // const category = { name, description, id }
+    // axios.put(`/api/menus/${this.props.menuId}/categories/`)
+    console.log(name, description, id)
+  }
+
   showCategories = () => {
     return this.state.categories.map(c => {
       return (
         <ul key={c.id}>
           <h3>Category Name: {c.name}</h3> 
           <h4>Description: {c.description}</h4>
-          <Items catId={c.id}/>
-          <Button onClick={(e) => this.deleteCat(c.id)}>Delete</Button>
+          {/* <Items catId={c.id}/> */}
+          {this.state.toggleEditCat ? <CatForm id={c.id} name={c.name} description={c.description} editCategory={this.editCategory}/> : null }
+          <Button color='yellow' onClick={() => this.setState({toggleEditCat: !this.state.toggleEditCat})}>Edit Category</Button>
+          <Button trash negative onClick={() => this.deleteCat(c.id)}><Icon name='trash' />Delete Category</Button>
         </ul>
       )
     })
@@ -58,11 +66,13 @@ class Categories extends React.Component {
   render () {
     
     return (
-      <div>
-        {this.showCategories()}
-        <Link to={"#"} onClick={(e) => this.setState({ addCat: !this.state.addCat })}>Add New Category</Link>
-        {this.state.addCat ? <CatForm submit={this.submit} /> : <div></div>}
-      </div>
+      <Segment>
+        <div>
+          {this.showCategories()}
+          <Link to={"#"} onClick={(e) => this.setState({ addCat: !this.state.addCat })}><Button>+ Add New Category</Button></Link>
+          {this.state.addCat ? <CatForm submit={this.submit} /> : <div></div>}
+        </div>
+      </Segment>
     )
   }
 }

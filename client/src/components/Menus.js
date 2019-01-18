@@ -34,6 +34,7 @@ class Menus extends React.Component {
     if (isactive == true) {
       this.state.menus.map(m => {
         if (m.isactive == true){
+          
           //set all actives to inactive
 
           m.isactive = false
@@ -82,25 +83,25 @@ class Menus extends React.Component {
   currMenu = () => {
     return(
     <div>
-      <h2>{this.state.currMenu.name}</h2>
-      <Link to={`/edit-menu/${this.state.currMenu.id}`} key={this.state.currMenu.id} id={this.state.currMenu.id} name={this.state.currMenu.name}><Button>Edit current menu</Button></Link>
+      <Link to={`/edit-menu/${this.state.currMenu.id}`} key={this.state.currMenu.id} id={this.state.currMenu.id} name={this.state.currMenu.name}><h2>{this.state.currMenu.name}</h2></Link>
     </div>
     )
 }
 
   render() {
-    
     return (
       <Container>
         <Segment>
           <div>
-            <h1>Current Menu:</h1>
+            <h1>Active Menu</h1>
+            <hr />
               {this.currMenu()}
               <br />
               <a href="#" onClick={this.toggleAllMenus}><Button>View All Created Menus</Button></a>
               {this.state.showAllMenus ? this.showAllMenus() : <div></div>}
               <br />
               <h1>Add New Menu</h1>
+              <hr />
               <MenuForm submit={this.submit} />
           </div>
         </Segment>

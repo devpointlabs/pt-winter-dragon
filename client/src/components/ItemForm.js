@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'semantic-ui-react';
 
 class ItemForm extends React.Component {
   state = { 
@@ -69,7 +70,8 @@ class ItemForm extends React.Component {
           value={image}
           onChange={this.handleInputChange}
         />
-        <button>Add</button>
+        <br />
+        <Button positive>Add</Button>
       </form>
       )
     }

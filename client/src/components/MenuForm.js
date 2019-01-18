@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'semantic-ui-react';
 
 class MenuForm extends React.Component {
   state = { 
@@ -37,28 +38,28 @@ class MenuForm extends React.Component {
     if (this.props.id) {
       return (
         <form onSubmit={this.handleSubmit}>
-        <h3>Menu Name</h3>
         <input 
           name="name"
           title="name"
           value={name}
           onChange={this.handleInputChange}
         />
-        <button>Next>></button>
+        <Button positive>Update</Button>
       </form>
       )
     }
     else {
       return (
         <form onSubmit={this.handleSubmit}>
-        <h3>Menu Name</h3>
+        <h4>Menu Name</h4>
         <input 
           name="name"
           title="name"
           value={name}
+          required
           onChange={this.handleInputChange}
         />
-        <p>Make current menu</p>
+        <h4>Make current menu</h4>
         <input
           name="isActive"
           type="checkbox"
@@ -66,7 +67,7 @@ class MenuForm extends React.Component {
           onChange={this.handleInputChange}
         />
         <br />
-        <button>Next>></button>
+        <Button positive>Add Menu</Button>
         </form>
       )
     }

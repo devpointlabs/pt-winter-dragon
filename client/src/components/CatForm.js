@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'semantic-ui-react';
 
 class CatForm extends React.Component {
   state = { 
@@ -9,13 +10,18 @@ class CatForm extends React.Component {
   componentWillMount () {
     if(this.props.id) {
       this.setState({name: this.props.name})
+      this.setState({description: this.props.description})
     }
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
     const { name, description } = this.state;
-    this.props.submit(name, description)
+    if (this.props.id) {
+      this.props.editCategory(name, description)
+    } else {
+      this.props.submit(name, description)
+    }
     this.setState( {name: '', description: ''})
   };
 
@@ -43,13 +49,15 @@ class CatForm extends React.Component {
           value={name}
           onChange={this.handleInputChange}
         />
+        <h3>Description</h3>
         <input 
           name="description"
           title="description"
           value={description}
           onChange={this.handleInputChange}
         />
-        <button>Add</button>
+        <br />
+        <Button positive>Add</Button>
       </form>
       )
     }
