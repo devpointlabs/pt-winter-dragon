@@ -4,8 +4,12 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
+import { AuthProvider } from './providers/AuthProvider';
+import { initMiddleware, } from 'devise-axios';
 
-ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));
+initMiddleware();
+
+ReactDOM.render(<AuthProvider><Router><App /></Router></AuthProvider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
