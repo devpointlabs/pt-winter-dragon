@@ -57,6 +57,7 @@ const App = () => (
       <AdminRoute exact path="/users" component={Users} />
       <AdminRoute exact path="/users/:id" component={User} />
       <Route component={NoMatch} />
+      <ProtectedRoute exact path="/admin" component={Admin} />
       {/* <Route component={NoMatch} /> */}
       <Route exact path='/admindash' component={AdminDash} />
 
