@@ -7,7 +7,7 @@ import { Button } from 'semantic-ui-react';
 //CHILD COMPONENT
 
 class Items extends React.Component { 
-  state = { items: [], item: {}, addItemToggle: false }
+  state = { items: [], item: {}, addItemToggle: false, toggleEditItem: false }
 
   componentDidMount() {
     axios.get(`/api/categories/${this.props.catId}/items`)
@@ -36,9 +36,17 @@ class Items extends React.Component {
           .then(res => {
             this.getItems()
         }) 
-    // return  (
-    //     window.location.href = `/edit-menu/${this.props.catId}`
-    //   )
+  }
+
+  editItem = (name, price, spice, image, id) => {
+    const item = { name, price, spice, image, id}
+    axios.put(`/api/categories/${this.props.catId}/items/${id}`, { item } )
+      .then(() => { 
+        axios.get(`/api/categories/${this.props.catId}/items`)
+        .then(res => {
+          this.setState({ items: res.data })
+        })
+    })
   }
 
   showItems = () => {
@@ -49,7 +57,9 @@ class Items extends React.Component {
           <h4>Item Price: {i.price}</h4>  
           <h4>Item Spice: {i.spice}</h4>
           <h4>Item Image: {i.image}</h4>
-          <Button onClick={() => this.deleteItem(i.id)}>Delete Item</Button>
+          {this.state.toggleEditItem ? <ItemForm id={i.id} name={i.name} price={i.price} spice={i.spice} image={i.image} editItem={this.editItem}/> : null }
+          <Button color='yellow' onClick={() => this.setState({toggleEditItem: !this.state.toggleEditItem})}>Edit Item</Button>
+          <Button trash negative onClick={() => this.deleteItem(i.id)}>Delete Item</Button>
         </ul>   
       )
     })

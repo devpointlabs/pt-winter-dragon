@@ -1,24 +1,26 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Form } from 'semantic-ui-react';
 
 class CatForm extends React.Component {
   state = { 
       name: '', 
       description: '',
+      id: '',
     }
 
   componentWillMount () {
     if(this.props.id) {
       this.setState({name: this.props.name})
       this.setState({description: this.props.description})
+      this.setState({id: this.props.id})
     }
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { name, description } = this.state;
+    const { name, description, id } = this.state;
     if (this.props.id) {
-      this.props.editCategory(name, description)
+      this.props.editCategory(name, description, id)
     } else {
       this.props.submit(name, description)
     }
@@ -35,30 +37,31 @@ class CatForm extends React.Component {
     });
   };
 
-
-
   render () {
     const { name, description } = this.state;
 
     return (
-        <form onSubmit={this.handleSubmit}>
-        <h3>Category Name</h3>
-        <input 
-          name="name"
-          title="name"
-          value={name}
-          onChange={this.handleInputChange}
-        />
-        <h3>Description</h3>
-        <input 
-          name="description"
-          title="description"
-          value={description}
-          onChange={this.handleInputChange}
-        />
-        <br />
-        <Button positive>Add</Button>
-      </form>
+      <Form>
+        <Form.Field>
+          <label>Category Name</label>
+          <input 
+            name="name"
+            title="name"
+            value={name}
+            onChange={this.handleInputChange}
+          />
+        </Form.Field>
+        <Form.Field>
+          <label>Description</label>
+          <input 
+            name="description"
+            title="description"
+            value={description}
+            onChange={this.handleInputChange}
+          />
+        </Form.Field>
+        <Button positive onSubmit={this.handleSubmit}>Add</Button>
+      </Form>
       )
     }
 }

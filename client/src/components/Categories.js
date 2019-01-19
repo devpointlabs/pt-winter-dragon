@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 //CHILD COMPONENT
 
 class Categories extends React.Component { 
-  state = { categories: [], toggleEditCat: false }
+  state = { categories: [], toggleEditCat: false,  }
 
   componentDidMount() {
     axios.get(`/api/menus/${this.props.menuId}/categories`)
@@ -28,24 +28,22 @@ class Categories extends React.Component {
 
   deleteCat = (id) => {
     let menId = parseInt(this.props.menuId)
-    console.log(menId)
-    // debugger
-      axios.delete(`/api/menus/${menId}/categories/${id}`)
-          .then(res => {
-            debugger
-        }) 
-        .catch(res => {
-          debugger
-        })
+    axios.delete(`/api/menus/${menId}/categories/${id}`)
     return  (
         window.location.href = `/edit-menu/${this.props.menuId}`
       )
   }
 
   editCategory = (name, description, id) => {
-    // const category = { name, description, id }
-    // axios.put(`/api/menus/${this.props.menuId}/categories/`)
-    console.log(name, description, id)
+    const category = { name, description}
+    axios.put(
+      `/api/menus/${this.props.menuId}/categories/${id}`, { category } )
+      .then(() => { 
+        axios.get(`/api/menus/${this.props.menuId}/categories`)
+        .then(res => {
+          this.setState({ categories: res.data })
+        })
+    })
   }
 
   showCategories = () => {
@@ -54,17 +52,16 @@ class Categories extends React.Component {
         <ul key={c.id}>
           <h3>Category Name: {c.name}</h3> 
           <h4>Description: {c.description}</h4>
-          {/* <Items catId={c.id}/> */}
+          <Items catId={c.id}/>
           {this.state.toggleEditCat ? <CatForm id={c.id} name={c.name} description={c.description} editCategory={this.editCategory}/> : null }
           <Button color='yellow' onClick={() => this.setState({toggleEditCat: !this.state.toggleEditCat})}>Edit Category</Button>
           <Button trash negative onClick={() => this.deleteCat(c.id)}><Icon name='trash' />Delete Category</Button>
         </ul>
       )
     })
-
   }
+
   render () {
-    
     return (
       <Segment>
         <div>

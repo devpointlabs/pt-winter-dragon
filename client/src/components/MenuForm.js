@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Form, Checkbox } from 'semantic-ui-react';
 
 class MenuForm extends React.Component {
   state = { 
@@ -22,7 +22,7 @@ class MenuForm extends React.Component {
 
   handleInputChange = (e) => {
     const target = e.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    const value = target.type === undefined ? target.checked : target.value;
     const name = target.name;
 
     this.setState({
@@ -30,45 +30,47 @@ class MenuForm extends React.Component {
     });
   };
 
-
-
   render () {
     const { name, isActive } = this.state;
-
-    if (this.props.id) {
+      if (this.props.id) {
       return (
-        <form onSubmit={this.handleSubmit}>
-        <input 
-          name="name"
-          title="name"
-          value={name}
-          onChange={this.handleInputChange}
-        />
-        <Button positive>Update</Button>
-      </form>
+        <Form>
+          <Form.Field>
+            <label>Menu Name</label>
+            <input 
+              name="name"
+              title="name"
+              value={name}
+              onChange={this.handleInputChange}
+            />
+          </Form.Field>
+          <Button positive onClick={this.handleSubmit}>Update</Button>
+        </Form>
       )
     }
     else {
       return (
-        <form onSubmit={this.handleSubmit}>
-        <h4>Menu Name</h4>
-        <input 
-          name="name"
-          title="name"
-          value={name}
-          required
-          onChange={this.handleInputChange}
-        />
-        <h4>Make current menu</h4>
-        <input
-          name="isActive"
-          type="checkbox"
-          checked={isActive}
-          onChange={this.handleInputChange}
-        />
-        <br />
-        <Button positive>Add Menu</Button>
-        </form>
+        <Form>
+          <Form.Field>
+            <label>Menu Name</label>
+            <input 
+              name="name"
+              title="name"
+              value={name}
+              required
+              onChange={this.handleInputChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <Checkbox
+              label='Make current menu'
+              name="isActive"
+              checked={isActive}
+              onChange={this.handleInputChange}
+            />
+          </Form.Field>
+          <Button positive onClick={this.handleSubmit}>Add Menu</Button>
+        </Form>
       )
     }
     

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Form } from 'semantic-ui-react';
 
 class ItemForm extends React.Component {
   state = { 
@@ -9,16 +9,20 @@ class ItemForm extends React.Component {
       spice: false,
     }
 
-  // componentWillMount () {
-  //   if(this.props.id) {
-  //     this.setState({name: this.props.name})
-  //   }
-  // }
+  componentWillMount () {
+    if(this.props.id) {
+      this.setState({name: this.props.name, price: this.props.price, image: this.props.image, spice: this.props.spice, id: this.props.id })
+    }
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { name, price, spice, image } = this.state;
-    this.props.submit(name, price, image, spice)
+    const { name, price, spice, image, id } = this.state;
+    if (this.props.id) {
+      this.props.editItem(name, price, image, spice, id)
+    } else {
+      this.props.submit(name, price, image, spice)
+    }
     this.setState( {name: '', price: '', spice: false })
   };
 
@@ -36,43 +40,46 @@ class ItemForm extends React.Component {
 
   render () {
     const { name, price, spice, image } = this.state;
-
     return (
-        <form onSubmit={this.handleSubmit}>
-        <h4>Item Name</h4>
-        <input 
-          name="name"
-          title="name"
-          value={name}
-          onChange={this.handleInputChange}
-        />
-        <br />
-        <h4>Item Price</h4>
-        <input 
-          name="price"
-          title="price"
-          value={price}
-          onChange={this.handleInputChange}
-        />
-         <br />
-        <h4>Item Spice</h4>
-        <input 
-          name="spice"
-          title="spice"
-          value={spice}
-          onChange={this.handleInputChange}
-        />
-         <br />
-        <h4>Item Image</h4>
-        <input 
-          name="image"
-          title="image"
-          value={image}
-          onChange={this.handleInputChange}
-        />
-        <br />
-        <Button positive>Add</Button>
-      </form>
+      <Form>
+        <Form.Field>
+          <label>Item Name</label>
+          <input 
+            name="name"
+            title="name"
+            value={name}
+            onChange={this.handleInputChange}
+          />
+        </Form.Field>
+        <Form.Field>
+          <label>Price</label>
+          <input 
+            name="price"
+            title="price"
+            value={price}
+            onChange={this.handleInputChange}
+          />
+        </Form.Field>
+        <Form.Field>
+          <label>Spice</label>
+          <input 
+            name="spice"
+            title="spice"
+            value={spice}
+            onChange={this.handleInputChange}
+          />
+        </Form.Field>
+        <Form.Field>
+          <label>Image</label> 
+          <input 
+            name="image"
+            title="image"
+            value={image}
+            onChange={this.handleInputChange}
+          />
+        </Form.Field>
+        <Button positive onClick={this.handleSubmit}>Add</Button>
+      </Form>
       )
     }
 }
