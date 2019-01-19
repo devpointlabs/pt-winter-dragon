@@ -41,7 +41,7 @@ class ItemForm extends React.Component {
   render () {
     const { name, price, spice, image } = this.state;
     return (
-      <Form>
+      <Form onSubmit={this.handleSubmit}>
         <Form.Field>
           <label>Item Name</label>
           <input 
@@ -78,7 +78,7 @@ class ItemForm extends React.Component {
             onChange={this.handleInputChange}
           />
         </Form.Field>
-        <Button positive onClick={this.handleSubmit}>Add</Button>
+        <Button positive>Add</Button>
       </Form>
       )
     }

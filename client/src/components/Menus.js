@@ -34,19 +34,16 @@ class Menus extends React.Component {
     if (isactive == true) {
       this.state.menus.map(m => {
         if (m.isactive == true){
-          
           //set all actives to inactive
-
           m.isactive = false
-          isactive = false
-          axios.put(`/api/menus/${m.id}`, {isactive})
+          axios.put(`/api/menus/${m.id}`, {isactive:false})
         }
       })
     }
     axios.post(`api/menus`, {menu})
       .then(res => {
         this.setState({menus: [...this.state.menus, res.data]}, () => {
-          this.setState({currMenu: menu})
+          this.setState({currMenu: res.data})
         })
       })
   }
@@ -81,11 +78,20 @@ class Menus extends React.Component {
   }
 
   currMenu = () => {
-    return(
-    <div>
-      <Link to={`/edit-menu/${this.state.currMenu.id}`} key={this.state.currMenu.id} id={this.state.currMenu.id} name={this.state.currMenu.name}><h2>{this.state.currMenu.name}</h2></Link>
-    </div>
-    )
+    if (this.state.currMenu){
+      return(
+        <div>
+          <Link to={`/edit-menu/${this.state.currMenu.id}`} key={this.state.currMenu.id} id={this.state.currMenu.id} name={this.state.currMenu.name}><h2>{this.state.currMenu.name}</h2></Link>
+        </div>
+        )
+    } else {
+      return (
+        <div>
+          <i>No active menu currently set</i>
+        </div>
+      )  
+    }
+    
 }
 
   render() {

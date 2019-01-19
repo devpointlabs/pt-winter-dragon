@@ -4,7 +4,7 @@ import { Button, Form, Checkbox } from 'semantic-ui-react';
 class MenuForm extends React.Component {
   state = { 
       name: '', 
-      isActive:false
+      isActive:false,
     }
 
   componentWillMount () {
@@ -22,13 +22,17 @@ class MenuForm extends React.Component {
 
   handleInputChange = (e) => {
     const target = e.target;
-    const value = target.type === undefined ? target.checked : target.value;
+    const value = this.state.isActive === true ? target.checked : target.value;
     const name = target.name;
 
     this.setState({
       [name]: value
     });
   };
+
+  toggleCheck = () => {
+    this.setState({isActive: !this.state.isActive })
+  }
 
   render () {
     const { name, isActive } = this.state;
@@ -66,7 +70,8 @@ class MenuForm extends React.Component {
               label='Make current menu'
               name="isActive"
               checked={isActive}
-              onChange={this.handleInputChange}
+              type="checkbox"
+              onChange={this.toggleCheck}
             />
           </Form.Field>
           <Button positive onClick={this.handleSubmit}>Add Menu</Button>

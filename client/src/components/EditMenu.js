@@ -50,7 +50,7 @@ class EditMenu extends React.Component {
               <h2>Categories</h2>
               <Categories menuId={id} />
               <br />
-              <Button trash negative onClick={(e) => this.deleteMenu(id, e)}><Icon name='trash' />Delete Menu</Button>
+              <Button trash='true' negative onClick={(e) => this.deleteMenu(id, e)}><Icon name='trash' />Delete Menu</Button>
         </div>
         </Segment>
       </Container>

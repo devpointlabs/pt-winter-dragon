@@ -41,7 +41,7 @@ class CatForm extends React.Component {
     const { name, description } = this.state;
 
     return (
-      <Form>
+      <Form onSubmit={this.handleSubmit}>
         <Form.Field>
           <label>Category Name</label>
           <input 
@@ -60,7 +60,7 @@ class CatForm extends React.Component {
             onChange={this.handleInputChange}
           />
         </Form.Field>
-        <Button positive onSubmit={this.handleSubmit}>Add</Button>
+        <Button positiveas>Add</Button>
       </Form>
       )
     }
