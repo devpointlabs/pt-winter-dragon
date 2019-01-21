@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import MenuForm from './MenuForm';
-
 import { Link } from 'react-router-dom';
 import { Container, Button, Segment, Icon, Confirm } from 'semantic-ui-react';
 import Categories from './Categories';
@@ -17,12 +16,9 @@ class EditMenu extends React.Component {
   }
 
   deleteMenu = (id) => {
-    if(this.state.result == 'confirmed'){
+    if(this.state.result === 'confirmed'){
       this.setState({ open: true })
       axios.delete(`/api/menus/${id}`)
-          .then(res => {
-            console.log(res.data + " deleted");
-        }) 
       return  (
         window.location.href = "/menu"
       )

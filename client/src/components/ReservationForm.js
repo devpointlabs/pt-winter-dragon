@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import {Form, Container, Button, List, Header } from 'semantic-ui-react';
 // import { Calendar } from 'react-calendar';
 // import TimePicker from 'react-time-picker';
@@ -8,13 +9,13 @@ class ReservationForm extends React.Component {
     defaultValues = {name:'', phone:'', email:'', date:'', time:'', party:''}
     state = {...this.defaultValues}
     // state= { time: '10:00'}
-    // state={ date: new Date(), } 
+    // state={ date: new Date(), }
 
     // onChange = date => this.setState({date})
     // onChange = time => this.setState({time})
 
     componentDidMount(){
-        
+
         if(this.props.id){
             this.setState({...this.props})
         }
@@ -26,12 +27,19 @@ class ReservationForm extends React.Component {
         this.setState({ [name]: value })
     }
 
+    addReserv = (reservation) => {
+        axios.post('/api/reservations', { reservation })
+        .then(res =>{
+            this.setState()
+        })
+    }
+
+
     handleSubmit = (e) => {
         const { submit } = this.props
         e.preventDefault();
         const reservation = { ...this.state }
-        
-        this.props.submit(reservation)
+        this.addReserv(reservation)
         this.setState({...this.defaultValues})
     }
 
@@ -51,7 +59,7 @@ class ReservationForm extends React.Component {
                 </div>
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group widths="equal">
-                    <List> 
+                    <List>
                     <Form.Input fluid
                     style={{width:'500px'}}
                     value={name}
@@ -140,10 +148,10 @@ class ReservationForm extends React.Component {
 
                     </List>
                     </Form.Group>
-                    <Form.Button primary style={{backgroundColor:'#e0d538', 
+                    <Form.Button primary style={{backgroundColor:'#e0d538',
                         color:'black',
                         height:'60px',
-                        fontSize:'20px'}}>Submit</Form.Button>                
+                        fontSize:'20px'}}>Submit</Form.Button>
                 </Form>
             </Container>
         )

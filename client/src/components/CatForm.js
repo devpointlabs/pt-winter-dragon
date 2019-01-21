@@ -60,7 +60,7 @@ class CatForm extends React.Component {
             onChange={this.handleInputChange}
           />
         </Form.Field>
-        <Button positiveas>Add</Button>
+        <Button positive>Add</Button>
       </Form>
       )
     }

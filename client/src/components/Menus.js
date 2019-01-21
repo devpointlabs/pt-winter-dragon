@@ -15,7 +15,7 @@ class Menus extends React.Component {
       .then( res => {
         this.setState({ menus:res.data }, () => {
           this.state.menus.map(m => {
-            if (m.isactive == true) {
+            if (m.isactive === true) {
               this.addToCurr(m.id, m.name);
             }
           })
@@ -31,9 +31,9 @@ class Menus extends React.Component {
 
   submit = (name, isactive) => {
     const menu = {name, isactive}
-    if (isactive == true) {
+    if (isactive === true) {
       this.state.menus.map(m => {
-        if (m.isactive == true){
+        if (m.isactive === true){
           //set all actives to inactive
           m.isactive = false
           axios.put(`/api/menus/${m.id}`, {isactive:false})
@@ -43,7 +43,7 @@ class Menus extends React.Component {
     axios.post(`api/menus`, {menu})
       .then(res => {
         this.setState({menus: [...this.state.menus, res.data]}, () => {
-          if (res.data.isactive == true) {
+          if (res.data.isactive === true) {
             this.setState({currMenu: res.data})
           } else {
             this.currMenu()

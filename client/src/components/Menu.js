@@ -1,9 +1,6 @@
 import React from 'react';
-// import MenuForm from './MenuForm';
 import { Button, } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-
-import axios from 'axios';
 
 //CHILD COMPONENT
 
@@ -17,7 +14,6 @@ class Menu extends React.Component {
       </div>
       )
   }
-
 
   render() {
     return (

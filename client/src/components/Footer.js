@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Grid} from 'semantic-ui-react';
+import { Link } from 'react-router-dom'
 
 const Footer = () => (
 <Main>
@@ -24,6 +25,7 @@ const Footer = () => (
     <Container>
      <p>{"\u00A9"}2018 New Golden Dragon Restaurant</p>
      <p>All Rights Reserved</p>
+     <Link to="/login" style={{color: 'grey'}}>Admin Login</Link>
     </Container>
     </Grid.Column>
     </Grid>
@@ -35,6 +37,9 @@ export default Footer;
 const Main = styled.div`
 height: 250px;
 background-color: #171616;
+width: 100%;
+// position: fixed;
+bottom: 0;
 `
 const Container = styled.div`
     margin: 25px;

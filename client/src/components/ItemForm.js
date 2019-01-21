@@ -1,12 +1,13 @@
 import React from 'react';
 import { Button, Form, Checkbox } from 'semantic-ui-react';
+// import ImageUploader from 'react-images-upload';
 
 class ItemForm extends React.Component {
   state = { 
       name: '',
       price: '', 
       spice: false,
-      image: '',
+      image: [],
     }
 
   componentWillMount () {
@@ -23,7 +24,7 @@ class ItemForm extends React.Component {
     } else {
       this.props.submit(name, price, spice, image)
     }
-    this.setState( {name: '', price: '', spice: false })
+    this.setState( {name: '', price: '' })
   };
 
   handleInputChange = (e) => {
@@ -36,12 +37,16 @@ class ItemForm extends React.Component {
     });
   };
 
-  handleToggle = () => {
-    this.setState({spice: !this.state.spice })
-  }
+  handleToggle = () => this.setState({spice: !this.state.spice })
+
+  checkToggle = () => { return "checked" ? this.state.spice : !this.state.spice }
+
+  // imageUpload = (pic) => {
+  //   this.setState({image:pic})
+  // }
 
   render () {
-    const { name, price, spice, image } = this.state;
+    const { name, price, image } = this.state;
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Field>
@@ -67,7 +72,7 @@ class ItemForm extends React.Component {
           <Checkbox toggle 
             name="spice"
             title="spice"
-            value={spice}
+            checked={this.checkToggle()}
             onChange={this.handleToggle}
           />
         </Form.Field>
@@ -79,6 +84,14 @@ class ItemForm extends React.Component {
             value={image}
             onChange={this.handleInputChange}
           />
+          {/* <ImageUploader
+            withIcon={true}
+            withPreview={true}
+            buttonText='Choose images'
+            onChange={this.imageUpload}
+            imgExtension={['.jpg', '.gif', '.png', '.gif']}
+            maxFileSize={5242880}
+            /> */}
         </Form.Field>
         <Button positive>Add</Button>
       </Form>

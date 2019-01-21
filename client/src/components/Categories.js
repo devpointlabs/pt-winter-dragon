@@ -55,7 +55,7 @@ class Categories extends React.Component {
           <Items catId={c.id}/>
           {this.state.toggleEditCat ? <CatForm id={c.id} name={c.name} description={c.description} editCategory={this.editCategory}/> : null }
           <Button color='yellow' onClick={() => this.setState({toggleEditCat: !this.state.toggleEditCat})}>Edit Category</Button>
-          <Button trash negative onClick={() => this.deleteCat(c.id)}><Icon name='trash' />Delete Category</Button>
+          <Button trash="true" negative onClick={() => this.deleteCat(c.id)}><Icon name='trash' />Delete Category</Button>
         </ul>
       )
     })

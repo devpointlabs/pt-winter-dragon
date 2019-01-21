@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import ReservationForm from './ReservationForm';
 import {Link} from 'react-router-dom';
-import { Button, Container, Header, Segment } from 'semantic-ui-react';
+import { Card, Container, Header, Table, Segment } from 'semantic-ui-react';
 
 
 class Reservations extends React.Component {
@@ -15,20 +15,31 @@ class Reservations extends React.Component {
         })
     }
 
-    addReserv = (reservation) => {
-        axios.post('/api/reservations', { reservation })
-        .then(res =>{
-            this.setState({ reservations: [...this.state.reservations, res.data]})
-        })
-    }
-
     showReservations = () => {
         return this.state.reservations.map(d => {
             return (
-                <Button inverted color='red' key={d.id}>
-                <Link to={`/reservations/${d.id}`}>{d.name}
-                </Link>
-          </Button>
+        //         {/* <Link to={`/reservations/${d.id}`}>{d.name}
+
+          <Table singleLine>
+              <Table.Header>
+                  <Table.Row>
+                      <Table.HeaderCell>Name </Table.HeaderCell>
+                      <Table.HeaderCell>Phone</Table.HeaderCell>
+                      <Table.HeaderCell>Email</Table.HeaderCell>
+                      <Table.HeaderCell>Requested Date</Table.HeaderCell>
+                      <Table.HeaderCell>Requested Time</Table.HeaderCell>
+                      <Table.HeaderCell>Number of People</Table.HeaderCell>
+                  </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                  <Table.Cell>{d.name}</Table.Cell>
+                  <Table.Cell>{d.phone}</Table.Cell>
+                  <Table.Cell>{d.email}</Table.Cell>
+                  <Table.Cell>{d.date}</Table.Cell>
+                  <Table.Cell>{d.time}</Table.Cell>
+                  <Table.Cell>{d.party}</Table.Cell>
+              </Table.Body>
+          </Table>
             )
         })
     }
@@ -36,12 +47,11 @@ class Reservations extends React.Component {
     render() {
         return (
             <Container>
-                {/* {this.showReservations()} */}
-                <ReservationForm submit={this.addReserv} />
+                {this.showReservations()}
             </Container>
         );
     }
-}   
+}
 
 
 export default Reservations

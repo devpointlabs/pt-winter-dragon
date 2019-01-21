@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import ItemForm from './ItemForm';
-
 import { Button } from 'semantic-ui-react';
 
 //CHILD COMPONENT
@@ -52,7 +51,7 @@ class Items extends React.Component {
   showItems = () => {
     return this.state.items.map(i => {
       let spicy = "Yes";
-      if (i.spice == false) {
+      if (i.spice === false) {
         spicy = "No";
       }
       return (
@@ -63,7 +62,7 @@ class Items extends React.Component {
           <h4>Image: {i.image}</h4>
           {this.state.toggleEditItem ? <ItemForm id={i.id} name={i.name} price={i.price} spice={i.spice} image={i.image} editItem={this.editItem}/> : null }
           <Button color='yellow' onClick={() => this.setState({toggleEditItem: !this.state.toggleEditItem})}>Edit Item</Button>
-          <Button trash negative onClick={() => this.deleteItem(i.id)}>Delete Item</Button>
+          <Button trash="true" negative onClick={() => this.deleteItem(i.id)}>Delete Item</Button>
         </ul>   
       )
     })

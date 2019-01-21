@@ -1,8 +1,5 @@
 import React from 'react';
 import MenuForm from './MenuForm';
-// import { Button } from 'semantic-ui-react';
-// import { Link } from 'react-router-dom';
-
 import axios from 'axios';
 
 //CHILD COMPONENT
@@ -14,8 +11,6 @@ class CreateMenu extends React.Component {
     this.state.props.getMenus.map (m => {
       this.setState({menus: menusArr })
     })
-    // if(menusArr.value !== this.props.value){
-    //   this.setState({menus: menusArr.value});
   }
 
   submit = (name, isactive) => {
@@ -37,23 +32,12 @@ class CreateMenu extends React.Component {
     axios.post(`/api/menus`, { menu })
       .then(res => {
         this.setState({ menus: [res.data, ...this.state.menus ]})
-        console.log(menu)
       })
   }
-
-  getMenus = () => {
-    console.log(this.state.menus)
-  }
-
-  createMenu = () => {
-
-  }
-
 
   render() {
     return (
       <div>
-        {/* {this.getMenus()} */}
         <MenuForm submit={this.submit} />
       </div>
       
