@@ -22,11 +22,10 @@ class MenuForm extends React.Component {
 
   handleInputChange = (e) => {
     const target = e.target;
-    const value = this.state.isActive === true ? target.checked : target.value;
     const name = target.name;
 
     this.setState({
-      [name]: value
+      [name]: target.value
     });
   };
 

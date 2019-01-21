@@ -43,7 +43,11 @@ class Menus extends React.Component {
     axios.post(`api/menus`, {menu})
       .then(res => {
         this.setState({menus: [...this.state.menus, res.data]}, () => {
-          this.setState({currMenu: res.data})
+          if (res.data.isactive == true) {
+            this.setState({currMenu: res.data})
+          } else {
+            this.currMenu()
+          }
         })
       })
   }

@@ -51,12 +51,16 @@ class Items extends React.Component {
 
   showItems = () => {
     return this.state.items.map(i => {
+      let spicy = "Yes";
+      if (i.spice == false) {
+        spicy = "No";
+      }
       return (
         <ul key={i.id}>
           <h4>Item Name: {i.name}</h4> 
-          <h4>Item Price: {i.price}</h4>  
-          <h4>Item Spice: {i.spice}</h4>
-          <h4>Item Image: {i.image}</h4>
+          <h4>Price: {i.price}</h4> 
+          <h4>Spicy: {spicy}</h4>
+          <h4>Image: {i.image}</h4>
           {this.state.toggleEditItem ? <ItemForm id={i.id} name={i.name} price={i.price} spice={i.spice} image={i.image} editItem={this.editItem}/> : null }
           <Button color='yellow' onClick={() => this.setState({toggleEditItem: !this.state.toggleEditItem})}>Edit Item</Button>
           <Button trash negative onClick={() => this.deleteItem(i.id)}>Delete Item</Button>

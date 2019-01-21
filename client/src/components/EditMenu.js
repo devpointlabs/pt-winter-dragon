@@ -3,11 +3,11 @@ import axios from 'axios';
 import MenuForm from './MenuForm';
 
 import { Link } from 'react-router-dom';
-import { Container, Button, Segment, Icon } from 'semantic-ui-react';
+import { Container, Button, Segment, Icon, Confirm } from 'semantic-ui-react';
 import Categories from './Categories';
 
 class EditMenu extends React.Component {
-  state = { menu: {}, categories: [], editName: false, addCat: false }
+  state = { menu: {}, categories: [], editName: false, addCat: false, open: false, result: '' }
 
   componentDidMount() {
     axios.get(`/api/menus/${this.props.match.params.id}`)
@@ -17,14 +17,23 @@ class EditMenu extends React.Component {
   }
 
   deleteMenu = (id) => {
+    if(this.state.result == 'confirmed'){
+      this.setState({ open: true })
       axios.delete(`/api/menus/${id}`)
           .then(res => {
             console.log(res.data + " deleted");
         }) 
-    return  (
+      return  (
         window.location.href = "/menu"
       )
+    } else {
+      return null
+    }
   }
+
+  show = () => this.setState({ open: true })
+  handleConfirm = () => this.setState({ result: 'confirmed', open: false })
+  handleCancel = () => this.setState({ result: 'cancelled', open: false })
 
   submit = (name) => {
     const menu = {name}
@@ -50,7 +59,8 @@ class EditMenu extends React.Component {
               <h2>Categories</h2>
               <Categories menuId={id} />
               <br />
-              <Button trash='true' negative onClick={(e) => this.deleteMenu(id, e)}><Icon name='trash' />Delete Menu</Button>
+              <Button trash='true' negative onClick={() => this.show()}><Icon name='trash' />Delete Menu</Button>
+              <Confirm open={this.state.open} onCancel={this.handleCancel} onConfirm={this.handleConfirm} deleteMenu={this.deleteMenu(menu.id)}/>
         </div>
         </Segment>
       </Container>

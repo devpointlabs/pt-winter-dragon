@@ -1,12 +1,12 @@
 import React from 'react';
-import { Button, Form } from 'semantic-ui-react';
+import { Button, Form, Checkbox } from 'semantic-ui-react';
 
 class ItemForm extends React.Component {
   state = { 
       name: '',
       price: '', 
-      image: '',
       spice: false,
+      image: '',
     }
 
   componentWillMount () {
@@ -19,9 +19,9 @@ class ItemForm extends React.Component {
     e.preventDefault();
     const { name, price, spice, image, id } = this.state;
     if (this.props.id) {
-      this.props.editItem(name, price, image, spice, id)
+      this.props.editItem(name, price, spice, image, id)
     } else {
-      this.props.submit(name, price, image, spice)
+      this.props.submit(name, price, spice, image)
     }
     this.setState( {name: '', price: '', spice: false })
   };
@@ -36,7 +36,9 @@ class ItemForm extends React.Component {
     });
   };
 
-
+  handleToggle = () => {
+    this.setState({spice: !this.state.spice })
+  }
 
   render () {
     const { name, price, spice, image } = this.state;
@@ -61,12 +63,12 @@ class ItemForm extends React.Component {
           />
         </Form.Field>
         <Form.Field>
-          <label>Spice</label>
-          <input 
+          <label>Spicy</label>
+          <Checkbox toggle 
             name="spice"
             title="spice"
             value={spice}
-            onChange={this.handleInputChange}
+            onChange={this.handleToggle}
           />
         </Form.Field>
         <Form.Field>
