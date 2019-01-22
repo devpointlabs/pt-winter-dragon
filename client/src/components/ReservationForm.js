@@ -47,7 +47,7 @@ class ReservationForm extends React.Component {
     render() {
         const {name, phone, email, date, time, party}=this.state;
         return(
-            <Container>
+            <Container style={{margin: '75px'}}>
                 <div>
                     <br/>
                     <h1>Reservation</h1>

@@ -2,16 +2,11 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Button, Menu } from 'semantic-ui-react'
 import styled from 'styled-components';
-import logo_test from '../assets/logo_test.jpg';
 
 
 const NavBar = () => (
-
-  <Segment as={Transparent}>
-
   <Transparent>
     {/* <NavLink activeStyle={styles.active} exact to='/'>Home</NavLink> */}
-
 
     <Menu secondary>
     <Logo />
@@ -21,7 +16,7 @@ const NavBar = () => (
          Home</NavLink>
       </Menu.Item>
       <Menu.Item >
-          <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/Menu'>
+          <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/menu'>
           Menu</NavLink>
       </Menu.Item>
       <Menu.Item>
@@ -56,23 +51,16 @@ const Transparent = styled.div`
 `
 
 const Logo = styled.div`
-  background-image: url(${logo_test});
   display: flex;
-
   border: 0.5px #f2f2f2 solid;
-  height: 115px;
-  width: 115px;
-
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   justify-content: center;
   text-align:center;
   background-color: #e0d538;
   position: relative;
   left: 40px;
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 `
 
 const styles = {

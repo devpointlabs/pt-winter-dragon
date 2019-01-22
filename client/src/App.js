@@ -10,9 +10,6 @@ import ReservationForm from  './components/ReservationForm';
 
 
 
-
-import Menus from './components/Menus';
-import EditMenu from './components/EditMenu';
 import Menu from './components/Menu';
 
 
@@ -26,7 +23,7 @@ import Footer from './components/Footer'
 import Login from './components/Login';
 import Register from './components/Register';
 import FetchUser from './components/FetchUser';
-import ProtectedRoute from './components/ProtectedRoute';
+// import ProtectedRoute from './components/ProtectedRoute';
 import AdminRoute from './components/AdminRoute'
 import Admin from './components/Admin';
 
@@ -42,12 +39,7 @@ const App = () => (
      <FetchUser>
     <Switch>
       <Route exact path='/' component={Home} />
-      {/* <Route exact path='/menu' component={Menus} /> */}
-      <AdminRoute exact path='/edit-menu/:id' component={EditMenu} />
-      <AdminRoute exact path='/create-new-menu' component={Menus} />
-
       <Route exact path='/menu' component={Menu} />
-
       {/* <Route exact path='/cart' component={Cart} /> */}
       <AdminRoute exact path='/reservations' component={Reservations} />
       <Route exact path='/reservationform' component={ReservationForm} />
