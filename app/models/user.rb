@@ -7,11 +7,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
 
-  def active_for_authentication?
-    super && approved?
-  end
+  # def active_for_authentication?
+  #   super && approved?
+  # end
 
-  def inactive_message
-    approved? ? super : :not_approved
-  end
+  # def inactive_message
+  #   approved? ? super : :not_approved
+  # end
 end
