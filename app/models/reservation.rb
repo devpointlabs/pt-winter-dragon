@@ -1,2 +1,3 @@
 class Reservation < ApplicationRecord
+
 end
