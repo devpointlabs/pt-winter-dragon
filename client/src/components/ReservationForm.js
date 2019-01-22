@@ -11,8 +11,8 @@ class ReservationForm extends React.Component {
     // state= { time: '10:00'}
     // state={ date: new Date(), } 
 
-    onChange = date => this.setState({date})
-    onChange = time => this.setState({time})
+    // onChange = date => this.setState({date})
+    // onChange = time => this.setState({time})
 
     componentDidMount(){
         if(this.props.id){
@@ -88,16 +88,18 @@ class ReservationForm extends React.Component {
                     placeholder="Email address"
                     />
                     <br />
-                    {/* <Form.Input fluid
+
+                    <Form.Input fluid
                     value={date}
                     label="Date"
                     name={"date"}
                     onChange={this.handleChange}
                     placeholder="Date Requested"
                     />
-                    <br /> */}
+                    <br />
 
-                    <div>
+
+                    {/* <div>
                     <strong>Date Requested *</strong><br/><br/>
                     <Calendar fluid
                     style={{boxSizing:"border-box"}}
@@ -107,20 +109,19 @@ class ReservationForm extends React.Component {
                     onChange={this.onChange}
                     required
                     placeholder="Date Requested"/>
-                    </div>
+                    </div> */}
                     <br /><br/>
 
-                    {/* <Form.Input fluid
+                    <Form.Input fluid
                     value={time}
                     label="Time"
                     name={"time"}
                     onChange={this.handleChange}
                     placeholder="Time Requested"
                     />
-                    <br /> */}
+                    <br />
                 
-                    <div>
-                    <strong>Time Requested *</strong><br/><br/>
+                    {/* <strong>Time Requested *</strong><br/><br/>
                     <TimePicker
                     style={{boxSizing:"None"}}
                     name={"time"}
@@ -128,8 +129,7 @@ class ReservationForm extends React.Component {
                     value={this.state.time}
                     onChange={this.onChange}
                     required
-                    />
-                    </div>
+                    /> */}
                     <br/><br/>
 
                     <Form.Input fluid
