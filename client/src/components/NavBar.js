@@ -1,55 +1,60 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Segment, Button, Menu } from 'semantic-ui-react'
+import { Button, Menu } from 'semantic-ui-react'
 import styled from 'styled-components';
 
 
 const NavBar = () => (
-  <Segment as={Transparent}>
+  <Transparent>
     {/* <NavLink activeStyle={styles.active} exact to='/'>Home</NavLink> */}
 
     <Menu secondary>
     <Logo />
     <Menu.Menu position='right'>
       <Menu.Item>
-         <NavLink activeStyle={styles.active} style={{color:'grey', fontSize:'20px',}} exact to='/'>
+         <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/'>
          Home</NavLink>
       </Menu.Item>
       <Menu.Item >
-          <NavLink activeStyle={styles.active} style={{color:'grey', fontSize:'20px',}} exact to='/Menu'>
+          <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/Menu'>
           Menu</NavLink>
       </Menu.Item>
       <Menu.Item>
-          <NavLink activeStyle={styles.active} style={{color:'grey', fontSize:'20px',}} exact to='/reservationform'>
+          <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/reservationform'>
           Reservations</NavLink>
       </Menu.Item>
       <Menu.Item>
-          <NavLink activeStyle={styles.active} style={{color:'grey', fontSize:'20px',}} exact to='/contacts'>
+          <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/contacts'>
           Contact Us</NavLink>
       </Menu.Item>
       <Menu.Item>
         <Button primary style={{backgroundColor:'#e0d538',
           color:'black',
-          height:'75px',
-          fontSize:'20px'}}>Order Online</Button>
+          fontSize:'15px'}}>Order Online</Button>
       </Menu.Item>
     </Menu.Menu>
     </Menu>
-  </Segment>
+  </Transparent>
 )
 
 const Transparent = styled.div`
-  padding: 40px 0px !important;
+  width: 100%;
+  padding: 30px 0px !important;
   background: transparent !important;
-  // background-color: rgba(52,52,52, 0.3) !important;
+  margin: 0px;
+  padding: 10px !important;
+  background-color: rgba(0,0,0, 0.3) !important;
+  position: fixed;
+  top: 0;
+  z-index: 1;
   // position: sticky;
 `
 
 const Logo = styled.div`
   display: flex;
   border: 0.5px #f2f2f2 solid;
-  height: 115px;
-  width: 115px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   justify-content: center;
   text-align:center;
@@ -62,9 +67,9 @@ const styles = {
   active: {
     textDecoration: 'none',
     fontWeight: 'bold',
-    color: '#f2f2f2',
+    color: '#white !important',
     backgroundColor: '#333',
-    padding: '12px 20px',
+    padding: '6px 10px',
     border: '0.5px dotted black',
     borderRadius: '7px',
   }
