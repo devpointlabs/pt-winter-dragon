@@ -7,8 +7,6 @@ import logo_test from '../assets/logo_test.jpg';
 
 const NavBar = () => (
   <Segment as={Transparent}>
-    {/* <NavLink activeStyle={styles.active} exact to='/'>Home</NavLink> */}
-
     <Menu secondary>
     <Logo />
     <Menu.Menu position='right'>

@@ -8,18 +8,17 @@ class ReservationForm extends React.Component {
 
     defaultValues = {id: '', name:'', phone:'', email:'', date:'', time:'', party:''}
     state = {...this.defaultValues}
-    state= { time: '10:00'}
-    state={ date: new Date(), } 
+    // state= { time: '10:00'}
+    // state={ date: new Date(), } 
 
-    onChange = date => this.setState({date})
-    onChange = time => this.setState({time})
+    // onChange = date => this.setState({date})
+    // onChange = time => this.setState({time})
 
     componentDidMount(){
         if(this.props.id){
             this.setState({...this.props})
         }
     }
-
 
    handleChange = (e) => {
         const { target: {name, value}} = e;
@@ -28,11 +27,10 @@ class ReservationForm extends React.Component {
 
     addReserv = (reservation) => {
         axios.post('/api/reservations', { reservation })
-        .then(res =>{
+        .then(res => {
             this.setState()
         })
     }
-
 
     handleSubmit = (e) => {
         const { submit } = this.props
@@ -41,6 +39,10 @@ class ReservationForm extends React.Component {
         this.addReserv(reservation)
         this.setState({...this.defaultValues})
     }
+
+    handlePageChange() {
+        window.location = "/confirmation";
+      }
 
     render() {
         const {name, phone, email, date, time, party}=this.state;
@@ -86,39 +88,40 @@ class ReservationForm extends React.Component {
                     placeholder="Email address"
                     />
                     <br />
-                    {/* <Form.Input fluid
+
+                    <Form.Input fluid
                     value={date}
                     label="Date"
                     name={"date"}
                     onChange={this.handleChange}
                     placeholder="Date Requested"
                     />
-                    <br /> */}
+                    <br />
 
-                    <div>
+
+                    {/* <div>
                     <strong>Date Requested *</strong><br/><br/>
                     <Calendar fluid
-                    style={{boxSizing:"border-box"}}                    l
+                    style={{boxSizing:"border-box"}}
                     label="Date"
                     name={"date"}
                     value={date}
                     onChange={this.onChange}
                     required
                     placeholder="Date Requested"/>
-                    </div>
+                    </div> */}
                     <br /><br/>
 
-                    {/* <Form.Input fluid
+                    <Form.Input fluid
                     value={time}
                     label="Time"
                     name={"time"}
                     onChange={this.handleChange}
                     placeholder="Time Requested"
                     />
-                    <br /> */}
+                    <br />
                 
-                    <div>
-                    <strong>Time Requested *</strong><br/><br/>
+                    {/* <strong>Time Requested *</strong><br/><br/>
                     <TimePicker
                     style={{boxSizing:"None"}}
                     name={"time"}
@@ -126,8 +129,7 @@ class ReservationForm extends React.Component {
                     value={this.state.time}
                     onChange={this.onChange}
                     required
-                    />
-                    </div>
+                    /> */}
                     <br/><br/>
 
                     <Form.Input fluid
@@ -136,15 +138,15 @@ class ReservationForm extends React.Component {
                     name={"party"}
                     onChange={this.handleChange}
                     required
-                    placeholder="Please Enter the Number of People Attending"/>
+                    placeholder="Please Enter the Number of People Attending" />
                     <br />
-
                     </List>
                     </Form.Group>
-                    <Form.Button primary style={{backgroundColor:'#e0d538',
-                        color:'black',
-                        height:'60px',
-                        fontSize:'20px'}}>Submit</Form.Button>
+                        <Form.Button primary onClick={this.handlePageChange} style={{backgroundColor:'#e0d538',
+                            color:'black',
+                            height:'60px',
+                            fontSize:'20px'}}>Submit
+                        </Form.Button>
                 </Form>
                 <br/><br/><br/>
             </Container>

@@ -14,4 +14,5 @@ class User < ActiveRecord::Base
   def inactive_message
     approved? ? super : :not_approved
   end
+
 end
