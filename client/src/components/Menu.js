@@ -6,7 +6,7 @@ import { Container } from 'semantic-ui-react';
 const Home = () => (
 
 <Container style={{backgroundColor:"red"}}>
-  <h1>Menu</h1>
+  <h1>Golden Dragon Menu</h1>
 
   </Container>
 

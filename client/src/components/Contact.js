@@ -14,6 +14,7 @@ class ContactForm extends Component {
       //     <Modal.Description>
       //       <Header></Header>
             <Form>
+              <h1>Contact Golden Dragon</h1>
               <Form.Group widths='equal'>
                 <Form.Field control={Input} label='First name' placeholder='First name' />
                 <Form.Field control={Input} label='Last name' placeholder='Last name' />
@@ -23,7 +24,7 @@ class ContactForm extends Component {
                 <label>Reason for contacting Golden Dragon:</label>
                 <Form.Field
                   control={Radio}
-                  label='Venue Reservation'
+                  label='Venue Reservation *'
                   value='Venue Reservation'
                   checked={value === 'Venue Reservation'}
                   onChange={this.handleChange}
@@ -41,6 +42,8 @@ class ContactForm extends Component {
                 placeholder='Please leave your comment or venue reservation details here.'
                 />
                 <Form.Field control={Button}>Submit</Form.Field>
+                <p>* For a venue reservation, please leave the number of people attending and the night you would like to reserve the Golden dragon.
+                completing this form does not guarantee reservation</p>
             </Form>
       //     </Modal.Description>
       // </Modal>

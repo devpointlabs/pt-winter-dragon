@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "braintree-dropin-react": "^0.1.1",
+    "braintree-web-drop-in": "^1.14.1",
     "devise-axios": "^1.0.24",
     "react": "^16.7.0",
     "react-calendar": "^2.17.5",

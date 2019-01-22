@@ -1,16 +1,15 @@
 import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
-import NoMatch from './components/NoMatch'
 
 // import Reservations from './components/Reservations';
 // import ReservationForm from  './components/ReservationForm';
 
-// import Menu from './components/Menu';
+import Menu from './components/Menu';
 // import Cart from '/components/Cart';
 // import Contact from './components/Contact';
 import NavBar from './components/NavBar';
-// import NoMatch from '/componentxs/NoMatch';
+import NoMatch from './components/NoMatch';
 import Footer from './components/Footer'
 import Login from './components/Login';
 import Register from './components/Register';
@@ -23,11 +22,11 @@ import User from './components/User';
 
 const App = () => (
   <Fragment>
-     <NavBar /> 
+     <NavBar />
      <FetchUser>
     <Switch>
       <Route exact path='/' component={Home} />
-      {/* <Route exact path='/menu' component={Menu} /> */}
+      <Route exact path='/menu' component={Menu} />
       {/* <Route exact path='/cart' component={Cart} /> */}
       {/* <Route exact path='/reservations' component={Reservations} /> */}
       {/* <Route exact path='/reservationform' component={ReservationForm} /> */}
