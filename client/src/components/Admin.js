@@ -7,7 +7,7 @@ import axios from 'axios';
 import Users from './Users';
 
 class Admin extends React.Component {
-    state = { users: {},  }
+    state = { users: [],  }
 
     componentDidMount(){
         axios.get('/api/users')
