@@ -7,7 +7,7 @@ import logo_test from '../assets/logo_test.jpg';
 
 const NavBar = () => (
 
-  <Transparent>
+  <Segment as="Transparent">
     {/* <NavLink activeStyle={styles.active} exact to='/'>Home</NavLink> */}
 
 
@@ -37,7 +37,7 @@ const NavBar = () => (
       </Menu.Item>
     </Menu.Menu>
     </Menu>
-  </Transparent>
+  </Segment>
 )
 
 const Transparent = styled.div`

@@ -26,6 +26,7 @@ import ConfirmationRes from './components/ConfirmationRes';
 
 import Users from './components/Users';
 import User from './components/User';
+import ConfirmationRes from './components/ConfirmationRes';
 
 
 const App = () => (
@@ -58,8 +59,9 @@ const App = () => (
       <AdminRoute exact path="/users/:id" component={User} />
       <Route component={NoMatch} />
       <ProtectedRoute exact path="/admin" component={Admin} />
+      <Route exact path='/confirmation' component={ConfirmationRes} />
       {/* <Route component={NoMatch} /> */}
-      <Route exact path='/admindash' component={AdminDash} />
+      {/* <Route exact path='/admindash' component={AdminDash} /> */}
 
 
     </Switch>
