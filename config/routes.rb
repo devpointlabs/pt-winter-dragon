@@ -7,14 +7,13 @@ Rails.application.routes.draw do
     resources :categories do
       resources :items
     end
-
 end
 
   namespace :api do
     resources :orders
   end
 
-  namespace :api do 
+  namespace :api do
     resources :reservations
   end
 

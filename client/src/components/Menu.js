@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 //CHILD COMPONENT
 
+
 class Menu extends React.Component {
 
   currMenu = () => {
