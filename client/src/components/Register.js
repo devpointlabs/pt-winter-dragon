@@ -25,7 +25,7 @@ class Register extends React.Component {
     const { email, password, passwordConfirmation, } = this.state;
     
     return (
-      <Segment basic style={{margin: '25px'}}>
+      <Segment basic style={{margin: '75px'}}>
         <Header as='h1' textAlign='center'>Register</Header>
         <Header as='h4' textAlign='center'>You will need Admin approval before your account will be created.</Header>
         <Form onSubmit={this.handleSubmit}>

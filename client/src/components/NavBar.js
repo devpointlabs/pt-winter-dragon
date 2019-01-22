@@ -16,7 +16,7 @@ const NavBar = () => (
          Home</NavLink>
       </Menu.Item>
       <Menu.Item >
-          <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/Menu'>
+          <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/menu'>
           Menu</NavLink>
       </Menu.Item>
       <Menu.Item>

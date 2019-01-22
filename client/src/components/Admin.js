@@ -1,19 +1,25 @@
 import React from 'react';
 import { AuthConsumer } from '../providers/AuthProvider';
 import { Segment, Header, Button } from 'semantic-ui-react';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom'
 import axios from 'axios';
 import Users from './Users';
+import Reservations from './Reservations'
 
 class Admin extends React.Component {
-    state = { users: [],  }
+    state = { users: [],  reservations: [], }
 
     componentDidMount(){
         axios.get('/api/users')
         .then( res => {
             this.setState({users: res.data})
-        } )
+        } );
+        axios.get('/api/reservations')
+        .then(res => {
+            this.setState({reservations: res.data})
+        })
     }
     
     render() {
@@ -29,12 +35,25 @@ class Admin extends React.Component {
                     </div>
                     <div>
                         <h2>Reservations</h2>
-                        <Segment style={{margin: '15px'}}></Segment>
+                        <Segment style={{margin: '15px'}}>
+                        <Reservations />
+                        </Segment>
                     </div>
                     <div>
                         <h2>
                             Menu Options
-                            <Segment style={{margin: '15px'}}></Segment>
+                            <Segment style={{margin: '15px'}}>
+                                <Button>
+                            <Link to={'/create-new-menu'}>
+                                Menus
+                            </Link>
+                                </Button>
+                            <Link to={'/create-new-menu'}>
+                            <Button>
+                            Create New Menu
+                            </Button>
+                            </Link>
+                            </Segment>
                         </h2>
                     </div>
                     <div>

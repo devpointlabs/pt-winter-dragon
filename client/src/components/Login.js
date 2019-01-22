@@ -21,7 +21,7 @@ class Login extends React.Component {
     const { email, password, } = this.state;
   
     return (
-      <Segment basic style={{margin: '25px'}}>
+      <Segment basic style={{margin: '75px'}}>
         <Header as='h1' textAlign='center'>Login</Header>
         <Form onSubmit={this.handleSubmit}>
           <Form.Input

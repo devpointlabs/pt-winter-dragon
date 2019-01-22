@@ -2,14 +2,10 @@ import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 
-// import Reservations from './components/Reservations';
-// import ReservationForm from  './components/ReservationForm';
+import Reservations from './components/Reservations';
+import ReservationForm from  './components/ReservationForm';
 
-
-import Menus from './components/Menus';
-import EditMenu from './components/EditMenu';
 import Menu from './components/Menu';
-
 // import Cart from '/components/Cart';
 // import Contact from './components/Contact';
 import NavBar from './components/NavBar';
@@ -18,7 +14,7 @@ import Footer from './components/Footer'
 import Login from './components/Login';
 import Register from './components/Register';
 import FetchUser from './components/FetchUser';
-import ProtectedRoute from './components/ProtectedRoute';
+// import ProtectedRoute from './components/ProtectedRoute';
 import AdminRoute from './components/AdminRoute'
 import Admin from './components/Admin';
 import Users from './components/Users';
@@ -30,15 +26,10 @@ const App = () => (
      <FetchUser>
     <Switch>
       <Route exact path='/' component={Home} />
-      {/* <Route exact path='/menu' component={Menus} /> */}
-      <AdminRoute exact path='/edit-menu/:id' component={EditMenu} />
-      <AdminRoute exact path='/create-new-menu' component={Menus} />
-
       <Route exact path='/menu' component={Menu} />
-
       {/* <Route exact path='/cart' component={Cart} /> */}
-      {/* <Route exact path='/reservations' component={Reservations} /> */}
-      {/* <Route exact path='/reservationform' component={ReservationForm} /> */}
+      <Route exact path='/reservations' component={Reservations} />
+      <Route exact path='/reservationform' component={ReservationForm} />
       {/* <Route exact path='/contacts' component={Contact} /> */}
       <Route exact path='/register' component={Register} />
       <Route exact path='/login' component={Login} />
