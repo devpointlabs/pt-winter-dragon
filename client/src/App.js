@@ -29,9 +29,9 @@ const App = () => (
      <FetchUser>
     <Switch>
       <Route exact path='/' component={Home} />
-      <Route exact path='/menu' component={Menus} />
-      <Route exact path='/edit-menu/:id' component={EditMenu} />
-      {/* <Route exact path='/create-new-menu' component={CreateMenu} /> */}
+      {/* <Route exact path='/menu' component={Menus} /> */}
+      <AdminRoute exact path='/edit-menu/:id' component={EditMenu} />
+      <AdminRoute exact path='/create-new-menu' component={Menus} />
       {/* <Route exact path='/cart' component={Cart} /> */}
       {/* <Route exact path='/reservations' component={Reservations} /> */}
       {/* <Route exact path='/reservationform' component={ReservationForm} /> */}
