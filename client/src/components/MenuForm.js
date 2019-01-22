@@ -1,10 +1,11 @@
 import React from 'react';
-import { Button, Form, Checkbox } from 'semantic-ui-react';
+import { Button, Form, Checkbox, Message } from 'semantic-ui-react';
 
 class MenuForm extends React.Component {
   state = { 
       name: '', 
       isActive:false,
+      nameError:false,
     }
 
   componentWillMount () {
@@ -15,9 +16,14 @@ class MenuForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { name, isActive } = this.state;
-    this.props.submit(name, isActive)
-    this.setState( {name: ''})
+    if (this.state.name === ''){
+      this.setState({nameError:true});
+      return 
+    } else {
+      const { name, isActive } = this.state;
+      this.props.submit(name, isActive)
+      this.setState( {name: ''})
+    }
   };
 
   handleInputChange = (e) => {
@@ -45,6 +51,7 @@ class MenuForm extends React.Component {
               title="name"
               value={name}
               onChange={this.handleInputChange}
+              error={this.state.menuError}
             />
           </Form.Field>
           <Button positive onClick={this.handleSubmit}>Update</Button>
