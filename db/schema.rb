@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2019_01_18_032314) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "isactive"
   end
 
   create_table "orders", force: :cascade do |t|

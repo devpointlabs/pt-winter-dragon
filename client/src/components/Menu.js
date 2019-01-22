@@ -1,15 +1,28 @@
-import React from "react";
-import { Link } from 'react-router-dom'
-import NavBar from './NavBar'
-import { Container } from 'semantic-ui-react';
+import React from 'react';
+import { Button, } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
-const Home = () => (
+//CHILD COMPONENT
 
-<Container style={{backgroundColor:"red"}}>
-  <h1>Golden Dragon Menu</h1>
 
-  </Container>
+class Menu extends React.Component {
 
-);
+  currMenu = () => {
+      return(
+      <div>
+        <h2>{this.props.getCurrMenu.name}</h2>
+        <Link to={`/edit-menu/${this.props.getCurrMenu.id}`} key={this.props.getCurrMenu.id} id={this.props.getCurrMenu.id} name={this.props.getCurrMenu.name}><Button>Edit current menu</Button></Link>
+      </div>
+      )
+  }
 
-export default Home;
+  render() {
+    return (
+      <div>
+        {this.currMenu()}
+      </div>
+    )
+  }
+}
+
+export default Menu;

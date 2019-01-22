@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'api/auth'
   namespace :api do
-    resources :menus do
-      resources :categories do
-        resources :items
-      end
+    resources :menus do 
+      resources :categories
     end
-  end
+    resources :categories do
+      resources :items
+    end
+end
 
   namespace :api do
     resources :orders
