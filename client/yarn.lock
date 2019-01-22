@@ -865,6 +865,38 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@braintree/asset-loader@0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@braintree/asset-loader/-/asset-loader-0.2.0.tgz#f30f039df98bb3662677a88828fa36dde082cea8"
+  integrity sha512-tz/0a2nZvoLpUlGWLEJqqT4ITLFvM7WUWVvC8rgM33CiOmJLFUdYClpnoIvR0bXA2i1uxC/i7D67ghEhrg8BuA==
+  dependencies:
+    promise-polyfill "^8.1.0"
+
+"@braintree/browser-detection@1.7.0", "@braintree/browser-detection@^1.5.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@braintree/browser-detection/-/browser-detection-1.7.0.tgz#895ba64b700c3f36cab5c54591caf71a41171dd8"
+  integrity sha1-iVumS3AMPzbKtcVFkcr3GkEXHdg=
+
+"@braintree/class-list@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@braintree/class-list/-/class-list-0.1.0.tgz#d6c8606ce6a82b4b37f28e32eadd090abcf1adaa"
+  integrity sha512-AmXPsYhiNJKcxuwkgQjwyyTwFCeRlyFTeUJ9ecV/jLxS8ZH8fCAB4enYgArMRyvCekZZkqLK54kOJ6+OJBzJwA==
+
+"@braintree/iframer@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@braintree/iframer/-/iframer-1.0.3.tgz#21dd1fd4cebd4154aeab1efa4d5b0d5f4384364e"
+  integrity sha1-Id0f1M69QVSuqx76TVsNX0OENk4=
+
+"@braintree/sanitize-url@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@braintree/sanitize-url/-/sanitize-url-2.1.0.tgz#549a9d1f923c9bc7953a585d3e9aa9429be8fe28"
+  integrity sha1-VJqdH5I8m8eVOlhdPpqpQpvo/ig=
+
+"@braintree/wrap-promise@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@braintree/wrap-promise/-/wrap-promise-1.1.1.tgz#d22c76855e6d4b4012610060421fae1a37ec90b0"
+  integrity sha1-0ix2hV5tS0ASYQBgQh+uGjfskLA=
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
@@ -1876,6 +1908,45 @@ braces@^2.3.0, braces@^2.3.1:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
+braintree-dropin-react@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/braintree-dropin-react/-/braintree-dropin-react-0.1.1.tgz#8a342b82ba9a811634af306aef8b5f25cf96fb77"
+  integrity sha512-XUpOkj3tk+kND8A3M9izdjvDITM4lKpkIOqXylEsrQn1PRlsPxwP5qdtt6FShXqUo0W/iJolvLgjqNLLu26Oag==
+  dependencies:
+    prop-types "^15.6.0"
+    react "^16.5.2"
+    react-dom "^16.5.2"
+
+braintree-web-drop-in@^1.14.1:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/braintree-web-drop-in/-/braintree-web-drop-in-1.14.1.tgz#ac414c5f0c8ab14f233dbc43f27342b31d900917"
+  integrity sha512-VxBexaLRHpf/nONtqz+SXTx4hpzsB6G415LYYh4hO+jLquQq0uIq3+CvjconyprE9Yzptxhu46HLaXuDlDXWWg==
+  dependencies:
+    "@braintree/asset-loader" "0.2.0"
+    "@braintree/browser-detection" "1.7.0"
+    "@braintree/class-list" "0.1.0"
+    "@braintree/wrap-promise" "1.1.1"
+    braintree-web "3.39.0"
+    promise-polyfill "8.1.0"
+
+braintree-web@3.39.0:
+  version "3.39.0"
+  resolved "https://registry.yarnpkg.com/braintree-web/-/braintree-web-3.39.0.tgz#b5dd494c8d1f0a730b52bf043cd14fc975e0f65d"
+  integrity sha512-3j5eTQf9WrGaooAEK2OhBnTnvdnZT+gigooMdAUD6Ll1NWRlRmS7OC5G1kkWEr+KXWgE63IqyDy4sLtP5GsYaQ==
+  dependencies:
+    "@braintree/asset-loader" "0.2.0"
+    "@braintree/browser-detection" "1.7.0"
+    "@braintree/class-list" "0.1.0"
+    "@braintree/iframer" "1.0.3"
+    "@braintree/sanitize-url" "2.1.0"
+    "@braintree/wrap-promise" "1.1.1"
+    card-validator "6.0.0"
+    credit-card-type "8.0.0"
+    framebus "3.0.1"
+    inject-stylesheet "1.0.0"
+    promise-polyfill "8.1.0"
+    restricted-input "1.2.7"
+
 brorand@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
@@ -2145,6 +2216,13 @@ capture-exit@^1.2.0:
   integrity sha1-HF/MSJ/QqwDU8ax64QcuMXP7q28=
   dependencies:
     rsvp "^3.3.3"
+
+card-validator@6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/card-validator/-/card-validator-6.0.0.tgz#ed35134e3545bfb9ab88204778f8007fc023ea80"
+  integrity sha512-M0f9AR//drteDaoXXv/TnvPSwYhIZp86CBLwNZ1T89mNkFMxcgKRJnSYJvQ+MSRJjIaVNRapPHdi4NVhxfB67Q==
+  dependencies:
+    credit-card-type "^8.0.0"
 
 case-sensitive-paths-webpack-plugin@2.1.2:
   version "2.1.2"
@@ -2583,6 +2661,11 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     ripemd160 "^2.0.0"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
+
+credit-card-type@8.0.0, credit-card-type@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/credit-card-type/-/credit-card-type-8.0.0.tgz#e65347bcdb979b4deb3107cd43a1cd9da802cd50"
+  integrity sha512-q3k5fbLJJIkPTBLr03Wo2Ui8cF5vHE8eTT/3K7BUW1ROoyns2vHoglWrzjmU/8JKA0X7JFlYlUVuDRwn7l2ldw==
 
 cross-spawn@6.0.5, cross-spawn@^6.0.0, cross-spawn@^6.0.5:
   version "6.0.5"
@@ -4056,6 +4139,11 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
+framebus@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/framebus/-/framebus-3.0.1.tgz#dbabc3b08e39bf33d248e9af754bd8ffb05cfcce"
+  integrity sha1-26vDsI45vzPSSOmvdUvY/7Bc/M4=
+
 fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
@@ -4792,6 +4880,11 @@ ini@^1.3.4, ini@~1.3.0:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
   integrity sha512-RZY5huIKCMRWDUqZlEi72f/lmXKMvuszcMBduliQ3nnWbx9X/ZBQO7DijMEYS9EhHBb2qacRUMtC7svLwe0lcw==
+
+inject-stylesheet@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/inject-stylesheet/-/inject-stylesheet-1.0.0.tgz#f673047458ee58f109fee4cfb66b09f362ccc261"
+  integrity sha1-9nMEdFjuWPEJ/uTPtmsJ82LMwmE=
 
 inquirer@6.2.0:
   version "6.2.0"
@@ -7873,6 +7966,11 @@ promise-inflight@^1.0.1:
   resolved "https://registry.yarnpkg.com/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
 
+promise-polyfill@8.1.0, promise-polyfill@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-8.1.0.tgz#30059da54d1358ce905ac581f287e184aedf995d"
+  integrity sha512-OzSf6gcCUQ01byV4BgwyUCswlaQQ6gzXc23aLQWhicvfX9kfsUiUhgt3CCQej8jDnl8/PhGF31JdHX2/MzF3WA==
+
 promise@8.0.2:
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/promise/-/promise-8.0.2.tgz#9dcd0672192c589477d56891271bdc27547ae9f0"
@@ -8118,7 +8216,7 @@ react-dev-utils@^7.0.1:
     strip-ansi "4.0.0"
     text-table "0.2.0"
 
-react-dom@^16.7.0:
+react-dom@^16.5.2, react-dom@^16.7.0:
   version "16.7.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.7.0.tgz#a17b2a7ca89ee7390bc1ed5eb81783c7461748b8"
   integrity sha512-D0Ufv1ExCAmF38P2Uh1lwpminZFRXEINJe53zRAbm4KPwSyd6DY/uDoS0Blj9jvPpn1+wivKpZYc8aAAN/nAkg==
@@ -8132,6 +8230,19 @@ react-error-overlay@^5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.2.tgz#888957b884d4b25b083a82ad550f7aad96585394"
   integrity sha512-7kEBKwU9R8fKnZJBRa5RSIfay4KJwnYvKB6gODGicUmDSAhQJ7Tdnll5S0RLtYrzRfMVXlqYw61rzrSpP4ThLQ==
+
+react-flip-move@^3.0.1:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-flip-move/-/react-flip-move-3.0.3.tgz#3065b0b9e622ae73953aba725f8feed8e4643667"
+  integrity sha512-gR2jvjUgIXI7ceFWJkr8owX4vKhV0IJoXIf/Dt7gESFe5OKiSz2H6d10mKTW8fN134NDI16J4HgEgq9pKqJd5A==
+
+react-images-upload@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/react-images-upload/-/react-images-upload-1.2.6.tgz#3ac831537d14f48ec7ed599ff4c8839c903c5393"
+  integrity sha512-vw3cAj3LgN9ebhnfRkJ9bHK8d51b73Su8mepZv2HxVByskznsuox7PqxrUrTW14kZirbe0PXBIIMbTzOWJdPtw==
+  dependencies:
+    react "^16.2.0"
+    react-flip-move "^3.0.1"
 
 react-is@^16.6.0:
   version "16.7.0"
@@ -8236,7 +8347,7 @@ react-time-picker@^3.1.1:
     react-clock "^2.3.0"
     react-lifecycles-compat "^3.0.4"
 
-react@^16.7.0:
+react@^16.5.2, react@^16.7.0:
   version "16.7.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.7.0.tgz#b674ec396b0a5715873b350446f7ea0802ab6381"
   integrity sha512-StCz3QY8lxTb5cl2HJxjwLFOXPIFQp+p+hxQfc8WE0QiLfCtIlKj8/+5tjjKm8uSTlAW+fCPaavGFS06V9Ar3A==
@@ -8598,6 +8709,13 @@ restore-cursor@^2.0.0:
   dependencies:
     onetime "^2.0.0"
     signal-exit "^3.0.2"
+
+restricted-input@1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/restricted-input/-/restricted-input-1.2.7.tgz#e1298f5fd8c430cc2d8e6bb1175524023205cb34"
+  integrity sha1-4SmPX9jEMMwtjmuxF1UkAjIFyzQ=
+  dependencies:
+    "@braintree/browser-detection" "^1.5.0"
 
 ret@~0.1.10:
   version "0.1.15"
