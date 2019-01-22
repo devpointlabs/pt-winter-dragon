@@ -21,4 +21,8 @@ end
   namespace :api do
     resources :contact_forms
   end
+
+  namespace :api do
+    resources :users
+  end
 end
