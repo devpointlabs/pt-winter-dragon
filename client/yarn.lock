@@ -8347,7 +8347,7 @@ react-time-picker@^3.1.1:
     react-clock "^2.3.0"
     react-lifecycles-compat "^3.0.4"
 
-react@^16.5.2, react@^16.7.0:
+react@^16.2.0, react@^16.5.2, react@^16.7.0:
   version "16.7.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.7.0.tgz#b674ec396b0a5715873b350446f7ea0802ab6381"
   integrity sha512-StCz3QY8lxTb5cl2HJxjwLFOXPIFQp+p+hxQfc8WE0QiLfCtIlKj8/+5tjjKm8uSTlAW+fCPaavGFS06V9Ar3A==

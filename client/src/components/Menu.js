@@ -1,28 +1,52 @@
 import React from 'react';
-import { Button, } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { Container, Segment } from 'semantic-ui-react';
 
-//CHILD COMPONENT
+// CLIENT SIDE
 
+class Menu extends React.Component { 
 
-class Menu extends React.Component {
+  state = { menus: [], menu: {id: null, name: '', categories: [], items: []} }
 
-  currMenu = () => {
-      return(
-      <div>
-        <h2>{this.props.getCurrMenu.name}</h2>
-        <Link to={`/edit-menu/${this.props.getCurrMenu.id}`} key={this.props.getCurrMenu.id} id={this.props.getCurrMenu.id} name={this.props.getCurrMenu.name}><Button>Edit current menu</Button></Link>
-      </div>
-      )
+  componentDidMount = () => {
+    axios.get(`api/menus`)
+      .then(res => {
+        this.setState({menus: res.data})
+        this.state.menus.map(m => {
+          if (m.isactive) {
+            this.setState({menu: {id: m.id, name: m.name}})
+            axios.get(`api/menus/${m.id}/categories`)
+              .then(res => {
+                this.setState({categories: res.data})
+                console.log(this.state.categories)
+                this.state.categories.map(c => {
+                  axios.get(`api/categories/${c.id}/items`)
+                    .then(res => {
+                      this.setState({items: res.data})
+                      })
+                  })
+              })
+          } else {
+            return (
+              <div>No menu is currently set</div>
+            )
+          }
+        })
+      })
   }
+
+  // displayMenu = () => {
+
+  // }
 
   render() {
     return (
-      <div>
-        {this.currMenu()}
-      </div>
+      <Container>
+        {/* {this.displayMenu()} */}
+      </Container>
     )
   }
-}
+
+}  
 
 export default Menu;
