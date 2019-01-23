@@ -66,7 +66,6 @@ class Admin extends React.Component {
                 <ButtonLink onClick={() => handleLogout(this.props.history)}>Logout</ButtonLink>
 
                 </Main>
-                <AdminNav/>
                 <br/>
                 <br/>
                 <br/>
