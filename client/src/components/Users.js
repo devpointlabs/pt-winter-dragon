@@ -34,9 +34,7 @@ class Users extends React.Component {
             { users.map( user => 
                 <Card key={user.id}>
                 <Card.Content>
-                <Link to={`/users/${user.id}`}>
                     <Card.Header>{user.email}</Card.Header>
-                </Link>
                 </Card.Content>
                 <Card.Content onClick={() => this.updateUser(user.id)}>
                 <NewStyle>

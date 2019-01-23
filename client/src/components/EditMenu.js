@@ -43,7 +43,7 @@ class EditMenu extends React.Component {
     const id = this.props.match.params.id
     const { menu } = this.state
     return (
-      <Container>
+      <Container style={{margin: '150px 0px 0px 0px'}}>
         <Segment>
         <div>
           <h1>Active Menu</h1>
