@@ -3,7 +3,7 @@ import axios from 'axios';
 import CatForm from './CatForm';
 import Items from './Items';
 
-import { Button, Icon, Segment } from 'semantic-ui-react';
+import { Button, Icon, Segment, Grid } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 //CHILD COMPONENT
@@ -49,14 +49,18 @@ class Categories extends React.Component {
   showCategories = () => {
     return this.state.categories.map(c => {
       return (
-        <ul key={c.id}>
-          <h3>Category Name: {c.name}</h3> 
+        <div key={c.id}>
+          <h2>Category: {c.name}</h2> 
           <h4>Description: {c.description}</h4>
-          <Items catId={c.id}/>
-          {this.state.toggleEditCat ? <CatForm id={c.id} name={c.name} description={c.description} editCategory={this.editCategory}/> : null }
           <Button color='yellow' onClick={() => this.setState({toggleEditCat: !this.state.toggleEditCat})}>Edit Category</Button>
+          {this.state.toggleEditCat ? <CatForm id={c.id} name={c.name} description={c.description} editCategory={this.editCategory}/> : null }
           <Button trash="true" negative onClick={() => this.deleteCat(c.id)}><Icon name='trash' />Delete Category</Button>
-        </ul>
+          <br />
+          <br />
+          <Items catId={c.id}/>
+          <br />
+          <hr />
+          </div>
       )
     })
   }
