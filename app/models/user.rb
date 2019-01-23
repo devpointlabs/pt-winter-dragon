@@ -11,15 +11,8 @@ class User < ActiveRecord::Base
   #   super && approved?
   # end
 
-<<<<<<< HEAD
-
-  # def inactive_message
-  #   approved? ? super : :not_approved
-  # end
-=======
   def inactive_message
     approved? ? super : :not_approved
   end
 
->>>>>>> Reservation - Final
 end
