@@ -30,7 +30,8 @@ class Reservations extends React.Component {
         //         {/* <Link to={`/reservations/${d.id}`}>{d.name}
 
           
-              <Table>
+        <Table>      
+
               <Table.Body>
                   <Table.Cell>{d.name}</Table.Cell>
                   <Table.Cell>{d.phone}</Table.Cell>

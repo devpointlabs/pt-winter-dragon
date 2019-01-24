@@ -7,7 +7,9 @@ import logo_test from '../assets/logo_test.jpg';
 
 const NavBar = () => (
 
-  <Segment as="Transparent">
+  // <Segment as={Transparent}>
+
+  <Transparent>
     {/* <NavLink activeStyle={styles.active} exact to='/'>Home</NavLink> */}
 
 
@@ -37,7 +39,7 @@ const NavBar = () => (
       </Menu.Item>
     </Menu.Menu>
     </Menu>
-  </Segment>
+  </Transparent>
 )
 
 const Transparent = styled.div`
@@ -84,5 +86,6 @@ const styles = {
     borderRadius: '7px',
   }
 }
+
 
 export default NavBar
