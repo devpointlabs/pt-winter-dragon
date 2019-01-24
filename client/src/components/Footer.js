@@ -25,7 +25,10 @@ const Footer = () => (
     <Container>
      <p>{"\u00A9"}2018 New Golden Dragon Restaurant</p>
      <p>All Rights Reserved</p>
-     <Link to="/admin" style={{color: 'grey'}}>Admin Login</Link>
+     <Link to="/admin" style={{color: 'grey'}}>Admin Dashboard</Link>
+     <br />
+     <Link to="/login" style={{color: 'grey'}}>Admin Login</Link>
+
     </Container>
     </Grid.Column>
     </Grid>

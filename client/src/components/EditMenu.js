@@ -43,7 +43,7 @@ class EditMenu extends React.Component {
     const id = this.props.match.params.id
     const { menu } = this.state
     return (
-      <Container>
+      <Container style={{margin: '150px 0px 25px 0px'}}>
         <Segment>
         <div>
           <h1>Active Menu</h1>
@@ -57,6 +57,7 @@ class EditMenu extends React.Component {
               <br />
               <Button trash='true' negative onClick={() => this.show()}><Icon name='trash' />Delete Menu</Button>
               <Confirm open={this.state.open} onCancel={this.handleCancel} onConfirm={this.handleConfirm} deleteMenu={this.deleteMenu(menu.id)}/>
+              <br />
         </div>
         </Segment>
       </Container>

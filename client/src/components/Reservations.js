@@ -27,17 +27,11 @@ class Reservations extends React.Component {
     showReservations = () => {
         return this.state.reservations.map(d => {
             return (
-          <Table singleLine>
-              <Table.Header>
-                  <Table.Row >
-                      <Table.HeaderCell>Name </Table.HeaderCell>
-                      <Table.HeaderCell>Phone</Table.HeaderCell>
-                      <Table.HeaderCell>Email</Table.HeaderCell>
-                      <Table.HeaderCell>Requested Date</Table.HeaderCell>
-                      <Table.HeaderCell>Requested Time</Table.HeaderCell>
-                      <Table.HeaderCell>Number of People</Table.HeaderCell>
-                  </Table.Row>
-              </Table.Header>
+        //         {/* <Link to={`/reservations/${d.id}`}>{d.name}
+
+          
+              
+
               <Table.Body>
                   <Table.Cell>{d.name}</Table.Cell>
                   <Table.Cell>{d.phone}</Table.Cell>
@@ -46,6 +40,7 @@ class Reservations extends React.Component {
                   <Table.Cell>{d.time}</Table.Cell>
                   <Table.Cell>{d.party}</Table.Cell>
               </Table.Body>
+
               <Table.Cell>
               <Button color='red' style={{margin:'10px'}}>
               <Link style={{color:'white'}}to={"/reservations"}
@@ -62,8 +57,20 @@ class Reservations extends React.Component {
     render() {
         return (
             <Container>
-                <br/><Header as="h1">Reservation List</Header><br/>
-                {this.showReservations()} <br/><br/>
+                <Table singleLine>
+              <Table.Header>
+                  <Table.Row>
+                      <Table.HeaderCell>Name </Table.HeaderCell>
+                      <Table.HeaderCell>Phone</Table.HeaderCell>
+                      <Table.HeaderCell>Email</Table.HeaderCell>
+                      <Table.HeaderCell>Requested Date</Table.HeaderCell>
+                      <Table.HeaderCell>Requested Time</Table.HeaderCell>
+                      <Table.HeaderCell>Number of People</Table.HeaderCell>
+                  </Table.Row>
+                  </Table.Header>
+                {this.showReservations()}
+                </Table>
+
             </Container>
             
         );

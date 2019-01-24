@@ -4,13 +4,6 @@ import Home from './components/Home';
 
 import Reservations from './components/Reservations';
 import ReservationForm from  './components/ReservationForm';
-// import AdminDash from './components/AdminDash';
-// import Menu from './components/Menu';
-
-
-
-
-
 import Menus from './components/Menus';
 import EditMenu from './components/EditMenu';
 import Menu from './components/Menu';
@@ -49,9 +42,10 @@ const App = () => (
       <Route exact path='/menu' component={Menu} />
 
       {/* <Route exact path='/cart' component={Cart} /> */}
-      <AdminRoute exact path='/reservations' component={Reservations} />
+      <Route exact path='/reservations' component={Reservations} />
       <Route exact path='/reservationform' component={ReservationForm} />
-      <Route exact path='/contacts' component={Contact} />
+      {/* <Route exact path='/contacts' component={Contact} /> */}
+
       <Route exact path='/register' component={Register} />
       <Route exact path='/login' component={Login} />
 
