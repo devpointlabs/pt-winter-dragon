@@ -1,17 +1,10 @@
 import React from 'react';
 import { AuthConsumer } from '../providers/AuthProvider';
-import { Segment, Header, Button } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-
 import { withRouter } from 'react-router-dom';
-import {Link} from 'react-router-dom';
-import {Header, Segment, Menu, Container} from 'semantic-ui-react';
-import AdminNav from './AdminNav';
-
-class Admin extends React.Component {
-
-import { withRouter } from 'react-router-dom'
+import {Header, Segment, Menu, Container, Button} from 'semantic-ui-react';
+// import AdminNav from './AdminNav';
 import axios from 'axios';
 import Users from './Users';
 import Reservations from './Reservations'
@@ -47,7 +40,7 @@ class Admin extends React.Component {
                 Logout
                 </ButtonLink>
                 <br/>
-
+                </Main>
                 <Main>
                     <h1>Welcome to the Admin Page</h1>
                     <div>
@@ -86,7 +79,6 @@ class Admin extends React.Component {
                 <ButtonLink onClick={() => handleLogout(this.props.history)}>Logout</ButtonLink>
 
                 </Main>
-                <AdminNav/>
                 <br/>
                 <br/>
                 <br/>

@@ -7,7 +7,7 @@ import logo_test from '../assets/logo_test.jpg';
 
 const NavBar = () => (
 
-  <Segment as={Transparent}>
+  // <Segment as={Transparent}>
 
   <Transparent>
     {/* <NavLink activeStyle={styles.active} exact to='/'>Home</NavLink> */}
@@ -86,5 +86,6 @@ const styles = {
     borderRadius: '7px',
   }
 }
+
 
 export default NavBar
