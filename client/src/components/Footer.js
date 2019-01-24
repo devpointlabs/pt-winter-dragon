@@ -28,6 +28,7 @@ const Footer = () => (
      <Link to="/admin" style={{color: 'grey'}}>Admin Dashboard</Link>
      <br />
      <Link to="/login" style={{color: 'grey'}}>Admin Login</Link>
+
     </Container>
     </Grid.Column>
     </Grid>

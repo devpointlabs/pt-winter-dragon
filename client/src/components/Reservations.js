@@ -1,18 +1,27 @@
 import React from 'react'
 import axios from 'axios'
-import ReservationForm from './ReservationForm';
 import {Link} from 'react-router-dom';
-import { Card, Container, Header, Table, Segment } from 'semantic-ui-react';
-
+import ReservationForm from './ReservationForm';
+import { Container, Header, Table, Button } from 'semantic-ui-react';
 
 class Reservations extends React.Component {
-    state= { reservations: [] }
+    state = { reservations: [] } 
 
     componentDidMount() {
         axios.get('/api/reservations')
         .then(res => {
             this.setState({ reservations: res.data})
         })
+    }
+
+    removeReserv = (id) => {
+        axios.delete(`/api/reservations/${id}`)
+        .then(res => {
+             this.setState({reservations: res.data})
+        });
+        return (
+            window.location.href="/reservations/"
+        )
     }
 
     showReservations = () => {
@@ -22,6 +31,7 @@ class Reservations extends React.Component {
 
           
               
+
               <Table.Body>
                   <Table.Cell>{d.name}</Table.Cell>
                   <Table.Cell>{d.phone}</Table.Cell>
@@ -30,7 +40,16 @@ class Reservations extends React.Component {
                   <Table.Cell>{d.time}</Table.Cell>
                   <Table.Cell>{d.party}</Table.Cell>
               </Table.Body>
-          
+
+              <Table.Cell>
+              <Button color='red' style={{margin:'10px'}}>
+              <Link style={{color:'white'}}to={"/reservations"}
+                    onClick={() => this.removeReserv(d.id)}>
+                    Delete
+              </Link>
+              </Button>
+              </Table.Cell><br/>
+          </Table>
             )
         })
     }
@@ -51,7 +70,9 @@ class Reservations extends React.Component {
                   </Table.Header>
                 {this.showReservations()}
                 </Table>
+
             </Container>
+            
         );
     }
 }
