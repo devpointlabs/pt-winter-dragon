@@ -34,6 +34,20 @@ class Api::MenusController < ApplicationController
     @menu.destroy
   end
 
+  def active_menu
+    category = Category.select("categories.*")
+    .joins("inner join menus on menus.id = categories.menu_id")
+    .where("menus.isactive=true")
+    
+    menu_data = []
+
+    category.each do |c| 
+      menu_data << {category: c, items: c.items}
+    end
+
+    render json: menu_data
+  end
+
   private
     def menu_params 
       params.require(:menu).permit(:name, :isactive)
