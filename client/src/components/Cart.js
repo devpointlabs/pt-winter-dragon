@@ -6,7 +6,6 @@ import {Container, Grid, Header, Segment, Divider, Icon, Form, Button, Table } f
 
 class Cart extends React.Component {
 
-
  showSelectedItems = () => {
      return (
          <div>
@@ -14,17 +13,19 @@ class Cart extends React.Component {
              <h3>Item1</h3>
              <h3>Item1</h3>
              <h3>Item1</h3>
-
          </div>
      )
  }
 
- removeFromCart = () => {
 
+//Removes from the Cart
+ removeFromCart = (id) => { 
+    axios.delete(`/api/taxnfees/${id}`)
+    .then(res => {
+        this.setState({taxnfees: res.data})
+    });
     return (
-        <div>
-
-        </div>
+        window.location.href="/taxnfees/"
     )
  }
 
