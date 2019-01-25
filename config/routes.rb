@@ -24,4 +24,9 @@ end
   namespace :api do
     resources :users
   end
+
+  namespace :api do
+    resources :taxnfees
+  end
+
 end
