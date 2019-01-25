@@ -21,6 +21,15 @@ import Admin from './components/Admin';
 import Users from './components/Users';
 import User from './components/User';
 import ConfirmationRes from './components/ConfirmationRes'
+import Cart from './components/Cart';
+import Food from './components/Food';
+import TaxnFees from './components/TaxnFees';
+import TaxnFeeForm from './components/TaxnFeeForm'; 
+import CartTotal from './components/CartTotal';
+
+
+
+
 
 const App = () => (
   <Fragment>
@@ -28,6 +37,14 @@ const App = () => (
      <FetchUser>
     <Switch>
       <Route exact path='/' component={Home} />
+      <Route exact path='/food' component={Food} />
+      
+
+      <Route exact path='/taxnfees' component={TaxnFees} />
+      <Route exact path='/taxnfeeform' component={TaxnFeeForm} />
+
+      <Route exact path='/carttotal' component={CartTotal} />
+
       {/* <Route exact path='/menu' component={Menus} /> */}
       <AdminRoute exact path='/edit-menu/:id' component={EditMenu} />
       <AdminRoute exact path='/create-new-menu' component={Menus} />
@@ -36,6 +53,7 @@ const App = () => (
       <Route exact path='/reservations' component={Reservations} />
       <Route exact path='/reservationform' component={ReservationForm} />
       {/* <Route exact path='/contacts' component={Contact} /> */}
+      <Route exact path='/cart' component={Cart}/>
 
       <Route exact path='/register' component={Register} />
       <Route exact path='/login' component={Login} />
@@ -50,6 +68,7 @@ const App = () => (
       <ProtectedRoute exact path="/admin" component={Admin} />
       {/* <Route component={NoMatch} /> */}
       {/* <Route exact path='/admindash' component={AdminDash} /> */}
+
     </Switch>
     </FetchUser>
     <Footer />
