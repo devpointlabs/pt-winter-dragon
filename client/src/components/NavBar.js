@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Button, Menu } from 'semantic-ui-react'
+import { Button, Menu, Segment } from 'semantic-ui-react'
 import styled from 'styled-components';
 import logo_test from '../assets/logo_test.jpg';
 
@@ -8,38 +8,35 @@ import logo_test from '../assets/logo_test.jpg';
 const NavBar = () => (
 
   <Segment as={Transparent}>
-
-  <Transparent>
-    {/* <NavLink activeStyle={styles.active} exact to='/'>Home</NavLink> */}
-
-
-    <Menu secondary>
-    <Logo />
-    <Menu.Menu position='right'>
-      <Menu.Item>
-         <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/'>
-         Home</NavLink>
-      </Menu.Item>
-      <Menu.Item >
-          <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/menu'>
-          Menu</NavLink>
-      </Menu.Item>
-      <Menu.Item>
-          <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/reservationform'>
-          Reservations</NavLink>
-      </Menu.Item>
-      <Menu.Item>
-          <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/contacts'>
-          Contact Us</NavLink>
-      </Menu.Item>
-      <Menu.Item>
-        <Button primary style={{backgroundColor:'#e0d538',
-          color:'black',
-          fontSize:'15px'}}>Order Online</Button>
-      </Menu.Item>
-    </Menu.Menu>
-    </Menu>
-  </Transparent>
+    <Transparent>
+      <Menu secondary>
+      <Logo />
+      <Menu.Menu position='right'>
+        <Menu.Item>
+          <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/'>
+          Home</NavLink>
+        </Menu.Item>
+        <Menu.Item >
+            <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/menu'>
+            Menu</NavLink>
+        </Menu.Item>
+        <Menu.Item>
+            <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/reservationform'>
+            Reservations</NavLink>
+        </Menu.Item>
+        <Menu.Item>
+            <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/contacts'>
+            Contact Us</NavLink>
+        </Menu.Item>
+        <Menu.Item>
+          <Button primary style={{backgroundColor:'#e0d538',
+            color:'black',
+            fontSize:'15px'}}>Order Online</Button>
+        </Menu.Item>
+      </Menu.Menu>
+      </Menu>
+    </Transparent>
+  </Segment>
 )
 
 const Transparent = styled.div`
