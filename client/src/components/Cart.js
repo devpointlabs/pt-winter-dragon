@@ -15,12 +15,7 @@ class Cart extends React.Component {
         })
     }
 
-    editTaxnFees = (taxnfee) => {
-        axios.put(`/api/taxnfees/${taxnfee.id}`, {taxnfee})
-        .then(res => {
-            this.setState({taxnfee: res.data})
-        });
-    }
+
 
     showSelectedItems = () => {
      return (
@@ -90,11 +85,7 @@ class Cart extends React.Component {
             </Header>
             <Header as={'h4'}>
             Delivery Fee :
-            <TaxnFees
-                taxnfees={taxnfees}
-                tax={this.tax}
-                delivery={this.delivery}
-                />
+          
             </Header>
             <Header as={'h4'}>
             Tax :
