@@ -1,20 +1,31 @@
 import React from 'react';
 import axios from 'axios';
-import { Grid, Segment, Header, Card } from 'semantic-ui-react';
+import { Grid, Segment, Header, Card, Button } from 'semantic-ui-react';
 import styled from 'styled-components';
 
 // CLIENT SIDE
 
 class Menu extends React.Component { 
 
-  state = { menus: [], categories: { items: []} }
+  state = { menus: [], categories: { items: []}, cart: [] }
 
   componentDidMount() {
   //get all data from database using sql query
     axios.get(`/api/active_menu`)
       .then(res =>{
         this.setState({categories: res.data})
-      })
+    })
+  }
+
+  handleAddCart = (id) => {
+    this.setState({cart: [...this.state.cart, id]})
+  }
+
+  checkout = () => {
+    this.props.history.push({
+      pathname: '/cart',
+      state: { cart: [...this.state.cart] }
+    })
   }
 
   displayMenu = () => {
@@ -32,6 +43,11 @@ class Menu extends React.Component {
                             <Card.Content>
                               <Card.Header>{i.name}</Card.Header>
                               <Card.Meta>{i.price}</Card.Meta>
+                              <Button 
+                                positive
+                                content="Add To Cart"
+                                onClick={() => this.handleAddCart(i.id)}
+                              />
                             </Card.Content>
                           </Card>
                         </Grid.Column>
@@ -55,6 +71,11 @@ class Menu extends React.Component {
             <Segment>
               <Header as='h1'>MENU</Header>
                 {this.displayMenu()}
+                <Button
+                  positive 
+                  content="Checkout"
+                  onClick={this.checkout}
+                />
             </Segment>
           </Section>
         </div>
