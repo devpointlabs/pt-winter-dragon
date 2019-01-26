@@ -27,6 +27,7 @@ import ConfirmationRes from './components/ConfirmationRes';
 
 import Users from './components/Users';
 import User from './components/User';
+import Payment from './components/Payment';
 
 
 const App = () => (
@@ -42,10 +43,17 @@ const App = () => (
       <Route exact path='/menu' component={Menu} />
 
       {/* <Route exact path='/cart' component={Cart} /> */}
+<<<<<<< HEAD
       <Route exact path='/reservations' component={Reservations} />
       <Route exact path='/reservationform' component={ReservationForm} />
       {/* <Route exact path='/contacts' component={Contact} /> */}
 
+=======
+      {/* <Route exact path='/reservations' component={Reservations} /> */}
+      {/* <Route exact path='/reservationform' component={ReservationForm} /> */}
+      <Route exact path='/contacts' component={Contact} />
+      <Route exact path='/payment' component={Payment} />
+>>>>>>> seed file and changes
       <Route exact path='/register' component={Register} />
       <Route exact path='/login' component={Login} />
 

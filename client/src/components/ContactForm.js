@@ -12,12 +12,14 @@ class ContactForm extends Component {
       })
   }
 
-  handleChange = (e, { value }) => this.setState({ value })
+  handleChange = (e) => {
+    this.setState({ name: e.target.value });
+  }
 
   handleSubmit = (e) => {
-      const { submit } = this.props
-      e.preventDefault();
-      this.setState({...this.state})
+    e.preventDefault();
+    this.props.addItem(this.state);
+    this.setState({ fname: '', lname: '', email: '', reason: '', comment: '', })
   }
 
   addContact = () => {
@@ -30,10 +32,6 @@ class ContactForm extends Component {
   render() {
     const { value } = this.state
     return (
-      // <Modal trigger={<Button>Contact Us</Button>}>
-      //   <Modal.Header>Contact Golden Dragon</Modal.Header>
-      //     <Modal.Description>
-      //       <Header></Header>
             <Form>
               <h1>Contact Golden Dragon</h1>
               <Form.Group widths='equal'>
@@ -69,8 +67,6 @@ class ContactForm extends Component {
                 <p>* For a venue reservation, please leave the number of people attending and the night you would like to reserve the Golden dragon.
                 completing this form does not guarantee reservation</p>
             </Form>
-      //     </Modal.Description>
-      // </Modal>
     )
   }
 }
