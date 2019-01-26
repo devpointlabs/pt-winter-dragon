@@ -7,6 +7,7 @@ import ReservationForm from  './components/ReservationForm';
 import Menus from './components/Menus';
 import EditMenu from './components/EditMenu';
 import Menu from './components/Menu';
+import Cart from './components/Cart';
 
 
 // import Cart from '/components/Cart';
@@ -27,6 +28,7 @@ import ConfirmationRes from './components/ConfirmationRes';
 
 import Users from './components/Users';
 import User from './components/User';
+import OrderOnline from './components/OrderOnline'
 
 
 const App = () => (
@@ -40,8 +42,9 @@ const App = () => (
       <AdminRoute exact path='/create-new-menu' component={Menus} />
 
       <Route exact path='/menu' component={Menu} />
+      <Route exact path='/order-online' component={OrderOnline} />
 
-      {/* <Route exact path='/cart' component={Cart} /> */}
+      <Route exact path='/cart' component={Cart} />
       <Route exact path='/reservations' component={Reservations} />
       <Route exact path='/reservationform' component={ReservationForm} />
       {/* <Route exact path='/contacts' component={Contact} /> */}

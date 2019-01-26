@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Form, Checkbox } from 'semantic-ui-react';
-import Dropzone from 'react-dropzone';
+// import Dropzone from 'react-dropzone';
 import axios from 'axios';
 // import ImageUploader from 'react-images-upload';
 
@@ -92,7 +92,7 @@ class ItemForm extends React.Component {
             onChange={this.handleToggle}
           />
         </Form.Field>
-        <Dropzone
+        {/* <Dropzone
           onDrop={this.onDrop}
           multiple={false}
         >
@@ -112,7 +112,7 @@ class ItemForm extends React.Component {
               </div>
             )
           }}
-        </Dropzone>
+        </Dropzone> */}
         <Button positive>Add</Button>
         <br />
         <br />
