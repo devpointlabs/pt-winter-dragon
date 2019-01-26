@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :categories do
       resources :items
     end
+
+    get 'active_menu', to: 'menus#active_menu'
 end
 
   namespace :api do

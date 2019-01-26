@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import MenuForm from './MenuForm';
-
 import { Button, Container, Segment } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
