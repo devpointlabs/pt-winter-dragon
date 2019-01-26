@@ -13,7 +13,7 @@ class ContactForm extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({ name: e.target.value });
+    this.setState({ fname: '', lname: '', email: '', comment: ''});
   }
 
   handleSubmit = (e) => {
@@ -62,6 +62,7 @@ class ContactForm extends Component {
                 label='Comment'
                 name='comment'
                 placeholder='Please leave your comment or venue reservation details here.'
+                onChange={this.handleChange}
                 />
                 <Form.Field control={Button}>Submit</Form.Field>
                 <p>* For a venue reservation, please leave the number of people attending and the night you would like to reserve the Golden dragon.
