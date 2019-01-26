@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button, Form, Checkbox } from 'semantic-ui-react';
+import Dropzone from 'react-dropzone';
+import axios from 'axios';
 // import ImageUploader from 'react-images-upload';
 
 class ItemForm extends React.Component {
@@ -8,6 +10,7 @@ class ItemForm extends React.Component {
       price: '', 
       spice: false,
       image: [],
+      file: ''
     }
 
   componentWillMount () {
@@ -18,14 +21,22 @@ class ItemForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { name, price, spice, image, id } = this.state;
+    const { name, price, spice, image, id, file } = this.state;
     if (this.props.id) {
-      this.props.editItem(name, price, spice, image, id)
+      this.props.editItem(name, price, spice, image, id, file)
     } else {
-      this.props.submit(name, price, spice, image)
-    }
+      this.props.submit(name, price, spice, image, file)
+    };
+    this.updateItem(id, name, price, spice, image, id, file)
     this.setState( {name: '', price: '' })
   };
+
+  updateItem = (id, item) => {
+    let data = new FormData();
+    data.append('file', item.file);
+    axios.put(`/api/items/${id}`)
+    .then( res => this.setState({item: res.data, file: ''}) )
+  }
 
   handleInputChange = (e) => {
     const target = e.target;
@@ -33,6 +44,7 @@ class ItemForm extends React.Component {
     const name = target.name;
 
     this.setState({
+      ...this.state,
       [name]: value
     });
   };
@@ -45,8 +57,12 @@ class ItemForm extends React.Component {
   //   this.setState({image:pic})
   // }
 
+  onDrop = (files) => {
+    this.setState({ ...this.state, file: files[0] })
+  }
+
   render () {
-    const { name, price, image } = this.state;
+    const { name, price } = this.state;
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Field>
@@ -76,27 +92,37 @@ class ItemForm extends React.Component {
             onChange={this.handleToggle}
           />
         </Form.Field>
-        <Form.Field>
-          <label>Image</label> 
-          <input 
-            name="image"
-            title="image"
-            value={image}
-            onChange={this.handleInputChange}
-          />
-          {/* <ImageUploader
-            withIcon={true}
-            withPreview={true}
-            buttonText='Choose images'
-            onChange={this.imageUpload}
-            imgExtension={['.jpg', '.gif', '.png', '.gif']}
-            maxFileSize={5242880}
-            /> */}
-        </Form.Field>
+        <Dropzone
+          onDrop={this.onDrop}
+          multiple={false}
+        >
+          {({ getRootProps, getInputProps, isDragActive }) => {
+            return (
+              <div
+                {...getRootProps()}
+                style={styles.dropzone}
+              >
+                <input {...getInputProps()} />
+                {
+                  isDragActive ?
+                    <p>Drop files here...</p> 
+                  :
+                    <p>Try dropping an image here, or click to select an image to upload.</p>
+                }
+              </div>
+            )
+          }}
+        </Dropzone>
         <Button positive>Add</Button>
+        <br />
+        <br />
       </Form>
       )
     }
+}
+
+const styles = { 
+  dropzone: { height: '50px', textAlign: 'center' }
 }
 
 export default ItemForm;

@@ -11,12 +11,12 @@ class Api::ItemsController < ApplicationController
   end
 
   def create
-    item = @category.items.new(item_params)
+    @item = @category.items.new(item_params)
     
-    if item.save
-      render json: item
+    if @item.save
+      render json: @item
     else
-    render json: item.errors, status: 422
+    render json: @item.errors, status: 422
     end
   end
 
@@ -24,6 +24,19 @@ class Api::ItemsController < ApplicationController
   end
 
   def update
+    
+    file = params[:file]
+
+    if file
+      begin
+        ext = File.extname(file.tempfile)
+        cloud_image = Cloudinary::Uploader.upload(file, public_id: file.original_filename, secure: true)
+        @item.image = cloud_image['secure_url']
+      rescue => e
+
+      end
+    end
+
     if @item.update(item_params)
       render json: @item 
     else
