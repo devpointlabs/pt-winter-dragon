@@ -6,12 +6,17 @@ import {Container, Grid, Header, Segment, Divider, Icon, Form, Button, Table } f
 
 
 class Cart extends React.Component {
-    state = { menuitems: [], taxnfees: [], }
+    state = { menuitems: [], taxnfees: {}, edit:false}
 
     componentDidMount() {
-        axios.get('/api/taxnfees')
+        axios.get(`/api/taxnfees/${this.props.match.params.id}`)
         .then(res => {
             this.setState({ taxnfees: res.data})
+        })
+        
+        axios.get(`/api/items/${items.props.match.params.id}`)
+        .then(res => {
+            this.setState({menuitems: res.data})
         })
     }
 
@@ -28,6 +33,21 @@ class Cart extends React.Component {
         )
     }
 
+    calculateTotal = () => {
+        return (
+            <div>
+
+            </div>
+        )
+    }
+
+    showTotal = () => {
+        return (
+            <div>
+
+            </div>
+        )
+    }
 
 //Removes from the Cart
 //  removeFromCart = (id) => { 
@@ -55,6 +75,7 @@ class Cart extends React.Component {
                 <Divider horizontal>
                 <Icon name='food'/>
                 </Divider>
+                {this.showSelectedItems()}
                 <Divider horizontal>
                 <Header as='h4'>
                  <Icon name='car' />
