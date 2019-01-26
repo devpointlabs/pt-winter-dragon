@@ -3,7 +3,9 @@ class Api::TaxnfeesController < ApplicationController
     before_action :set_taxnfee, only: [:show, :update, :destroy]
 
     def index
-        render json: Taxnfee.find(7)
+        # render json: Taxnfee.find(7)
+        render json: Taxnfee.all
+
     end
   
     def show
@@ -32,6 +34,7 @@ class Api::TaxnfeesController < ApplicationController
         @taxnfee.destroy
     end
   
+
     private
   
     def set_taxnfee

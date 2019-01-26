@@ -1,12 +1,28 @@
 import React from 'react';
 import axios from 'axios';
-import Food from './Food';
+import TaxnFeeForm from './TaxnFeeForm';
+import TaxnFees from './TaxnFees';
 import {Container, Grid, Header, Segment, Divider, Icon, Form, Button, Table } from 'semantic-ui-react';
 
 
 class Cart extends React.Component {
+    state = { menuitems: [], taxnfees: [], }
 
- showSelectedItems = () => {
+    componentDidMount() {
+        axios.get('/api/taxnfees')
+        .then(res => {
+            this.setState({ taxnfees: res.data})
+        })
+    }
+
+    editTaxnFees = (taxnfee) => {
+        axios.put(`/api/taxnfees/${taxnfee.id}`, {taxnfee})
+        .then(res => {
+            this.setState({taxnfee: res.data})
+        });
+    }
+
+    showSelectedItems = () => {
      return (
          <div>
              <h3>Item1</h3>
@@ -14,22 +30,23 @@ class Cart extends React.Component {
              <h3>Item1</h3>
              <h3>Item1</h3>
          </div>
-     )
- }
+        )
+    }
 
 
 //Removes from the Cart
- removeFromCart = (id) => { 
-    axios.delete(`/api/taxnfees/${id}`)
-    .then(res => {
-        this.setState({taxnfees: res.data})
-    });
-    return (
-        window.location.href="/taxnfees/"
-    )
- }
+//  removeFromCart = (id) => { 
+//     axios.delete(`/api/taxnfees/${id}`)
+//     .then(res => {
+//         this.setState({taxnfees: res.data})
+//     });
+//     return (
+//         window.location.href="/taxnfees/"
+//     )
+//  }
 
  render () {
+     const { menuitems, taxnfees} = this.state
 
     return (
         <Container style={{width:'50%'}}>
@@ -40,7 +57,9 @@ class Cart extends React.Component {
             <Grid.Row>
             <Grid.Column>
                 <Header>The Following Items are added to the Cart: </Header>
-                <Container>{this.showSelectedItems()}</Container>
+                <Divider horizontal>
+                <Icon name='food'/>
+                </Divider>
                 <Divider horizontal>
                 <Header as='h4'>
                  <Icon name='car' />
@@ -71,6 +90,11 @@ class Cart extends React.Component {
             </Header>
             <Header as={'h4'}>
             Delivery Fee :
+            <TaxnFees
+                taxnfees={taxnfees}
+                tax={this.tax}
+                delivery={this.delivery}
+                />
             </Header>
             <Header as={'h4'}>
             Tax :
