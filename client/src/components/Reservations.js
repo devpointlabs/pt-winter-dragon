@@ -26,12 +26,7 @@ class Reservations extends React.Component {
 
     showReservations = () => {
         return this.state.reservations.map(d => {
-            return (
-        //         {/* <Link to={`/reservations/${d.id}`}>{d.name}
-
-          
-              
-
+            return ( 
               <Table.Body>
                   <Table.Cell>{d.name}</Table.Cell>
                   <Table.Cell>{d.phone}</Table.Cell>
@@ -39,17 +34,16 @@ class Reservations extends React.Component {
                   <Table.Cell>{d.date}</Table.Cell>
                   <Table.Cell>{d.time}</Table.Cell>
                   <Table.Cell>{d.party}</Table.Cell>
-              </Table.Body>
-
               <Table.Cell>
-              <Button color='red' style={{margin:'10px'}}>
-              <Link style={{color:'white'}}to={"/reservations"}
-                    onClick={() => this.removeReserv(d.id)}>
+                <Button color='red' style={{margin:'10px'}}>
+                  <Link style={{color:'white'}}
+                        to={"/reservations"}
+                        onClick={() => this.removeReserv(d.id)}>
                     Delete
-              </Link>
-              </Button>
+                  </Link>
+                </Button>
               </Table.Cell><br/>
-          </Table>
+              </Table.Body>
             )
         })
     }
