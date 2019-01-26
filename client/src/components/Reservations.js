@@ -7,17 +7,12 @@ import { Link } from 'react-router-dom';
 class Reservations extends React.Component {
    state= { reservations: [] }
 
-<<<<<<< HEAD
    componentDidMount() {
        axios.get('/api/reservations')
        .then(res => {
            this.setState({ reservations: res.data})
        })
    }
-=======
-          
-        <Table>      
->>>>>>> master
 
    removeReserv = (id) => {
     axios.delete(`/api/reservations/${id}`)
@@ -27,7 +22,7 @@ class Reservations extends React.Component {
     return (
         window.location.href="/admin"
     )
-}
+    }
 
    showReservations = () => {
        return this.state.reservations.map(d => {

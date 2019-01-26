@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
 
     get 'active_menu', to: 'menus#active_menu'
+    get 'all_items', to: 'items#all_items'
 end
 
   namespace :api do

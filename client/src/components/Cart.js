@@ -1,31 +1,20 @@
 import React from 'react';
 import axios from 'axios';
-import TaxnFeeForm from './TaxnFeeForm';
-import TaxnFees from './TaxnFees';
+// import TaxnFeeForm from './TaxnFeeForm';
+// import TaxnFees from './TaxnFees';
 import {Container, Grid, Header, Segment, Divider, Icon, Form, Button, Table } from 'semantic-ui-react';
-
 
 class Cart extends React.Component {
     state = { taxnfees: {}, cartItems: [], allItems:[],  edit:false}
-
     componentDidMount() {
-        // axios.get(`/api/taxnfees/${this.props.match.params.id}`)
-        // .then(res => {
-        //     this.setState({ taxnfees: res.data})
-        // })
         if(this.props.location.state.cart){
         this.setState({cartItems: this.props.location.state.cart})
         }
-
         axios.get('/api/all_items')
         .then(res => {
             this.setState({allItems: res.data})
         })
-
     }
-
-
-
     showSelectedItems = () => {
      return (
          <div>
@@ -33,37 +22,20 @@ class Cart extends React.Component {
          </div>
         )
     }
-
     calculateTotal = () => {
         return (
             <div>
-
             </div>
         )
     }
-
     showTotal = () => {
         return (
             <div>
-
             </div>
         )
     }
-
-//Removes from the Cart
-//  removeFromCart = (id) => { 
-//     axios.delete(`/api/taxnfees/${id}`)
-//     .then(res => {
-//         this.setState({taxnfees: res.data})
-//     });
-//     return (
-//         window.location.href="/taxnfees/"
-//     )
-//  }
-
  render () {
      const { menuitems, taxnfees} = this.state
-
     return (
         <Container style={{width:'50%'}}>
         <br/><br/><br/><br/>
@@ -134,30 +106,6 @@ class Cart extends React.Component {
         </Container>
     )
  }
-
-
 }
-
-// const Cart = ( {id, name, price, description }) => (
-    
-//     <Container>
-//     <Food>
-                 
-//         <Header>Cart</Header>
-//         <Table.Row id={id}>
-//         <Table.Cell>{name}</Table.Cell>
-//         <Table.Cell>{description}</Table.Cell>
-//         <Table.Cell>{price}</Table.Cell>
-//         </Table.Row>
-//     </Food>
-//     <Header>Total: </Header>
-
-                //  <br/><br/><br/><br/>
-                //  <br/><br/><br/><br/>
-//     </Container>
-
-// )
   
-
 export default Cart;
-

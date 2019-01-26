@@ -1,5 +1,5 @@
 class Api::ItemsController < ApplicationController
-  before_action :set_category, except: [:all_items] 
+  before_action :set_category, except: [:all_items]
   before_action :set_item, only: [:show, :update, :destroy, :edit]
 
   def index
@@ -36,7 +36,7 @@ class Api::ItemsController < ApplicationController
   end
 
   def all_items
-    render jsons: Item.all
+    render json: Item.all
   end
 
   private 
