@@ -99,7 +99,7 @@ class Menus extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container style={{margin: '125px 0px 25px 0px'}}>
         <Segment>
           <div>
             <h1>Active Menu</h1>

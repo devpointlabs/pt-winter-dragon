@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import ItemForm from './ItemForm';
-import { Button } from 'semantic-ui-react';
+import { Grid, Card, Image, Button } from 'semantic-ui-react';
+import Pepper from '../assets/pepper.jpeg';
+import styled from 'styled-components';
 
 //CHILD COMPONENT
 
@@ -50,20 +52,32 @@ class Items extends React.Component {
 
   showItems = () => {
     return this.state.items.map(i => {
-      let spicy = "Yes";
-      if (i.spice === false) {
-        spicy = "No";
-      }
       return (
-        <ul key={i.id}>
-          <h4>Item Name: {i.name}</h4> 
-          <h4>Price: {i.price}</h4> 
-          <h4>Spicy: {spicy}</h4>
-          <h4>Image: {i.image}</h4>
+        <Grid.Column key={i.id}>
+        <Card>
+          <Image src={'https://picsum.photos/200'}/>
+          <Card.Content>
+          <div style={{float: 'right'}}>
+          { i.spice ? <img src={Pepper} style={{height: '20px', width: '20px'}}/> : <p></p> }
+          </div>
+          <Card.Header>{i.name}</Card.Header> 
+          <p>${i.price}</p> 
+          {/* <p>Spicy: {spicy}</p> */}
+          </Card.Content>
+          <Card.Content>
+
           {this.state.toggleEditItem ? <ItemForm id={i.id} name={i.name} price={i.price} spice={i.spice} image={i.image} editItem={this.editItem}/> : null }
-          <Button color='yellow' onClick={() => this.setState({toggleEditItem: !this.state.toggleEditItem})}>Edit Item</Button>
-          <Button trash="true" negative onClick={() => this.deleteItem(i.id)}>Delete Item</Button>
-        </ul>   
+          <Button 
+          color='yellow' 
+          style={{float: 'left', padding: '10px'}} 
+          onClick={() => this.setState({toggleEditItem: !this.state.toggleEditItem})}
+          >
+          Edit Item
+          </Button>
+          <Button size='small' trash="true" style={{float: 'right', padding: '10px'}} negative onClick={() => this.deleteItem(i.id)}>Delete Item</Button>
+          </Card.Content>
+        </Card>
+        </Grid.Column>
       )
     })
   }
@@ -72,12 +86,16 @@ class Items extends React.Component {
     return (
       <div>
         <h3>Items</h3>
+        <Grid columns={4} style={{margin: '5px'}}>
         {this.showItems()}
-        <Button onClick={(e) => this.setState({ addItemToggle: !this.state.addItemToggle })}>Add Item</Button>
+        </Grid>
           {this.state.addItemToggle ? <ItemForm submit={this.submit} /> : <div></div>}
+        <Button onClick={(e) => this.setState({ addItemToggle: !this.state.addItemToggle })}>Add Item</Button>
+        <br />
       </div>
     )
   }
 }
+
 
 export default Items;
