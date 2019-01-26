@@ -1,8 +1,7 @@
 import React from 'react'
 import axios from 'axios'
-import {Link} from 'react-router-dom';
-import ReservationForm from './ReservationForm';
-import { Container, Header, Table, Button } from 'semantic-ui-react';
+import { Container, Table } from 'semantic-ui-react';
+
 
 class Reservations extends React.Component {
     state = { reservations: [] } 
