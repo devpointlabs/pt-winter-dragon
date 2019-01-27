@@ -2,12 +2,12 @@ import React from 'react';
 import axios from 'axios';
 // import TaxnFeeForm from './TaxnFeeForm';
 // import TaxnFees from './TaxnFees';
-import {Container, Grid, Header, Segment, Divider, Icon, Form, Button, } from 'semantic-ui-react';
+import { Container, Grid, Header, Segment, Divider, Icon, Form, Button, } from 'semantic-ui-react';
 
 class Cart extends React.Component {
-    state = { taxnfees: {}, cartItems: [], allItems:[],  edit:false, items: [] }
+    state = { taxnfees: {delivery: '', tax: ''}, cartItems: [], allItems:[],  edit:false, items: [] }
 
-    componentDidMount() {
+  componentDidMount() {
         if(this.props.location.state.cart){
           this.setState({ cartItems: this.props.location.state.cart })
         }
@@ -16,9 +16,9 @@ class Cart extends React.Component {
             this.setState({ allItems: res.data })
             this.compareItems()
           })       
-    }
+  }
 
-    compareItems = () => {
+  compareItems = () => {
       return this.state.cartItems.map(i => {
         return this.state.allItems.map(j => {
           if (i == j.id) {
@@ -27,30 +27,38 @@ class Cart extends React.Component {
         })
     })
   }
-    showSelectedItems = () => {
-     return this.state.items.map(i => {
-       return (
-         <Segment style={{marginLeft: '10%', marginRight: '10%'}}>
-          <Grid>
-            <Grid.Row columns={2}>
-              <Grid.Column>
-                <Header as="h3">{i.name}</Header>
-                <Header as="h3">Price: ${i.price}</Header>
-              </Grid.Column>
-              <Grid.Column>
-                <Button negative 
-                  content="Remove from cart"
-                  style={{marginTop:'5%'}}
-                  // onClick={}
-                />  
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-          
-          </Segment>
-       )
-     })
-    }
+
+  getTax = () => {
+    axios.get('/api/taxnfees')
+        .then(res => {
+            this.setState({taxnfees: {delivery: res.data[0].delivery, tax: res.data[0].tax }})
+        })
+  }
+
+  showSelectedItems = () => {
+    return this.state.items.map(i => {
+      return (
+        <Segment style={{marginLeft: '10%', marginRight: '10%'}}>
+        <Grid>
+          <Grid.Row columns={2}>
+            <Grid.Column>
+              <Header as="h3">{i.name}</Header>
+              <Header as="h3">Price: ${i.price}</Header>
+            </Grid.Column>
+            <Grid.Column>
+              <Button negative 
+                content="Remove from cart"
+                style={{marginTop:'5%'}}
+                // onClick={}
+              />  
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+        
+        </Segment>
+      )
+    })
+  }
 
     findSubTotal = () => {
       let total = null

@@ -1,6 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-import {Form, Container, Button, List, Header, Segment } from 'semantic-ui-react';
+import { Form, Table, Container, Segment } from 'semantic-ui-react';
 
 
 class TaxnFeeForm extends React.Component {
@@ -27,41 +26,42 @@ class TaxnFeeForm extends React.Component {
         const taxnfee = { ...this.state }
         this.props.editTaxnFees(taxnfee)
         this.setState({...this.formValues})
-
     }
-
-    // handlePageChange() {
-    //     window.location = "/taxnfees";
-    //   }
 
     render () {
         const { tax, delivery } = this.state
-        return(
-            <Container style={{width:'60%'}}> <br/><br/><br/><br/><br/><br/><br/>
-            <Segment style={{width:'60%'}}>
-            <Header as='h2'>Enter the Tax and Delivery Fee</Header>
-            <Form onSubmit={this.handleSubmit}>
-                <Form.Input fluid width="6"
-                label="Taxes in %"
-                placeholder= "Enter the Tax %"
-                name={"tax"}
-                value={tax}
-                onChange={this.handleChange}
-                required
-                /> 
-                <Form.Input fluid width="6"
-                label="Delivery Fee in $"
-                placeholder= "Enter the Delivery Fees"
-                name={"delivery"}
-                value={delivery}
-                onChange={this.handleChange}
-                required
-                /> 
-                <Form.Button color='instagram'>Submit</Form.Button>
-            </Form>
+        return (
+          <Container>
+            <Table style={{width:'400px'}}>
+              <Table.Header>
+                  <Table.Row>
+                    <Table.HeaderCell>Taxes</Table.HeaderCell>
+                    <Table.HeaderCell>Delivery Fees</Table.HeaderCell>
+                  </Table.Row>
+              </Table.Header>
+            </Table>
+            <Segment>
+              <Form onSubmit={this.handleSubmit}>
+                <Form.Group widths='equal'>
+                  <Form.Input fluid width="6"
+                    placeholder= "Tax (%)"
+                    name={"tax"}
+                    value={tax}
+                    onChange={this.handleChange}
+                    required
+                    /> 
+                    <Form.Input fluid width="6"
+                    placeholder= "Delivery Fees ($)"
+                    name={"delivery"}
+                    value={delivery}
+                    onChange={this.handleChange}
+                    required
+                    /> 
+                </Form.Group>
+                <Form.Button positive>Submit</Form.Button>
+              </Form>
             </Segment>
-            <br/><br/><br/><br/><br/>
-            </Container>
+          </Container>
         )
     }
 }
