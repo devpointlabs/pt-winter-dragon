@@ -38,26 +38,20 @@ class Menu extends React.Component {
         <div>
           <Grid centered>
           <Header as='h2'>{this.state.categories[i].category.name}</Header>
-            <Grid.Row columns={4}>
+            <Grid.Row columns={2}>
                   {this.state.categories[i].items.map(i => {
                     return (
                         <Grid.Column>
-                          <Card style={{margin: '0px 0px 25px 0px'}}>
-                            <Card.Content>
-                              <Card.Content>
-                                <div style={{float: 'right'}}>
-                                { i.spice ? <img src={Pepper} style={{height: '20px', width: '20px'}}/> : <p></p> }
-                                </div>
-                              </Card.Content>
-                              <Card.Header>{i.name}</Card.Header>
-                              <Card.Meta>${i.price}</Card.Meta>
-                              <Button 
-                                positive
-                                content="Add To Cart"
-                                onClick={() => this.handleAddCart(i.id)}
-                              />
-                            </Card.Content>
-                          </Card>
+                          <div>
+                            <div style={{margin: '0px 0px 25px 0px', textAlign: 'center'}}>
+                                <p>{i.name} ${i.price} { i.spice ? <img src={Pepper} style={{height: '14.5px', width: '22.5px'}}/> : <p></p> }</p>
+                                {/* <Button 
+                                  positive
+                                  content="Add To Cart"
+                                  onClick={() => this.handleAddCart(i.id)}
+                                /> */}
+                            </div>
+                          </div>
                         </Grid.Column>
                     )
                   })
@@ -73,18 +67,18 @@ class Menu extends React.Component {
   render() {
     // debugger
     return (
-      <div>
+      <div style={{}}>
         <div>
             <Hero>
               <h1 style={{fontSize: '50px'}}>MENU</h1>
             </Hero>
-          <div style={{margin: '25px'}}>
+          <div style={{margin: '25px', maxWidth: '400px', marginLeft: 'auto', marginRight: 'auto'}}>
                 {this.displayMenu()}
-                <Button
+                {/* <Button
                   positive 
                   content="Checkout"
                   onClick={this.checkout}
-                />
+                /> */}
           </div>
         </div>
       </div>

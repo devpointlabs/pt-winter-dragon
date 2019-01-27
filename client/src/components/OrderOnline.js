@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Grid, Segment, Header, Card, Button } from 'semantic-ui-react';
 import styled from 'styled-components';
 import Pepper from '../assets/pepper.png';
-import heroimg from '../assets/bamboo.jpg'
+import heroimg from '../assets/coolpic.jpg'
 
 
 // CLIENT SIDE
@@ -76,7 +76,7 @@ class Menu extends React.Component {
       <div>
         <div>
             <Hero>
-              <h1 style={{fontSize: '50px'}}>MENU</h1>
+              <h1 style={{fontSize: '50px'}}>ORDER ONLINE</h1>
             </Hero>
           <div style={{margin: '25px'}}>
                 {this.displayMenu()}
