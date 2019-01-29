@@ -67,6 +67,7 @@ const App = () => (
       
      
 
+      <AdminRoute exact path="/admin" component={Admin} />
       <AdminRoute exact path="/users" component={Users} />
       <AdminRoute exact path="/users/:id" component={User} />
       <Route exact path="/confirmation" component={ConfirmationRes} />
