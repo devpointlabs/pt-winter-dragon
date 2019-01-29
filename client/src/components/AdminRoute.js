@@ -9,13 +9,13 @@ const AdminRoute = ({ component: Component, ...rest }) => (
         { ...rest }
         render={ props => (
                 auth.user.admin ?
-                <Component { ...props } />
+                  <Component { ...props } />
                 :
                 <Redirect 
-                to={{
-                    pathname: "/",
-                    state: { from: props.location, },
-                }}
+                  to={{
+                      pathname: "/",
+                      state: { from: props.location, },
+                  }}
                 />
         )}
       />

@@ -1,6 +1,11 @@
 import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
+
+
+import Reservations from './components/Reservations';
+import ReservationForm from  './components/ReservationForm';
+
 import Menus from './components/Menus';
 import EditMenu from './components/EditMenu';
 import Menu from './components/Menu';
@@ -55,13 +60,19 @@ const App = () => (
 
       <Route exact path='/register' component={Register} />
       <Route exact path='/login' component={Login} />
-      <AdminRoute exact path="/admin" component={Admin} />
+
+      
+
+
+      
+     
+
       <AdminRoute exact path="/users" component={Users} />
       <AdminRoute exact path="/users/:id" component={User} />
       <Route exact path="/confirmation" component={ConfirmationRes} />
-      <Route component={NoMatch} />
+      
       <ProtectedRoute exact path="/admin" component={Admin} />
-
+      <Route component={NoMatch} />
 
     </Switch>
     </FetchUser>
