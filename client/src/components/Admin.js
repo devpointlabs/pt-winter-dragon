@@ -32,10 +32,10 @@ class Admin extends React.Component {
                 <div>
                 <Main>
                     <h1>Welcome to the Admin Page</h1>
-                    <div>
+                    {/* <div>
                         <h2>Orders</h2>
                         <Segment style={{margin: '15px'}}></Segment>
-                    </div>
+                    </div> */}
                     <div>
                         <h2>Reservations</h2>
                         <Segment style={{margin: '15px'}}>
