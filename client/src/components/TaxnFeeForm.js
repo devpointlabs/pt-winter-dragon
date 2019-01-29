@@ -35,10 +35,10 @@ class TaxnFeeForm extends React.Component {
             <Segment>
               <Grid columns={2} style={{width:"50%", margin: "0px auto"}}>
                 <Grid.Column>
-                  <Header>Taxes</Header>
+                  <Header>Taxes (%)</Header>
                 </Grid.Column>
                 <Grid.Column>
-                  <Header>Delivery Fees</Header>
+                  <Header>Delivery Fees ($)</Header>
                 </Grid.Column>
               </Grid>
             </Segment>

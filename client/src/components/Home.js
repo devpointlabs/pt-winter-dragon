@@ -62,7 +62,7 @@ const Home = () => (
             </div>
             <Hero2>
                 <h1 style={{fontSize: '50px', fontStyle: 'bold'}}>DELIVERY / <br /> TAKEOUT</h1>
-                <Link to='/cart'>
+                <Link to='/order-online'>
                 <Button as={ButtonLink} style={{borderRadius: '50px'}}>
                     ORDER ONLINE
                 </Button>
