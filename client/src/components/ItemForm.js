@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Form, Checkbox } from 'semantic-ui-react';
-// import Dropzone from 'react-dropzone';
-import axios from 'axios';
+import { privateEncrypt } from 'crypto';
 // import ImageUploader from 'react-images-upload';
 
 class ItemForm extends React.Component {
@@ -31,12 +30,12 @@ class ItemForm extends React.Component {
     this.setState( {name: '', price: '' })
   };
 
-  updateItem = (id, item) => {
-    let data = new FormData();
-    data.append('file', item.file);
-    axios.put(`/api/items/${id}`)
-    .then( res => this.setState({item: res.data, file: ''}) )
-  }
+  // updateItem = (id, item) => {
+  //   let data = new FormData();
+  //   data.append('file', item.file);
+  //   axios.put(`/api/items/${id}`)
+  //   .then( res => this.setState({item: res.data, file: ''}) )
+  // }
 
   handleInputChange = (e) => {
     const target = e.target;

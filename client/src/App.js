@@ -23,6 +23,7 @@ import FetchUser from './components/FetchUser';
 import ProtectedRoute from './components/ProtectedRoute';
 import AdminRoute from './components/AdminRoute'
 import Admin from './components/Admin';
+import TaxnFees from './components/TaxnFees';
 
 import ConfirmationRes from './components/ConfirmationRes';
 
@@ -49,10 +50,15 @@ const App = () => (
       <Route exact path='/cart' component={Cart} />
       <Route exact path='/reservations' component={Reservations} />
       <Route exact path='/reservationform' component={ReservationForm} />
+
       <Route exact path='/contactform' component={ContactForm} />
 
       <Route exact path='/payment' component={Payment} />
       <Route exact path='/paymentsuccess' component={PaymentSuccess} />
+
+      <Route exact path='/taxnfees' component={TaxnFees} />
+      {/* <Route exact path='/contacts' component={Contact} /> */}
+
 
       <Route exact path='/register' component={Register} />
       <Route exact path='/login' component={Login} />

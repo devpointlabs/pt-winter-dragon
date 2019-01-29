@@ -1,0 +1,2 @@
+class Taxnfee < ApplicationRecord
+end
