@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
-
 import Reservations from './components/Reservations';
 import ReservationForm from  './components/ReservationForm';
 import Menus from './components/Menus';
@@ -63,12 +62,12 @@ const App = () => (
       <Route exact path='/register' component={Register} />
       <Route exact path='/login' component={Login} />
 
-      <ProtectedRoute exact path="/admin" component={Admin} />
+      {/* <ProtectedRoute exact path="/admin" component={Admin} /> */}
       <Route exact path='/confirmation' component={ConfirmationRes} />
       {/* <Route component={NoMatch} /> */}
       {/* <Route exact path='/admindash' component={AdminDash} /> */}
 
-      <AdminRoute exact path="/admin" component={Admin} />
+      <ProtectedRoute exact path="/admin" component={Admin} />
       <AdminRoute exact path="/users" component={Users} />
       <AdminRoute exact path="/users/:id" component={User} />
       <Route component={NoMatch} />
