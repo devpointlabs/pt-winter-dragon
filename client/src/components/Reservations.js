@@ -46,7 +46,7 @@ class Reservations extends React.Component {
               </Table.Cell>
              </Table.Row>
              </Table.Body>
-            
+
            )
        })
    }

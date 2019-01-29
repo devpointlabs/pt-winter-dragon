@@ -1,5 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+<<<<<<< HEAD
 one:
   tax: 1.5
   delivery: 1.5
@@ -7,3 +8,14 @@ one:
 two:
   tax: 1.5
   delivery: 1.5
+=======
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+# column: value
+>>>>>>> f2f806631f001e14ec736e4868f594318743fffd

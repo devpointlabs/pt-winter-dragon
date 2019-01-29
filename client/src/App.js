@@ -4,8 +4,11 @@ import Home from './components/Home';
 import Menus from './components/Menus';
 import EditMenu from './components/EditMenu';
 import Menu from './components/Menu';
-import Reservations from './components/Reservations';
-import ReservationForm from  './components/ReservationForm';
+import Cart from './components/Cart';
+
+
+// import Cart from '/components/Cart';
+import ContactForm from './components/ContactForm';
 import NavBar from './components/NavBar';
 import NoMatch from './components/NoMatch';
 import Footer from './components/Footer'
@@ -15,6 +18,10 @@ import FetchUser from './components/FetchUser';
 import ProtectedRoute from './components/ProtectedRoute';
 import AdminRoute from './components/AdminRoute'
 import Admin from './components/Admin';
+import TaxnFees from './components/TaxnFees';
+
+import ConfirmationRes from './components/ConfirmationRes';
+
 import Users from './components/Users';
 import User from './components/User';
 import ConfirmationRes from './components/ConfirmationRes'
@@ -22,6 +29,8 @@ import Cart from './components/Cart';
 import TaxnFees from './components/TaxnFees';
 import TaxnFeeForm from './components/TaxnFeeForm'; 
 import OrderOnline from './components/OrderOnline'
+import Payment from './components/Payment';
+import PaymentSuccess from './components/PaymentSuccess';
 
 
 const App = () => (
@@ -39,6 +48,16 @@ const App = () => (
       <Route exact path='/cart' component={Cart} />
       <Route exact path='/reservations' component={Reservations} />
       <Route exact path='/reservationform' component={ReservationForm} />
+
+      <Route exact path='/contactform' component={ContactForm} />
+
+      <Route exact path='/payment' component={Payment} />
+      <Route exact path='/paymentsuccess' component={PaymentSuccess} />
+
+      <Route exact path='/taxnfees' component={TaxnFees} />
+      {/* <Route exact path='/contacts' component={Contact} /> */}
+
+
       <Route exact path='/register' component={Register} />
       <Route exact path='/login' component={Login} />
       <AdminRoute exact path="/admin" component={Admin} />
