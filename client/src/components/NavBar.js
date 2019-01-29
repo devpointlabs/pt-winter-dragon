@@ -22,7 +22,7 @@ const NavBar = () => (
           Reservations</NavLink>
       </Menu.Item>
       <Menu.Item>
-          <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/contacts'>
+          <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/contactform'>
           Contact Us</NavLink>
       </Menu.Item>
       <Menu.Item>
