@@ -25,6 +25,7 @@ import TaxnFeeForm from './components/TaxnFeeForm';
 
 
 
+import OrderOnline from './components/OrderOnline'
 
 
 const App = () => (
@@ -42,6 +43,7 @@ const App = () => (
       <AdminRoute exact path='/edit-menu/:id' component={EditMenu} />
       <AdminRoute exact path='/create-new-menu' component={Menus} />
       <Route exact path='/menu' component={Menu} />
+      <Route exact path='/order-online' component={OrderOnline} />
 
       <Route exact path='/cart' component={Cart} />
       <Route exact path='/reservations' component={Reservations} />
