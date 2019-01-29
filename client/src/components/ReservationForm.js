@@ -1,18 +1,17 @@
 import React from 'react';
 import axios from 'axios';
-import {Form, Container, Button, List, Header } from 'semantic-ui-react';
+import {Form, Container, Button, List, Header, Segment} from 'semantic-ui-react';
 import { Calendar } from 'react-calendar';
-import TimePicker from 'react-time-picker';
+import styled from 'styled-components';
+import reservation_header from '../assets/reservation_header.jpg';
 
 class ReservationForm extends React.Component {
 
     defaultValues = {id: '', name:'', phone:'', email:'', date:'', time:'', party:''}
     state = {...this.defaultValues}
-    // state= { time: '10:00'}
-    // state={ date: new Date(), } 
+    state={ date: new Date(), } 
 
-    // onChange = date => this.setState({date})
-    // onChange = time => this.setState({time})
+    onChange = date => this.setState({date})
 
     componentDidMount(){
         if(this.props.id){
@@ -47,16 +46,20 @@ class ReservationForm extends React.Component {
     render() {
         const {name, phone, email, date, time, party}=this.state;
         return(
-            <Container style={{margin: '75px'}}>
+            <div style={{}}>
+                <Reservation>
+                    <Header as='h1' style={{fontSize: '50px', color:'white'}}>RESERVATION</Header>
+               </Reservation>
+                <Container>
+                    <br/>
+                <Segment style={{padding: "10px 30px"}}>
                 <div>
                     <br/>
-                    <h1>Reservation</h1>
                     <br/>
-                    <p>Please fill out the information in the Form.<br/>
+                    <p>Please fill out the information in the Form below.<br/>
                     </p>
                     Please Note: Submitting this form does not guarantee the reservation.
                     <br/><br />
-
                 </div>
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group widths="equal">
@@ -86,20 +89,11 @@ class ReservationForm extends React.Component {
                     name={"email"}
                     onChange={this.handleChange}
                     placeholder="Email address"
+                    required
                     />
                     <br />
-
-                    <Form.Input fluid
-                    value={date}
-                    label="Date"
-                    name={"date"}
-                    onChange={this.handleChange}
-                    placeholder="Date Requested"
-                    />
-                    <br />
-
-
-                    {/* <div>
+                    
+                    <div>
                     <strong>Date Requested *</strong><br/><br/>
                     <Calendar fluid
                     style={{boxSizing:"border-box"}}
@@ -109,7 +103,7 @@ class ReservationForm extends React.Component {
                     onChange={this.onChange}
                     required
                     placeholder="Date Requested"/>
-                    </div> */}
+                    </div>
                     <br /><br/>
 
                     <Form.Input fluid
@@ -118,19 +112,10 @@ class ReservationForm extends React.Component {
                     name={"time"}
                     onChange={this.handleChange}
                     placeholder="Time Requested"
+                    required
                     />
                     <br />
-                
-                    {/* <strong>Time Requested *</strong><br/><br/>
-                    <TimePicker
-                    style={{boxSizing:"None"}}
-                    name={"time"}
-                    value={time}
-                    value={this.state.time}
-                    onChange={this.onChange}
-                    required
-                    /> */}
-                    <br/><br/>
+                    <br/>
 
                     <Form.Input fluid
                     value={party}
@@ -148,11 +133,25 @@ class ReservationForm extends React.Component {
                             fontSize:'20px'}}>Submit
                         </Form.Button>
                 </Form>
+                </Segment>
+                </Container>
                 <br/><br/><br/>
-            </Container>
+            </div>
         )
     }
 }
 
-
 export default ReservationForm;
+
+const Reservation = styled.div`
+background-image: url(${reservation_header});
+text-align: center;
+color: white;
+min-height: 200px;
+padding: 265px 0px;
+height: 100% !important;
+position: relative;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+`

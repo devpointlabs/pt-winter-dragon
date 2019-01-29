@@ -109,7 +109,7 @@ class Cart extends React.Component {
   }
 
  render () {
-     const { menuitems, taxnfees} = this.state
+     const { taxnfees, allItems, cartItems} = this.state
     return (
         <Container style={{width:'50%', paddingTop: '10%', paddingBottom: '10%'}}>
         <Segment>

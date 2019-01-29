@@ -11,4 +11,4 @@ const ConfirmationRes =() => (
     </Container>
 )
 
-export default ConfirmationRes
+export default ConfirmationRes;

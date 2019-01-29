@@ -7,29 +7,11 @@ Rails.application.routes.draw do
     resources :categories do
       resources :items
     end
-
-    get 'active_menu', to: 'menus#active_menu'
-    get 'all_items', to: 'items#all_items'
-end
-
-  namespace :api do
     resources :orders
-  end
-
-  namespace :api do
     resources :reservations
-  end
-
-  namespace :api do
     resources :contact_forms
-  end
-
-  namespace :api do
     resources :users
-  end
-
-  namespace :api do
-
+    resources :taxnfees
     get '/braintree_token', to: 'braintree#token'
     post '/payment', to: 'braintree#payment'
   end
@@ -39,6 +21,12 @@ end
 
     namespace :api do
       resources :taxnfees
-  end
+    end
+
+    namespace :api do
+      get 'active_menu', to: 'menus#active_menu'
+      get 'all_items', to: 'items#all_items'
+    end
 
 end
+
