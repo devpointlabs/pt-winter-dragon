@@ -1,7 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-// import TaxnFeeForm from './TaxnFeeForm';
-// import TaxnFees from './TaxnFees';
 import { Container, Grid, Header, Segment, Divider, Icon, Form, Button, } from 'semantic-ui-react';
 
 class Cart extends React.Component {
@@ -16,8 +14,6 @@ class Cart extends React.Component {
             this.setState({ allItems: res.data })
             this.getTax()
           })  
-        //get tax into db
-           
   }
 
   compareItems = () => {
@@ -40,6 +36,13 @@ class Cart extends React.Component {
         })
   }
 
+  removeItem = (id) => {
+    this.state.items.map(i => {
+      const item = this.state.items.filter(i => i.id !== id)
+      this.setState({items: item})
+    })
+  }
+
   showSelectedItems = () => {
     return this.state.items.map(i => {
       return (
@@ -54,7 +57,7 @@ class Cart extends React.Component {
               <Button negative 
                 content="Remove from cart"
                 style={{marginTop:'5%'}}
-                // onClick={}
+                onClick={() => this.removeItem(i.id)}
               />  
             </Grid.Column>
           </Grid.Row>
