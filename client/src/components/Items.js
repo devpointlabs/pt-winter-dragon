@@ -23,8 +23,11 @@ class Items extends React.Component {
     })
   }
 
-  submit = (name, price, spice, image, file) => {
-    const item = {name, price, spice, image, file}
+  submit = (name, price, spice, image) => {
+    //convert price to money format
+    price = parseFloat(price)
+    price = price.toFixed(2)
+    const item = {name, price, spice, image}
     axios.post(`/api/categories/${this.props.catId}/items`, {item})
       .then(res => {
         this.setState({items: [...this.state.items, res.data]})
@@ -38,8 +41,10 @@ class Items extends React.Component {
         }) 
   }
 
-  editItem = (name, price, spice, image, id, file) => {
-    const item = { name, price, spice, image, id, file}
+  editItem = (name, price, spice, image, id) => {
+    price = parseFloat(price)
+    price = price.toFixed(2)
+    const item = { name, price, spice, image, id}
     axios.put(`/api/categories/${this.props.catId}/items/${id}`, { item } )
       .then(() => { 
         axios.get(`/api/categories/${this.props.catId}/items`)

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Grid, Segment, Header, Card, Button } from 'semantic-ui-react';
+import { Grid, Segment, Header, Card, Button, Container } from 'semantic-ui-react';
 import styled from 'styled-components';
 import Pepper from '../assets/pepper.png';
 import heroimg from '../assets/coolpic.jpg'
@@ -74,19 +74,19 @@ class Menu extends React.Component {
     // debugger
     return (
       <div>
-        <div>
-            <Hero>
-              <h1 style={{fontSize: '50px'}}>ORDER ONLINE</h1>
-            </Hero>
+        <Hero>
+          <h1 style={{fontSize: '50px'}}>ORDER ONLINE</h1>
+        </Hero>
+        <Container>
           <div style={{margin: '25px'}}>
-                {this.displayMenu()}
-                <Button
-                  positive 
-                  content="Checkout"
-                  onClick={this.checkout}
-                />
+            {this.displayMenu()}
+              <Button
+                positive 
+                content="Checkout"
+                onClick={this.checkout}
+              />
           </div>
-        </div>
+         </Container>
       </div>
     )
   }
