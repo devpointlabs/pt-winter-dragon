@@ -22,7 +22,7 @@ class ContactForm extends Component {
     this.setState({ fname: '', lname: '', email: '', reason: '', comment: '', })
   }
 
-  addContact = () => {
+  addContactgit  = () => {
       axios.post('/api/contacts')
       .then(res =>{
           this.setState()

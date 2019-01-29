@@ -6,8 +6,6 @@ import styled from 'styled-components';
 
 const NavBar = () => (
   <Transparent>
-    {/* <NavLink activeStyle={styles.active} exact to='/'>Home</NavLink> */}
-
     <Menu secondary>
     <Logo />
     <Menu.Menu position='right'>
@@ -30,7 +28,10 @@ const NavBar = () => (
       <Menu.Item>
         <Button primary style={{backgroundColor:'#e0d538',
           color:'black',
-          fontSize:'15px'}}>Order Online</Button>
+          fontSize:'15px'}}>
+          <NavLink style={{color:'black', fontSize:'15px',}} exact to='/order-online'>
+          Order Online</NavLink>
+          </Button>
       </Menu.Item>
     </Menu.Menu>
     </Menu>
