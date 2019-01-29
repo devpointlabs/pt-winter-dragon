@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Button, Menu } from 'semantic-ui-react'
+import { Button, Menu, Segment} from 'semantic-ui-react'
 import styled from 'styled-components';
 
 
