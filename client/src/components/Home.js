@@ -6,14 +6,17 @@ import heroimg from '../assets/hero_img.jpg';
 import heroimg2 from '../assets/hero2_img.jpg';
 import food from '../assets/food.jpg';
 import food2 from '../assets/food2.jpg';
+import dragon_icon from '../assets/dragon_icon.jpg';
 
 const Home = () => (
     <div>
         <div>
             <Hero>
                 {/* <Image src={heroimg} alt='hero_img'/> */}
-                <h1 style={{fontSize: '50px', fontStyle: 'bold'}}>NEW GOLDEN DRAGON</h1>
-                <h5 style={{fontSize: '20px'}}>TRADITION NEVER TASTED SO GOOD</h5>
+                <div>
+                <h1 style={{fontSize: '50px', fontStyle: 'bold'}}>
+                NEW GOLDEN DRAGON</h1>
+                <h5 style={{fontSize: '20px'}}>TRADITION NEVER TASTED SO GOOD</h5></div>
             </Hero>
             <Section>
                 <h1 style={{fontSize: '50px', fontStyle: 'bold'}}>GREAT FOOD. BETTER COMPANY</h1>
@@ -116,6 +119,16 @@ max-width: 500px;
 const SubTitle = styled.h5`
 color: black !important;
 font-size: 25px;
+`
+const Logo = styled.div`
+  background-image: url(${dragon_icon});
+  background-size: cover;
+  border: 0.5px grey solid;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  text-align:center;
+  background-color: #e0d538;
 `
 
 export default Home;

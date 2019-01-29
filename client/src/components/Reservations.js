@@ -22,7 +22,7 @@ class Reservations extends React.Component {
     return (
         window.location.href="/admin"
     )
-}
+    }
 
    showReservations = () => {
        return this.state.reservations.map(d => {

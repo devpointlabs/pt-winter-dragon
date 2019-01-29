@@ -7,19 +7,17 @@ Rails.application.routes.draw do
     resources :categories do
       resources :items
     end
-
     resources :orders
     resources :reservations
     resources :contact_forms
     resources :users
     resources :taxnfees
-
     get '/braintree_token', to: 'braintree#token'
     post '/payment', to: 'braintree#payment'
-
     get 'active_menu', to: 'menus#active_menu'
     get 'all_items', to: 'items#all_items'
-
+    resources :taxnfees
 end
+
 
 end

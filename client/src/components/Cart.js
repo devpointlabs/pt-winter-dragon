@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 // import TaxnFeeForm from './TaxnFeeForm';
 // import TaxnFees from './TaxnFees';
 import { Container, Grid, Header, Segment, Divider, Icon, Form, Button, } from 'semantic-ui-react';
@@ -67,9 +68,8 @@ class Cart extends React.Component {
       })
       return total
     }
-
  render () {
-     const { menuitems, taxnfees} = this.state
+     const { taxnfees, allItems, cartItems} = this.state
     return (
         <Container style={{width:'50%', paddingTop: '10%', paddingBottom: '10%'}}>
         <Segment>
