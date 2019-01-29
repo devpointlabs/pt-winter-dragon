@@ -10,7 +10,7 @@ class Api::ContactsController < ApplicationController
   end
 
   def create
-      reservation = Contacts.new(contact_params)
+      reservation = Contact.new(contact_params)
 
       if contact.save
           render json: contact
