@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {Grid} from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
+import facebook_icon from '../assets/facebook_icon.png';
 
 const Footer = () => (
 <Main>
@@ -23,6 +24,7 @@ const Footer = () => (
     </Container>
     <Grid.Column floated="right">
     <Container>
+     <p><a href="https://www.facebook.com/slcnewgoldendragon/" target="_blank"><Facebook  /></a></p>
      <p>{"\u00A9"}2018 New Golden Dragon Restaurant</p>
      <p>All Rights Reserved</p>
      <Link to="/admin" style={{color: 'grey'}}>Admin Dashboard</Link>
@@ -55,4 +57,10 @@ font-size: 20px !important;
 border-bottom: solid 1px white;
 display: inline;
 padding-bottom: 3px;
+`
+const Facebook = styled.div`
+background-image: url(${facebook_icon});
+height: 35px;
+width: 35px;
+background-size: cover;
 `

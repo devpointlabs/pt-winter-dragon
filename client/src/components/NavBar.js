@@ -2,12 +2,13 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Button, Menu, Segment} from 'semantic-ui-react'
 import styled from 'styled-components';
+import dragon_icon from '../assets/dragon_icon.jpg';
 
 
 const NavBar = () => (
   <Transparent>
     <Menu secondary>
-    <Logo />
+    <a href="/"><Logo /></a>
     <Menu.Menu position='right'>
       <Menu.Item>
          <NavLink activeStyle={styles.active} style={{color:'white', fontSize:'15px',}} exact to='/'>
@@ -52,8 +53,10 @@ const Transparent = styled.div`
 `
 
 const Logo = styled.div`
+  background-image: url(${dragon_icon});
+  background-size: cover;
   display: flex;
-  border: 0.5px #f2f2f2 solid;
+  border: 0.5px grey solid;
   height: 50px;
   width: 50px;
   border-radius: 50%;

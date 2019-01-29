@@ -6,7 +6,6 @@ import EditMenu from './components/EditMenu';
 import Menu from './components/Menu';
 import Reservations from './components/Reservations';
 import ReservationForm from  './components/ReservationForm';
-import Contact from './components/Contact';
 import NavBar from './components/NavBar';
 import NoMatch from './components/NoMatch';
 import Footer from './components/Footer'
@@ -22,9 +21,6 @@ import ConfirmationRes from './components/ConfirmationRes'
 import Cart from './components/Cart';
 import TaxnFees from './components/TaxnFees';
 import TaxnFeeForm from './components/TaxnFeeForm'; 
-
-
-
 import OrderOnline from './components/OrderOnline'
 
 
@@ -34,36 +30,24 @@ const App = () => (
      <FetchUser>
     <Switch>
       <Route exact path='/' component={Home} />      
-
       <Route exact path='/taxnfees' component={TaxnFees} />
       <Route exact path='/taxnfeeform' component={TaxnFeeForm} />
-
-
-      {/* <Route exact path='/menu' component={Menus} /> */}
       <AdminRoute exact path='/edit-menu/:id' component={EditMenu} />
       <AdminRoute exact path='/create-new-menu' component={Menus} />
       <Route exact path='/menu' component={Menu} />
       <Route exact path='/order-online' component={OrderOnline} />
-
       <Route exact path='/cart' component={Cart} />
       <Route exact path='/reservations' component={Reservations} />
       <Route exact path='/reservationform' component={ReservationForm} />
-      {/* <Route exact path='/contacts' component={Contact} /> */}
-      <Route exact path='/cart' component={Cart}/>
-
       <Route exact path='/register' component={Register} />
       <Route exact path='/login' component={Login} />
-      {/* <Route component={NoMatch} /> */}
-      {/* <Route exact path='/admindash' component={AdminDash} /> */}
-
       <AdminRoute exact path="/admin" component={Admin} />
       <AdminRoute exact path="/users" component={Users} />
       <AdminRoute exact path="/users/:id" component={User} />
       <Route exact path="/confirmation" component={ConfirmationRes} />
       <Route component={NoMatch} />
       <ProtectedRoute exact path="/admin" component={Admin} />
-      {/* <Route component={NoMatch} /> */}
-      {/* <Route exact path='/admindash' component={AdminDash} /> */}
+
 
     </Switch>
     </FetchUser>
