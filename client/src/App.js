@@ -4,7 +4,6 @@ import Home from './components/Home';
 import Menus from './components/Menus';
 import EditMenu from './components/EditMenu';
 import Menu from './components/Menu';
-import Cart from './components/Cart';
 
 
 // import Cart from '/components/Cart';
@@ -19,20 +18,16 @@ import ProtectedRoute from './components/ProtectedRoute';
 import AdminRoute from './components/AdminRoute'
 import Admin from './components/Admin';
 import TaxnFees from './components/TaxnFees';
-
-import ConfirmationRes from './components/ConfirmationRes';
-
 import Users from './components/Users';
 import User from './components/User';
 import ConfirmationRes from './components/ConfirmationRes'
 import Cart from './components/Cart';
-import TaxnFees from './components/TaxnFees';
 import TaxnFeeForm from './components/TaxnFeeForm'; 
 import OrderOnline from './components/OrderOnline'
 import Payment from './components/Payment';
 import PaymentSuccess from './components/PaymentSuccess';
-
-
+import ReservationForm from './components/ReservationForm';
+import Reservations from './components/Reservations';
 const App = () => (
   <Fragment>
      <NavBar />
