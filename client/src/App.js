@@ -6,11 +6,6 @@ import EditMenu from './components/EditMenu';
 import Menu from './components/Menu';
 import Reservations from './components/Reservations';
 import ReservationForm from  './components/ReservationForm';
-// import Menu from './components/Menu';
-import Cart from './components/Cart';
-
-
-// import Cart from '/components/Cart';
 import Contact from './components/Contact';
 import NavBar from './components/NavBar';
 import NoMatch from './components/NoMatch';

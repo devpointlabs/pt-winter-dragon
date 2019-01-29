@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 // import TaxnFeeForm from './TaxnFeeForm';
 // import TaxnFees from './TaxnFees';
 import {Container, Grid, Header, Segment, Divider, Icon, Form, Button, Table } from 'semantic-ui-react';
@@ -16,12 +17,38 @@ class Cart extends React.Component {
         })
     }
     showSelectedItems = () => {
-     return (
-         <div>
-             
-         </div>
-        )
+        return this.state.allItems.map( a => {
+            return (
+                <ul key={a.id}>
+                    <li>{a.name} : $ {a.price}</li>
+                </ul>
+            )
+        })
     }
+
+    showCartItems = () => {
+
+        return this.state.cartItems.map( c => {
+            return (
+                <ul key={c.id}>
+                    <li>{c.name} - $$ {c.price}</li>
+                </ul>
+            )
+        })
+    }
+
+
+    // removeItems = (id) => {
+    //     axios.delete(`/api/all_items/${id}`)
+    //     .then(res => {
+    //         this.setState({cartItems: res.data})
+    //     });
+    //     return (
+    //         window.location.href="/cart"
+    //     )
+    // }
+
+
     calculateTotal = () => {
         return (
             <div>
@@ -35,7 +62,7 @@ class Cart extends React.Component {
         )
     }
  render () {
-     const { menuitems, taxnfees} = this.state
+     const { taxnfees, allItems, cartItems} = this.state
     return (
         <Container style={{width:'50%'}}>
         <br/><br/><br/><br/>
@@ -48,7 +75,12 @@ class Cart extends React.Component {
                 <Divider horizontal>
                 <Icon name='food'/>
                 </Divider>
-                {this.showSelectedItems()}
+                
+                <div>
+                  {this.showSelectedItems()}
+                  {this.showCartItems()}
+                </div>
+                
                 <Divider horizontal>
                 <Header as='h4'>
                  <Icon name='car' />
@@ -82,7 +114,7 @@ class Cart extends React.Component {
           
             </Header>
             <Header as={'h4'}>
-            Tax :
+            Tax : 6.85 %
             </Header>
             </Container>
             <Divider horizontal>
