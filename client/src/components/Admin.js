@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import { Segment, Container, Button} from 'semantic-ui-react';
-// import AdminNav from './AdminNav';
 import axios from 'axios';
 import Users from './Users';
 import Reservations from './Reservations'

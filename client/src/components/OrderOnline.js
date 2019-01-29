@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import { Grid, Message, Header, Card, Button, Container } from 'semantic-ui-react';
+import { Grid, Message, Header, Card, Button, Container, Segment } from 'semantic-ui-react';
 import styled from 'styled-components';
 import Pepper from '../assets/pepper.png';
 import heroimg from '../assets/coolpic.jpg'
+import '../index.css'
 
 const timeoutLength = 1500
 
@@ -57,34 +58,36 @@ class OrderOnline extends React.Component {
     for (let i = 0; i < this.state.categories.length; i++) {
       menu.push(
         <div>
-          <Grid centered>
-          <Header as='h2'>{this.state.categories[i].category.name}</Header>
-            <Grid.Row columns={4}>
-                  {this.state.categories[i].items.map(i => {
-                    return (
-                        <Grid.Column>
-                          <Card style={{margin: '0px 0px 25px 0px'}}>
-                            <Card.Content>
-                              <Card.Content>
-                                <div style={{float: 'right'}}>
-                                { i.spice ? <img src={Pepper} style={{height: '20px', width: '20px'}}/> : <p></p> }
-                                </div>
-                              </Card.Content>
-                              <Card.Header>{i.name}</Card.Header>
-                              <Card.Meta>${i.price}</Card.Meta>
-                              <Button 
-                                positive 
-                                content="Add To Cart" 
-                                onClick={() => this.handleAddCart(i.id)} 
-                              />  
-                            </Card.Content>
-                          </Card>
-                        </Grid.Column>
-                    )
-                  })
-                }
-            </Grid.Row>
-          </Grid>
+          <Segment style={{marginTop: "5%", marginBottom: "5%"}}>
+            <Grid centered>
+              <Header as='h2' style={{marginTop: "2%", fontFamily: "Aclonica", fontSize: "40px"}}>{this.state.categories[i].category.name}</Header>
+                <Grid.Row columns={4}>
+                      {this.state.categories[i].items.map(i => {
+                        return (
+                            <Grid.Column>
+                              <Card style={{margin: '0px 0px 25px 0px'}}>
+                                <Card.Content>
+                                  <Card.Content>
+                                    <div style={{float: 'right'}}>
+                                    { i.spice ? <img src={Pepper} style={{height: '20px', width: '20px'}}/> : <p></p> }
+                                    </div>
+                                  </Card.Content>
+                                  <Card.Header>{i.name}</Card.Header>
+                                  <Card.Meta>${i.price}</Card.Meta>
+                                  <Button 
+                                    positive 
+                                    content="Add To Cart" 
+                                    onClick={() => this.handleAddCart(i.id)} 
+                                  />  
+                                </Card.Content>
+                              </Card>
+                            </Grid.Column>
+                        )
+                      })
+                    }
+                </Grid.Row>
+            </Grid>
+          </Segment>
         </div>
       )
     }
