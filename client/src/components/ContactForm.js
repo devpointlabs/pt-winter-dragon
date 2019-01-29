@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { Button, Form, Input, Radio, TextArea, } from 'semantic-ui-react';
+import { Button, Form, Input, Radio, TextArea, Segment} from 'semantic-ui-react';
 import axios from 'axios';
 
 class ContactForm extends Component {
   state = {fname:'', lname:'', email:'', reason:'', comment:''}
 
-  componentDidMount() {
-      axios.get('/api/contacts')
-      .then(res => {
-          this.setState({ contacts: res.data})
-      })
-  }
+  // componentDidMount() {
+  //     axios.get('/api/contacts')
+  //     .then(res => {
+  //         this.setState({ contacts: res.data})
+  //     })
+  // }
 
   handleChange = (e) => {
     this.setState({ fname: '', lname: '', email: '', comment: ''});
@@ -32,6 +32,7 @@ class ContactForm extends Component {
   render() {
     const { value } = this.state
     return (
+      <div style={{margin: '90px 25px 25px 50px', textAlign: 'center'}}>
             <Form>
               <h1>Contact Golden Dragon</h1>
               <Form.Group widths='equal'>
@@ -68,6 +69,8 @@ class ContactForm extends Component {
                 <p>* For a venue reservation, please leave the number of people attending and the night you would like to reserve the Golden dragon.
                 completing this form does not guarantee reservation</p>
             </Form>
+            <br />
+            </div>
     )
   }
 }
