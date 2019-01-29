@@ -1,13 +1,14 @@
 import React from 'react';
 import { AuthConsumer } from '../providers/AuthProvider';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
-import {Header, Segment, Menu, Container, Button} from 'semantic-ui-react';
+import { Segment, Container, Button} from 'semantic-ui-react';
 // import AdminNav from './AdminNav';
 import axios from 'axios';
 import Users from './Users';
 import Reservations from './Reservations'
+import Taxnfees from './TaxnFees'
 
 class Admin extends React.Component {
     state = { users: [],  reservations: [], }
@@ -27,19 +28,8 @@ class Admin extends React.Component {
         const { auth: {handleLogout} } = this.props
         
         return(
-            <div>
-
-                <Segment raised align="center">
-                 <h1>Welcome to the Admin Page</h1>
-                 <Header as="h3">Admin Dashboard</Header>
-                </Segment>
-                {/* <Link to="/reservations/">View All Reservations</Link> */}
-                <Main style={{margin: '0px 0px 0px 15px'}}>
-                <ButtonLink onClick={() => handleLogout(this.props.history)}>
-                Logout
-                </ButtonLink>
-                <br/>
-                </Main>
+              <Container style={{marginTop:"10%"}}>
+                <div>
                 <Main>
                     <h1>Welcome to the Admin Page</h1>
                     {/* <div>
@@ -67,6 +57,10 @@ class Admin extends React.Component {
                             </Button>
                             </Link>
                             </Segment>
+                            Settings 
+                            <Segment>
+                              <Taxnfees />
+                            </Segment>
                         </h2>
                     </div>
                     <div>
@@ -81,6 +75,7 @@ class Admin extends React.Component {
                 <br/>
                 <br/>
             </div>
+          </Container>
         )}
 }
 

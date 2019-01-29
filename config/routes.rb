@@ -14,10 +14,19 @@ Rails.application.routes.draw do
     resources :taxnfees
     get '/braintree_token', to: 'braintree#token'
     post '/payment', to: 'braintree#payment'
-    get 'active_menu', to: 'menus#active_menu'
-    get 'all_items', to: 'items#all_items'
-    resources :taxnfees
+  end
+
+  # #Do not place any routes below this one
+  # get '*other', to: 'static#index'
+
+    namespace :api do
+      resources :taxnfees
+    end
+
+    namespace :api do
+      get 'active_menu', to: 'menus#active_menu'
+      get 'all_items', to: 'items#all_items'
+    end
+
 end
 
-
-end

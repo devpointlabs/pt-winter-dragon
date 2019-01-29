@@ -1,17 +1,11 @@
 import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
-
-
 import Reservations from './components/Reservations';
 import ReservationForm from  './components/ReservationForm';
-
 import Menus from './components/Menus';
 import EditMenu from './components/EditMenu';
 import Menu from './components/Menu';
-
-
-// import Cart from '/components/Cart';
 import ContactForm from './components/ContactForm';
 import NavBar from './components/NavBar';
 import NoMatch from './components/NoMatch';
@@ -31,8 +25,7 @@ import TaxnFeeForm from './components/TaxnFeeForm';
 import OrderOnline from './components/OrderOnline'
 import Payment from './components/Payment';
 import PaymentSuccess from './components/PaymentSuccess';
-import ReservationForm from './components/ReservationForm';
-import Reservations from './components/Reservations';
+
 const App = () => (
   <Fragment>
      <NavBar />
@@ -48,26 +41,12 @@ const App = () => (
       <Route exact path='/cart' component={Cart} />
       <Route exact path='/reservations' component={Reservations} />
       <Route exact path='/reservationform' component={ReservationForm} />
-
       <Route exact path='/contactform' component={ContactForm} />
-
       <Route exact path='/payment' component={Payment} />
       <Route exact path='/paymentsuccess' component={PaymentSuccess} />
-
       <Route exact path='/taxnfees' component={TaxnFees} />
-      {/* <Route exact path='/contacts' component={Contact} /> */}
-
-
       <Route exact path='/register' component={Register} />
       <Route exact path='/login' component={Login} />
-
-      
-
-
-      
-     
-
-      <AdminRoute exact path="/admin" component={Admin} />
       <AdminRoute exact path="/users" component={Users} />
       <AdminRoute exact path="/users/:id" component={User} />
       <Route exact path="/confirmation" component={ConfirmationRes} />

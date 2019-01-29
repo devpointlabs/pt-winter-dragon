@@ -45,11 +45,6 @@ class Menu extends React.Component {
                           <div>
                             <div style={{margin: '0px 0px 25px 0px', textAlign: 'center'}}>
                                 <p>{i.name} ${i.price} { i.spice ? <img src={Pepper} style={{height: '14.5px', width: '22.5px'}}/> : <p></p> }</p>
-                                {/* <Button 
-                                  positive
-                                  content="Add To Cart"
-                                  onClick={() => this.handleAddCart(i.id)}
-                                /> */}
                             </div>
                           </div>
                         </Grid.Column>
@@ -73,12 +68,7 @@ class Menu extends React.Component {
               <h1 style={{fontSize: '50px'}}>MENU</h1>
             </Hero>
           <div style={{margin: '25px', maxWidth: '400px', marginLeft: 'auto', marginRight: 'auto'}}>
-                {this.displayMenu()}
-                {/* <Button
-                  positive 
-                  content="Checkout"
-                  onClick={this.checkout}
-                /> */}
+            {this.displayMenu()}
           </div>
         </div>
       </div>

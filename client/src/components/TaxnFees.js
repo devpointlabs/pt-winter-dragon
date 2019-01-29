@@ -9,7 +9,11 @@ class TaxnFees extends React.Component {
     componentDidMount() {
         axios.get('/api/taxnfees')
         .then(res => {
+          if(res.data[0]){
             this.setState({taxnfees: {id: res.data[0].id, delivery: res.data[0].delivery, tax: res.data[0].tax }})
+          } else {
+            this.setState({...this.state.taxnfees})
+          }
         })
     }
 
@@ -24,7 +28,7 @@ class TaxnFees extends React.Component {
     editTaxnFees = (taxnfee) => {
         axios.put(`/api/taxnfees/${taxnfee.id}`, {taxnfee})
         .then(res => {
-            this.setState({taxnfee: res.data})
+            this.setState({taxnfees: res.data})
             window.location = "/taxnfees";
             this.setState({edit: false})
         });
@@ -70,10 +74,10 @@ class TaxnFees extends React.Component {
 
     render() {
         return(
-            <Container style={{width:'400px', marginTop: '10%', marginBottom: '10%'}}>
-              <Header>Setup Taxes and Fees</Header>
-              {this.showTaxnFees()}
-            </Container>
+          <div>
+            <Header>Setup Taxes and Fees</Header>
+            {this.showTaxnFees()}
+          </div>
         )
     }
 }
