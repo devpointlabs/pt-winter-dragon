@@ -29,7 +29,11 @@ class Cart extends React.Component {
   getTax = () => {
     axios.get('/api/taxnfees')
         .then(res => {
+          if (this.state.taxnfees.delivery[0]){
             this.setState({taxnfees: {delivery: res.data[0].delivery, tax: res.data[0].tax }})
+          } else {
+            this.setState({taxnfees: {delivery: 0, tax: 0}})
+          }
             this.compareItems()
             this.findSubTotal()
             this.total()
@@ -37,7 +41,7 @@ class Cart extends React.Component {
   }
 
   removeItem = (id) => {
-    this.state.items.map(i => {
+      this.state.items.map(i => {
       const item = this.state.items.filter(i => i.id !== id)
       this.setState({items: item})
     })
