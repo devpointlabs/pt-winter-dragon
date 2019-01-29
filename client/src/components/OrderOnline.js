@@ -1,16 +1,18 @@
 import React from 'react';
 import axios from 'axios';
-import { Grid, Segment, Header, Card, Button, Container } from 'semantic-ui-react';
+import { Grid, Message, Header, Card, Button, Container } from 'semantic-ui-react';
 import styled from 'styled-components';
 import Pepper from '../assets/pepper.png';
 import heroimg from '../assets/coolpic.jpg'
 
+const timeoutLength = 1500
+
 
 // CLIENT SIDE
 
-class Menu extends React.Component { 
+class OrderOnline extends React.Component { 
 
-  state = { menus: [], categories: { items: []}, cart: [] }
+  state = { menus: [], categories: { items: []}, cart: [], displayMessage: false }
 
   componentDidMount() {
   //get all data from database using sql query
@@ -22,6 +24,7 @@ class Menu extends React.Component {
 
   handleAddCart = (id) => {
     this.setState({cart: [...this.state.cart, id]})
+    this.setState({displayMessage:true}, () => this.display())
   }
 
   checkout = () => {
@@ -29,6 +32,24 @@ class Menu extends React.Component {
       pathname: '/cart',
       state: { cart: [...this.state.cart] }
     })
+  }
+
+  display = () => {
+    this.timeout = setTimeout(() => {
+      this.setState({ displayMessage: false })
+    }, timeoutLength)
+  }
+
+  displayMessage = () => {
+    if (this.state.displayMessage) {
+      return (
+        <Message positive>
+          <Message.Header>Item added to cart!</Message.Header>
+        </Message>
+      )
+    } else {
+      return <div></div>
+    }
   }
 
   displayMenu = () => {
@@ -52,10 +73,10 @@ class Menu extends React.Component {
                               <Card.Header>{i.name}</Card.Header>
                               <Card.Meta>${i.price}</Card.Meta>
                               <Button 
-                                positive
-                                content="Add To Cart"
-                                onClick={() => this.handleAddCart(i.id)}
-                              />
+                                positive 
+                                content="Add To Cart" 
+                                onClick={() => this.handleAddCart(i.id)} 
+                              />  
                             </Card.Content>
                           </Card>
                         </Grid.Column>
@@ -80,6 +101,7 @@ class Menu extends React.Component {
         <Container>
           <div style={{margin: '25px'}}>
             {this.displayMenu()}
+            {this.displayMessage()}
               <Button
                 positive 
                 content="Checkout"
@@ -110,4 +132,4 @@ background-repeat: no-repeat;
 background-size: cover;
 `
 
-export default Menu;
+export default OrderOnline;

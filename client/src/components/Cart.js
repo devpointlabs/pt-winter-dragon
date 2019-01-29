@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Container, Grid, Header, Segment, Divider, Icon, Form, Button, } from 'semantic-ui-react';
 
 class Cart extends React.Component {
-    state = { taxnfees: {delivery: '', tax: ''}, cartItems: [], allItems:[],  edit:false, items: [] }
+    state = { taxnfees: {delivery: '', tax: ''}, cartItems: [], allItems:[],  edit:false, items: [], subTotal: null, tax: null, total: null }
 
   componentDidMount() {
         if(this.props.location.state.cart){
@@ -14,8 +14,10 @@ class Cart extends React.Component {
         axios.get('/api/all_items')
           .then(res => {
             this.setState({ allItems: res.data })
-            this.compareItems()
-          })       
+            this.getTax()
+          })  
+        //get tax into db
+           
   }
 
   compareItems = () => {
@@ -32,6 +34,9 @@ class Cart extends React.Component {
     axios.get('/api/taxnfees')
         .then(res => {
             this.setState({taxnfees: {delivery: res.data[0].delivery, tax: res.data[0].tax }})
+            this.compareItems()
+            this.findSubTotal()
+            this.total()
         })
   }
 
@@ -60,13 +65,38 @@ class Cart extends React.Component {
     })
   }
 
-    findSubTotal = () => {
-      let total = null
-      this.state.items.map(i => {
-       total += i.price
-      })
-      return total
-    }
+  findSubTotal = () => {
+    let subTotal = null
+    this.state.items.map(i => {
+      subTotal += i.price
+    })
+    this.setState({subTotal})
+    this.findTax()
+  }
+
+  findTax = () => {
+    let tax = null
+    tax += (this.state.taxnfees.tax * .01) * this.state.subTotal
+    tax = tax.toFixed(2)
+    this.setState({tax})
+  }
+
+  total = () => {
+    let total = null
+    let subTotal = this.state.subTotal
+    let tax = this.state.tax 
+    let delivery = this.state.taxnfees.delivery 
+
+    subTotal = parseInt(subTotal)
+    tax = parseInt(tax)
+    delivery = parseInt(delivery)
+
+    total += subTotal
+    total += tax 
+    total += delivery
+
+    this.setState({total})
+  }
 
  render () {
      const { menuitems, taxnfees} = this.state
@@ -100,14 +130,14 @@ class Cart extends React.Component {
                     <Header as='h2'><Icon name='credit card' />Taxes/Fees</Header>
                   </Divider>
                 <Container textAlign='justify'>
-                  <Header as={'h4'}>Subtotal : ${this.findSubTotal()}</Header>
-                  <Header as={'h4'}>Delivery Fee :</Header>
-                  <Header as={'h4'}>Tax :</Header>
+                  <Header as={'h4'}>Subtotal : ${this.state.subTotal }</Header>
+                  <Header as={'h4'}>Delivery Fee : ${this.state.taxnfees.delivery}</Header>
+                  <Header as={'h4'}>Tax : ${this.state.tax}</Header>
                 </Container>
                 <Divider horizontal>
                   <Header as='h4'><Icon name='dollar' />Total</Header>
                 </Divider>
-                <Header as={'h3'}>Total:</Header>
+                <Header as={'h3'}>Total: ${this.state.total}</Header>
               </Grid.Column>
           </Grid.Row>
           <Grid.Row  style={{padding:'20px'}}>
