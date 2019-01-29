@@ -98,6 +98,13 @@ class Cart extends React.Component {
     this.setState({total})
   }
 
+  payment = () => {
+    this.props.history.push({
+      pathname: '/payment',
+      state: { total: this.state.total }
+    })
+  }
+
  render () {
      const { menuitems, taxnfees} = this.state
     return (
@@ -141,7 +148,11 @@ class Cart extends React.Component {
               </Grid.Column>
           </Grid.Row>
           <Grid.Row  style={{padding:'20px'}}>
-            <Button color='teal'>Checkout</Button>
+          <Button 
+            positive 
+            content="Checkout" 
+            onClick={() => this.payment()} 
+          />
           </Grid.Row>
         </Grid>
         </Segment>

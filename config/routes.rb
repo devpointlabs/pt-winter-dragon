@@ -37,7 +37,8 @@ end
   # #Do not place any routes below this one
   # get '*other', to: 'static#index'
 
-    resources :taxnfees
+    namespace :api do
+      resources :taxnfees
   end
 
 end
