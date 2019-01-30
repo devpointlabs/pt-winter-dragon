@@ -1,15 +1,23 @@
 import React from 'react'
 import axios from 'axios'
 import TaxnFeeForm from './TaxnFeeForm';
-import { Container, Header, Table, Button,} from 'semantic-ui-react';
+import { Container, Header, Segment, Button, Grid,} from 'semantic-ui-react';
 
 class TaxnFees extends React.Component {
-    state = {taxnfees: {id: 1, delivery: 2.00, tax: 2}, edit: false}
+    state = {taxnfees: {id: null, delivery: null, tax: null}, edit: false}
 
     componentDidMount() {
         axios.get('/api/taxnfees')
         .then(res => {
+          if(res.data[0]){
             this.setState({taxnfees: {id: res.data[0].id, delivery: res.data[0].delivery, tax: res.data[0].tax }})
+          } else {
+            const data = {delivery: 0, tax: 0}
+            axios.post(`/api/taxnfees`, {delivery: 0, tax: 0})
+            .then(res => {
+              this.setState({taxnfees: res.data})
+            })
+          }
         })
     }
 
@@ -24,8 +32,8 @@ class TaxnFees extends React.Component {
     editTaxnFees = (taxnfee) => {
         axios.put(`/api/taxnfees/${taxnfee.id}`, {taxnfee})
         .then(res => {
-            this.setState({taxnfee: res.data})
-            window.location = "/taxnfees";
+            this.setState({taxnfees: res.data})
+            window.location = "/admin";
             this.setState({edit: false})
         });
     }
@@ -33,26 +41,24 @@ class TaxnFees extends React.Component {
     showTaxnFees = () => {
         if (this.state.edit === false) {
           return (
-            <Table style={{width:'400px'}}>
-                <Table.Header>
-                    <Table.Row>
-                    <Table.HeaderCell>Taxes</Table.HeaderCell>
-                    <Table.HeaderCell>Delivery Fees</Table.HeaderCell>
-                    </Table.Row>
-                </Table.Header>
-                    <Table.Body style={{fontSize:'x-large'}}>
-                      <Table.Cell>{this.state.taxnfees.tax} %</Table.Cell>
-                      <Table.Cell>$ {this.state.taxnfees.delivery}</Table.Cell>
-                </Table.Body><br/>
-                <Table.Footer>
-                    <Button 
-                      color='green' 
-                      style={{width: '100%'}}
-                      onClick={() => {this.setState({edit: !this.state.edit})}} 
-                      content="Edit" 
-                    />
-                </Table.Footer>
-            </Table>
+            <Segment>
+              <Grid columns={2} style={{width:"50%", margin:"0px auto"}}>
+                <Grid.Column>
+                  <Header>Taxes (%)</Header>
+                    {this.state.taxnfees.tax} %
+                </Grid.Column>
+                <Grid.Column>
+                  <Header>Delivery Fees ($)</Header>
+                    $ {this.state.taxnfees.delivery}
+                </Grid.Column>
+                <Button 
+                  color='green' 
+                  style={{width:"30%", margin:"0px auto"}}
+                  onClick={() => {this.setState({edit: !this.state.edit})}} 
+                  content="Edit" 
+                />
+            </Grid>
+          </Segment>
           )
         }
         else {
@@ -70,10 +76,10 @@ class TaxnFees extends React.Component {
 
     render() {
         return(
-            <Container style={{width:'400px', marginTop: '10%', marginBottom: '10%'}}>
-              <Header>Setup Taxes and Fees</Header>
-              {this.showTaxnFees()}
-            </Container>
+          <div>
+            <Header>Setup Taxes and Fees</Header>
+            {this.showTaxnFees()}
+          </div>
         )
     }
 }

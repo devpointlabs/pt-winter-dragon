@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Table, Container, Segment } from 'semantic-ui-react';
+import { Form, Header, Grid, Segment } from 'semantic-ui-react';
 
 
 class TaxnFeeForm extends React.Component {
@@ -31,39 +31,42 @@ class TaxnFeeForm extends React.Component {
     render () {
         const { tax, delivery } = this.state
         return (
-          <Container>
-            <Table style={{width:'400px'}}>
-              <Table.Header>
-                  <Table.Row>
-                    <Table.HeaderCell>Taxes</Table.HeaderCell>
-                    <Table.HeaderCell>Delivery Fees</Table.HeaderCell>
-                  </Table.Row>
-              </Table.Header>
-            </Table>
+          <div>
+            <Segment>
+              <Grid columns={2} style={{width:"50%", margin: "0px auto"}}>
+                <Grid.Column>
+                  <Header>Taxes (%)</Header>
+                </Grid.Column>
+                <Grid.Column>
+                  <Header>Delivery Fees ($)</Header>
+                </Grid.Column>
+              </Grid>
+            </Segment>
             <Segment>
               <Form onSubmit={this.handleSubmit}>
-                <Form.Group widths='equal'>
+                <Form.Group widths='equal' style={{width:"50%", margin:"0px auto"}}>
                   <Form.Input fluid width="6"
                     placeholder= "Tax (%)"
                     name={"tax"}
                     value={tax}
                     onChange={this.handleChange}
                     required
-                    /> 
-                    <Form.Input fluid width="6"
+                  /> 
+                  <Form.Input fluid width="6"
                     placeholder= "Delivery Fees ($)"
                     name={"delivery"}
                     value={delivery}
                     onChange={this.handleChange}
                     required
-                    /> 
+                  /> 
                 </Form.Group>
                 <Form.Button positive>Submit</Form.Button>
               </Form>
             </Segment>
-          </Container>
+          </div>
         )
     }
 }
+
 
 export default TaxnFeeForm;

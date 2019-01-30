@@ -41,25 +41,12 @@ const App = () => (
       <Route exact path='/cart' component={Cart} />
       <Route exact path='/reservations' component={Reservations} />
       <Route exact path='/reservationform' component={ReservationForm} />
-
       <Route exact path='/contactform' component={ContactForm} />
-
       <Route exact path='/payment' component={Payment} />
       <Route exact path='/paymentsuccess' component={PaymentSuccess} />
-
       <Route exact path='/taxnfees' component={TaxnFees} />
-      {/* <Route exact path='/contacts' component={Contact} /> */}
-
-
       <Route exact path='/register' component={Register} />
       <Route exact path='/login' component={Login} />
-
-      
-
-
-      
-     
-
       <AdminRoute exact path="/users" component={Users} />
       <AdminRoute exact path="/users/:id" component={User} />
       <Route exact path="/confirmation" component={ConfirmationRes} />
