@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Form, Input, Radio, TextArea, Segment, Container} from 'semantic-ui-react';
 import axios from 'axios';
+import heroimg from '../assets/contact_img.jpg'
+import styled from 'styled-components'
 
 class ContactForm extends Component {
   state = {fname:'', lname:'', email:'', reason:'', comment:''}
@@ -35,10 +37,12 @@ class ContactForm extends Component {
   render() {
     const { value } = this.state
     return (
-      <Container style={{margin: '90px 25px 25px 50px', textAlign: 'center'}}>
-      <Segment>
-            <Form action="/confirmation-contact"  enctype="text/plain"> 
-              <h1>Contact Golden Dragon</h1>
+      <div >
+          <Hero>
+              <h1 style={{fontSize: '50px'}}>CONTACT US</h1>
+            </Hero>
+            <Container>
+            <Form style={{margin: '25px 25px 25px 50px', textAlign: 'center'}}>
               <Form.Group widths='equal'>
                 <Form.Field control={Input} label='First name' name='fname' placeholder='First name' />
                 <Form.Field control={Input} label='Last name' name='lname' placeholder='Last name' />
@@ -80,11 +84,25 @@ class ContactForm extends Component {
                 <p>* For a venue reservation, please leave the number of people attending and the night you would like to reserve the Golden dragon.
                 completing this form does not guarantee reservation</p>
             </Form>
-            <br />
-            </Segment>
             </Container>
+            <br />
+            </div>
     )
   }
 }
+
+const Hero = styled.div`
+background-image: url(${heroimg});
+text-align: center;
+color: white;
+min-height: 200px;
+padding: 265px 0px;
+height: 100% !important;
+position: relative;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+text-shadow: 2px 2px rgba(0,0,0, 0.3);
+`
 
 export default ContactForm;

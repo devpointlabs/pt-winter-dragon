@@ -48,7 +48,7 @@ class ReservationForm extends React.Component {
         return(
             <div style={{}}>
                 <Reservation>
-                    <Header as='h1' style={{fontSize: '50px', color:'white'}}>RESERVATION</Header>
+                    <Header as='h1' style={{fontSize: '50px', color:'white'}}>RESERVATIONS</Header>
                </Reservation>
                 <Container>
                     <br/>

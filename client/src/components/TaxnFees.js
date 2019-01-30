@@ -41,7 +41,7 @@ class TaxnFees extends React.Component {
     showTaxnFees = () => {
         if (this.state.edit === false) {
           return (
-            <Segment>
+            <div>
               <Grid columns={2} style={{width:"50%", margin:"0px auto"}}>
                 <Grid.Column>
                   <Header>Taxes (%)</Header>
@@ -58,7 +58,7 @@ class TaxnFees extends React.Component {
                   content="Edit" 
                 />
             </Grid>
-          </Segment>
+          </div>
           )
         }
         else {

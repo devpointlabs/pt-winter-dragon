@@ -24,12 +24,14 @@ const Footer = () => (
     </Container>
     <Grid.Column floated="right">
     <Container>
-     <p><a href="https://www.facebook.com/slcnewgoldendragon/" target="_blank"><Facebook  /></a></p>
      <p>{"\u00A9"}2018 New Golden Dragon Restaurant</p>
      <p>All Rights Reserved</p>
      <Link to="/admin" style={{color: 'grey'}}>Admin Dashboard</Link>
      <br />
      <Link to="/login" style={{color: 'grey'}}>Admin Login</Link>
+        <div style={{margin: '5px 0px 0px 0px'}}>
+            <a href="https://www.facebook.com/slcnewgoldendragon/" target="_blank"><Facebook  /></a>
+        </div>
 
     </Container>
     </Grid.Column>
@@ -48,7 +50,7 @@ bottom: 0;
 `
 const Container = styled.div`
     margin: 25px;
-    padding: 30px;
+    padding: 25px 0px 0px 0px;
     color: white;
     max-width: 250px;
 `
@@ -58,9 +60,10 @@ border-bottom: solid 1px white;
 display: inline;
 padding-bottom: 3px;
 `
-const Facebook = styled.div`
+const Facebook = styled.p`
 background-image: url(${facebook_icon});
 height: 35px;
 width: 35px;
 background-size: cover;
+
 `
