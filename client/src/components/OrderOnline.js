@@ -58,9 +58,9 @@ class OrderOnline extends React.Component {
     for (let i = 0; i < this.state.categories.length; i++) {
       menu.push(
         <div>
-          <Segment style={{marginTop: "5%", marginBottom: "5%"}}>
+          <Segment raised style={{marginTop: "10%", marginBottom: "5%"}}>
             <Grid centered>
-              <Header as='h2' style={{marginTop: "2%", fontFamily: "Aclonica", fontSize: "40px"}}>{this.state.categories[i].category.name}</Header>
+              <Header as='h2' style={{marginTop: "2%", fontFamily: "Passero One, cursive", fontSize: "50px"}}>{this.state.categories[i].category.name}</Header>
                 <Grid.Row columns={4}>
                       {this.state.categories[i].items.map(i => {
                         return (
@@ -75,7 +75,8 @@ class OrderOnline extends React.Component {
                                   <Card.Header>{i.name}</Card.Header>
                                   <Card.Meta>${i.price}</Card.Meta>
                                   <Button 
-                                    positive 
+                                    icon="plus"
+                                    color="orange" 
                                     content="Add To Cart" 
                                     onClick={() => this.handleAddCart(i.id)} 
                                   />  
@@ -105,11 +106,27 @@ class OrderOnline extends React.Component {
           <div style={{margin: '25px'}}>
             {this.displayMenu()}
             {this.displayMessage()}
-              <Button
-                positive 
-                content="Checkout"
-                onClick={this.checkout}
-              />
+            <Grid centered>
+             <Segment>
+                <Button.Group>
+                  <Button
+                    primary
+                    positive
+                    icon="cart"
+                    size="huge"
+                    content="Checkout"
+                    onClick={this.checkout}
+                  />
+                  <Button.Or />
+                  <Button
+                      size="huge"
+                      icon="text telephone"
+                      secondary
+                      content="Call To Order"
+                    />
+                </Button.Group>
+              </Segment>
+            </Grid>
           </div>
          </Container>
       </div>

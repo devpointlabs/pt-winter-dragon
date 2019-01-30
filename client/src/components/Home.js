@@ -21,9 +21,9 @@ const Home = () => (
                 </h5>
                 </div>
             </Hero>
-            <Section>
+            <Section style={{marginTop:"5%"}}>
                 <h1 style={{fontSize: '50px', fontStyle: 'bold'}}>GREAT FOOD. BETTER COMPANY</h1>
-                <Paragraph>New Golden Dragon opened in XXXX as a tea parlor and dim sum house.
+                <Paragraph>New Golden Dragon opened in 1974 as a tea parlor and dim sum house.
                     We have served as a neighborhood staple, offering fresh Chinese
                     pastries, steamed buns, dim sum, and much more...
                 </Paragraph>
@@ -40,7 +40,7 @@ const Home = () => (
                     <Link to='/contactform'>
                     <Image src={food} alt='private events' />
                     </Link>
-                    <Link to='/contact'>
+                    <Link to='/contactform'>
                     <SubTitle>Private Events | Weddings</SubTitle>
                     </Link>
                     <p>Do you want to celebrate an occasion with family and friends?
@@ -50,9 +50,9 @@ const Home = () => (
                 </Grid.Column>
                 <Grid.Column style={{maxWidth: '500px', margin: '50px'}}>
                     <Link to='/reservationform'>
-                    <Image src={food2} alt='reservation' />
+                    <Image src={food2} alt='reservationform' />
                     </Link>
-                    <Link to='/reservations'>
+                    <Link to='/reservationform'>
                     <SubTitle>Happy Hour</SubTitle>
                     </Link>
                     <p>Do you want to celebrate an occasion with family and friends?
