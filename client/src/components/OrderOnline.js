@@ -60,12 +60,12 @@ class OrderOnline extends React.Component {
         <div>
           <Segment raised style={{marginTop: "10%", marginBottom: "5%"}}>
             <Grid centered>
-              <Header as='h2' style={{marginTop: "2%", fontFamily: "Nova Cut", fontSize: "40px"}}>{this.state.categories[i].category.name}</Header>
+              <Header as='h2' style={{marginTop: "2%", fontFamily: "Passero One, cursive", fontSize: "50px"}}>{this.state.categories[i].category.name}</Header>
                 <Grid.Row columns={4}>
                       {this.state.categories[i].items.map(i => {
                         return (
                             <Grid.Column>
-                              <Card color='red' style={{margin: '0px 0px 25px 0px'}}>
+                              <Card style={{margin: '0px 0px 25px 0px'}}>
                                 <Card.Content>
                                   <Card.Content>
                                     <div style={{float: 'right'}}>
@@ -76,7 +76,7 @@ class OrderOnline extends React.Component {
                                   <Card.Meta>${i.price}</Card.Meta>
                                   <Button 
                                     icon="plus"
-                                    positive 
+                                    color="orange" 
                                     content="Add To Cart" 
                                     onClick={() => this.handleAddCart(i.id)} 
                                   />  
@@ -106,11 +106,27 @@ class OrderOnline extends React.Component {
           <div style={{margin: '25px'}}>
             {this.displayMenu()}
             {this.displayMessage()}
-              <Button
-                positive 
-                content="Checkout"
-                onClick={this.checkout}
-              />
+            <Grid centered>
+             <Segment>
+                <Button.Group>
+                  <Button
+                    primary
+                    positive
+                    icon="cart"
+                    size="huge"
+                    content="Checkout"
+                    onClick={this.checkout}
+                  />
+                  <Button.Or />
+                  <Button
+                      size="huge"
+                      icon="text telephone"
+                      secondary
+                      content="Call To Order"
+                    />
+                </Button.Group>
+              </Segment>
+            </Grid>
           </div>
          </Container>
       </div>

@@ -12,15 +12,14 @@ const Home = () => (
     <div>
         <div>
             <Hero>
-                {/* <Image src={heroimg} alt='hero_img'/> */}
                 <div>
                 <h1 style={{fontSize: '50px', fontStyle: 'bold'}}>
                 NEW GOLDEN DRAGON</h1>
                 <h5 style={{fontSize: '20px'}}>TRADITION NEVER TASTED SO GOOD</h5></div>
             </Hero>
-            <Section>
+            <Section style={{marginTop:"5%"}}>
                 <h1 style={{fontSize: '50px', fontStyle: 'bold'}}>GREAT FOOD. BETTER COMPANY</h1>
-                <Paragraph>New Golden Dragon opened in XXXX as a tea parlor and dim sum house.
+                <Paragraph>New Golden Dragon opened in 1974 as a tea parlor and dim sum house.
                     We have served as a neighborhood staple, offering fresh Chinese
                     pastries, steamed buns, dim sum, and much more...
                 </Paragraph>
@@ -34,10 +33,10 @@ const Home = () => (
                 <Grid centered columns={2} style={{}}>
                 <Grid.Row>
                 <Grid.Column style={{maxWidth: '500px', margin: '50px'}}>
-                    <Link to='/contact'>
+                    <Link to='/contactform'>
                     <Image src={food} alt='private events' />
                     </Link>
-                    <Link to='/contact'>
+                    <Link to='/contactform'>
                     <SubTitle>Private Events | Weddings</SubTitle>
                     </Link>
                     <p>Do you want to celebrate an occasion with family and friends?
@@ -46,10 +45,10 @@ const Home = () => (
                     </p>
                 </Grid.Column>
                 <Grid.Column style={{maxWidth: '500px', margin: '50px'}}>
-                    <Link to='/reservations'>
-                    <Image src={food2} alt='reservations' />
+                    <Link to='/reservationform'>
+                    <Image src={food2} alt='reservation-form' />
                     </Link>
-                    <Link to='/reservations'>
+                    <Link to='/reservationform'>
                     <SubTitle>Happy Hour</SubTitle>
                     </Link>
                     <p>Do you want to celebrate an occasion with family and friends?

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Grid, Segment, Header, Card, Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 import Pepper from '../assets/pepper.png';
 import heroimg from '../assets/bamboo.jpg'
@@ -36,23 +37,23 @@ class Menu extends React.Component {
     for (let i = 0; i < this.state.categories.length; i++) {
       menu.push(
         <div>
-          <Grid centered style={{marginTop: "5%"}}>
-          <Header as='h2' style={{marginTop: "2%", fontFamily: "Nova Cut", fontSize: "40px"}}>{this.state.categories[i].category.name}</Header>
-            <Grid.Row columns={2}>
-                  {this.state.categories[i].items.map(i => {
-                    return (
-                        <Grid.Column>
-                          <div>
-                            <div style={{margin: '0px 0px 25px 0px', textAlign: 'center'}}>
-                                <p>{i.name} ${i.price} { i.spice ? <img src={Pepper} style={{height: '14.5px', width: '22.5px'}}/> : <p></p> }</p>
+            <Grid centered style={{marginTop: "10%"}}>
+            <Header as='h2' style={{marginTop: "2%", fontFamily: "Passero One, cursive", fontSize: "50px"}}>{this.state.categories[i].category.name}</Header>
+              <Grid.Row columns={4}>
+                    {this.state.categories[i].items.map(i => {
+                      return (
+                          <Grid.Column>
+                            <div>
+                              <div style={{margin: '0px 0px 25px 0px', textAlign: 'center'}}>
+                                  <p style={{fontSize: "18px"}}>{i.name} ${i.price} { i.spice ? <img src={Pepper} style={{height: '14.5px', width: '22.5px'}}/> : <p></p> }</p>
+                              </div>
                             </div>
-                          </div>
-                        </Grid.Column>
-                    )
-                  })
-                }
-            </Grid.Row>
-          </Grid>
+                          </Grid.Column>
+                      )
+                    })
+                  }
+              </Grid.Row>
+            </Grid>
         </div>
       )
     }
@@ -62,14 +63,34 @@ class Menu extends React.Component {
   render() {
     // debugger
     return (
-      <div style={{}}>
+      <div>
         <div>
             <Hero>
               <h1 style={{fontSize: '50px'}}>MENU</h1>
             </Hero>
-          <div style={{margin: '25px', maxWidth: '400px', marginLeft: 'auto', marginRight: 'auto'}}>
+          <div style={{margin: '25px', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto'}}>
             {this.displayMenu()}
           </div>
+          <Grid centered style={{marginBottom: "10%"}}>
+              <Button.Group>
+                <Link to="/order-online">
+                  <Button
+                    primary
+                    positive
+                    icon="cart"
+                    size="huge"
+                    content="Order Online"
+                  />
+                </Link>
+                <Button.Or />
+                <Button
+                    size="huge"
+                    icon="text telephone"
+                    secondary
+                    content="Call To Order"
+                  />
+              </Button.Group>
+            </Grid>
         </div>
       </div>
     )
