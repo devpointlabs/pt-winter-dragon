@@ -25,6 +25,7 @@ import TaxnFeeForm from './components/TaxnFeeForm';
 import OrderOnline from './components/OrderOnline'
 import Payment from './components/Payment';
 import PaymentSuccess from './components/PaymentSuccess';
+import ConfirmationContact from './components/ConfirmationContact';
 
 const App = () => (
   <Fragment>
@@ -50,6 +51,10 @@ const App = () => (
       <AdminRoute exact path="/users" component={Users} />
       <AdminRoute exact path="/users/:id" component={User} />
       <Route exact path="/confirmation" component={ConfirmationRes} />
+      <Route exact path="/confirmation-contact" component={ConfirmationContact} />
+
+
+      
       
       <ProtectedRoute exact path="/admin" component={Admin} />
       <Route component={NoMatch} />
