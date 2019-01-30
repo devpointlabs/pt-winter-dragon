@@ -57,7 +57,7 @@ class Admin extends React.Component {
                             </Link>
                             </Segment>
                             Settings 
-                            <Segment>
+                            <Segment style={{margin: '15px'}}>
                               <Taxnfees />
                             </Segment>
                         </h2>

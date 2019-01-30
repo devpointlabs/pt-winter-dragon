@@ -6,12 +6,13 @@
           name: Faker::Food.ingredient,
           description: Faker::Food.description
       )
-      5.times do
+      8.times do
         item = Item.create(
           category_id: category.id, 
           name: Faker::Food.dish,
           price: rand(1.5-6.5),
-          spice: Faker::Boolean.boolean
+          spice: Faker::Boolean.boolean,
+          image: Faker::LoremFlickr.image("300x300", ['food'], :random)
         )
       end
     end

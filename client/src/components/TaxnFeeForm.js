@@ -32,7 +32,7 @@ class TaxnFeeForm extends React.Component {
         const { tax, delivery } = this.state
         return (
           <div>
-            <Segment>
+            <div>
               <Grid columns={2} style={{width:"50%", margin: "0px auto"}}>
                 <Grid.Column>
                   <Header>Taxes (%)</Header>
@@ -41,8 +41,8 @@ class TaxnFeeForm extends React.Component {
                   <Header>Delivery Fees ($)</Header>
                 </Grid.Column>
               </Grid>
-            </Segment>
-            <Segment>
+            </div>
+            <div>
               <Form onSubmit={this.handleSubmit}>
                 <Form.Group widths='equal' style={{width:"50%", margin:"0px auto"}}>
                   <Form.Input fluid width="6"
@@ -62,7 +62,7 @@ class TaxnFeeForm extends React.Component {
                 </Form.Group>
                 <Form.Button positive>Submit</Form.Button>
               </Form>
-            </Segment>
+            </div>
           </div>
         )
     }
