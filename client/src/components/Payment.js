@@ -6,7 +6,15 @@ class Payment extends Component {
   state = { amount: '' };
 
   componentDidMount() {
-    this.setState({ amount: this.props.location.state.total })
+  this.setState({ amount: this.props.location.state.total }, () => {
+      this.stringToFloat(this.state.amount)
+    })
+  }
+
+  stringToFloat = (num) => {
+    num = parseFloat(num)
+    num = num.toFixed(2) 
+    this.setState({ amount: num })
   }
 
   render() {

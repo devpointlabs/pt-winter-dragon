@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
-import { Button, Form, Input, Radio, TextArea, Segment, Container} from 'semantic-ui-react';
+import { Button, Form, Input, Radio, TextArea, Header, Container} from 'semantic-ui-react';
 import axios from 'axios';
 import heroimg from '../assets/contact_img.jpg'
 import styled from 'styled-components'
 
 class ContactForm extends Component {
   state = {fname:'', lname:'', email:'', reason:'', comment:''}
-
-  // componentDidMount() {
-  //     axios.get('/api/contacts')
-  //     .then(res => {
-  //         this.setState({ contacts: res.data})
-  //     })
-  // }
 
   handleChangeRadio = (e, { value }) => this.setState({ value })
 
@@ -42,7 +35,8 @@ class ContactForm extends Component {
               <h1 style={{fontSize: '50px'}}>CONTACT US</h1>
             </Hero>
             <Container>
-            <Form style={{margin: '25px 25px 25px 50px', textAlign: 'center'}}>
+              <Header as="h2" textAlign="centered" style={{marginTop: "50px"}}>Contact Golden Dragon</Header>
+            <Form style={{margin: '50px 25px 25px 50px', textAlign: 'center'}}>
               <Form.Group widths='equal'>
                 <Form.Field control={Input} label='First name' name='fname' placeholder='First name' />
                 <Form.Field control={Input} label='Last name' name='lname' placeholder='Last name' />

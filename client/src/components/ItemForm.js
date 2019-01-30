@@ -1,7 +1,5 @@
 import React from 'react';
 import { Button, Form, Checkbox } from 'semantic-ui-react';
-import { privateEncrypt } from 'crypto';
-// import ImageUploader from 'react-images-upload';
 
 class ItemForm extends React.Component {
   state = { 
@@ -30,13 +28,6 @@ class ItemForm extends React.Component {
     this.setState( {name: '', price: '' })
   };
 
-  // updateItem = (id, item) => {
-  //   let data = new FormData();
-  //   data.append('file', item.file);
-  //   axios.put(`/api/items/${id}`)
-  //   .then( res => this.setState({item: res.data, file: ''}) )
-  // }
-
   handleInputChange = (e) => {
     const target = e.target;
     const value = target.value;
@@ -51,10 +42,6 @@ class ItemForm extends React.Component {
   handleToggle = () => this.setState({spice: !this.state.spice })
 
   checkToggle = () => { return "checked" ? this.state.spice : !this.state.spice }
-
-  // imageUpload = (pic) => {
-  //   this.setState({image:pic})
-  // }
 
   onDrop = (files) => {
     this.setState({ ...this.state, file: files[0] })
@@ -91,37 +78,12 @@ class ItemForm extends React.Component {
             onChange={this.handleToggle}
           />
         </Form.Field>
-        {/* <Dropzone
-          onDrop={this.onDrop}
-          multiple={false}
-        >
-          {({ getRootProps, getInputProps, isDragActive }) => {
-            return (
-              <div
-                {...getRootProps()}
-                style={styles.dropzone}
-              >
-                <input {...getInputProps()} />
-                {
-                  isDragActive ?
-                    <p>Drop files here...</p> 
-                  :
-                    <p>Try dropping an image here, or click to select an image to upload.</p>
-                }
-              </div>
-            )
-          }}
-        </Dropzone> */}
         <Button positive>Add</Button>
         <br />
         <br />
       </Form>
       )
     }
-}
-
-const styles = { 
-  dropzone: { height: '50px', textAlign: 'center' }
 }
 
 export default ItemForm;

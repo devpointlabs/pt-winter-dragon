@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Grid, Segment, Header, Card, Button } from 'semantic-ui-react';
+import { Grid, Header, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 import Pepper from '../assets/pepper.png';
@@ -61,7 +61,6 @@ class Menu extends React.Component {
   }
 
   render() {
-    // debugger
     return (
       <div>
         <div>

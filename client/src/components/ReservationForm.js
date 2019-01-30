@@ -4,33 +4,26 @@ import {Form, Container, Button, List, Header, Segment} from 'semantic-ui-react'
 import { Calendar } from 'react-calendar';
 import styled from 'styled-components';
 import reservation_header from '../assets/reservation_header.jpg';
-
 class ReservationForm extends React.Component {
-
     defaultValues = {id: '', name:'', phone:'', email:'', date:'', time:'', party:''}
     state = {...this.defaultValues}
     state={ date: new Date(), } 
-
     onChange = date => this.setState({date})
-
     componentDidMount(){
         if(this.props.id){
             this.setState({...this.props})
         }
     }
-
    handleChange = (e) => {
         const { target: {name, value}} = e;
         this.setState({ [name]: value })
     }
-
     addReserv = (reservation) => {
         axios.post('/api/reservations', { reservation })
         .then(res => {
             this.setState()
         })
     }
-
     handleSubmit = (e) => {
         const { submit } = this.props
         e.preventDefault();
@@ -38,17 +31,15 @@ class ReservationForm extends React.Component {
         this.addReserv(reservation)
         this.setState({...this.defaultValues})
     }
-
     handlePageChange() {
         window.location = "/confirmation";
       }
-
     render() {
         const {name, phone, email, date, time, party}=this.state;
         return(
             <div style={{}}>
                 <Reservation>
-                    <Header as='h1' style={{fontSize: '50px', color:'white'}}>RESERVATIONS</Header>
+                    <Header as='h1' style={{fontSize: '50px', color:'white'}}>RESERVATION</Header>
                </Reservation>
                 <Container>
                     <br/>
@@ -73,7 +64,6 @@ class ReservationForm extends React.Component {
                     required
                     placeholder="Please Enter Your Full Name"/>
                     <br />
-
                     <Form.Input fluid
                     value={phone}
                     label="Phone"
@@ -82,7 +72,6 @@ class ReservationForm extends React.Component {
                     required
                     placeholder="Phone Number"/>
                     <br />
-
                     <Form.Input fluid
                     value={email}
                     label="Email"
@@ -105,7 +94,6 @@ class ReservationForm extends React.Component {
                     placeholder="Date Requested"/>
                     </div>
                     <br /><br/>
-
                     <Form.Input fluid
                     value={time}
                     label="Time"
@@ -116,7 +104,6 @@ class ReservationForm extends React.Component {
                     />
                     <br />
                     <br/>
-
                     <Form.Input fluid
                     value={party}
                     label="Party"
@@ -140,9 +127,7 @@ class ReservationForm extends React.Component {
         )
     }
 }
-
 export default ReservationForm;
-
 const Reservation = styled.div`
 background-image: url(${reservation_header});
 text-align: center;
