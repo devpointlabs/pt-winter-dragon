@@ -12,11 +12,14 @@ const Home = () => (
     <div>
         <div>
             <Hero>
-                {/* <Image src={heroimg} alt='hero_img'/> */}
                 <div>
                 <h1 style={{fontSize: '50px', fontStyle: 'bold'}}>
+                <center><Logo/></center>
                 NEW GOLDEN DRAGON</h1>
-                <h5 style={{fontSize: '20px'}}>TRADITION NEVER TASTED SO GOOD</h5></div>
+                <h5 style={{fontSize: '20px'}}>
+                TRADITION NEVER TASTED SO GOOD
+                </h5>
+                </div>
             </Hero>
             <Section>
                 <h1 style={{fontSize: '50px', fontStyle: 'bold'}}>GREAT FOOD. BETTER COMPANY</h1>
@@ -34,7 +37,7 @@ const Home = () => (
                 <Grid centered columns={2} style={{}}>
                 <Grid.Row>
                 <Grid.Column style={{maxWidth: '500px', margin: '50px'}}>
-                    <Link to='/contact'>
+                    <Link to='/contactform'>
                     <Image src={food} alt='private events' />
                     </Link>
                     <Link to='/contact'>
@@ -46,8 +49,8 @@ const Home = () => (
                     </p>
                 </Grid.Column>
                 <Grid.Column style={{maxWidth: '500px', margin: '50px'}}>
-                    <Link to='/reservations'>
-                    <Image src={food2} alt='reservations' />
+                    <Link to='/reservationform'>
+                    <Image src={food2} alt='reservation' />
                     </Link>
                     <Link to='/reservations'>
                     <SubTitle>Happy Hour</SubTitle>
