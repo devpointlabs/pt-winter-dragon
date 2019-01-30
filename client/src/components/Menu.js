@@ -36,8 +36,8 @@ class Menu extends React.Component {
     for (let i = 0; i < this.state.categories.length; i++) {
       menu.push(
         <div>
-          <Grid centered>
-          <Header as='h2' style={{marginTop: "2%", fontFamily: "Aclonica", fontSize: "40px"}}>{this.state.categories[i].category.name}</Header>
+          <Grid centered style={{marginTop: "5%"}}>
+          <Header as='h2' style={{marginTop: "2%", fontFamily: "Nova Cut", fontSize: "40px"}}>{this.state.categories[i].category.name}</Header>
             <Grid.Row columns={2}>
                   {this.state.categories[i].items.map(i => {
                     return (

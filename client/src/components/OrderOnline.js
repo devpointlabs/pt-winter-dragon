@@ -58,14 +58,14 @@ class OrderOnline extends React.Component {
     for (let i = 0; i < this.state.categories.length; i++) {
       menu.push(
         <div>
-          <Segment style={{marginTop: "5%", marginBottom: "5%"}}>
+          <Segment raised style={{marginTop: "10%", marginBottom: "5%"}}>
             <Grid centered>
-              <Header as='h2' style={{marginTop: "2%", fontFamily: "Aclonica", fontSize: "40px"}}>{this.state.categories[i].category.name}</Header>
+              <Header as='h2' style={{marginTop: "2%", fontFamily: "Nova Cut", fontSize: "40px"}}>{this.state.categories[i].category.name}</Header>
                 <Grid.Row columns={4}>
                       {this.state.categories[i].items.map(i => {
                         return (
                             <Grid.Column>
-                              <Card style={{margin: '0px 0px 25px 0px'}}>
+                              <Card color='red' style={{margin: '0px 0px 25px 0px'}}>
                                 <Card.Content>
                                   <Card.Content>
                                     <div style={{float: 'right'}}>
@@ -75,6 +75,7 @@ class OrderOnline extends React.Component {
                                   <Card.Header>{i.name}</Card.Header>
                                   <Card.Meta>${i.price}</Card.Meta>
                                   <Button 
+                                    icon="plus"
                                     positive 
                                     content="Add To Cart" 
                                     onClick={() => this.handleAddCart(i.id)} 
