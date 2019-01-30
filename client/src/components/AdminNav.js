@@ -46,35 +46,3 @@ class AdminNav extends Component {
   }
 
 export default AdminNav;
-
-
-
-// import React from 'react';
-// import { Grid, Menu, Segment } from 'semantic-ui-react';
-// import styled from 'styled-components';
-
-// const AdminNav = () => (
-//     <Segment>
-//         {/* <Grid.Column width={4}> */}
-//         <Menu fluid vertical tabular>
-//             <Menu.Item name='View Reservations' />
-//             <Menu.Item name='View Contact Form' />
-//             <Menu.Item name='Menu Items' />
-//         </Menu>
-//         {/* </Grid.Column> */}
-//         {/* <Grid.Column stretched width={12}> */}
-//         <Segment>
-//             Add Contents...
-//         </Segment>
-//         {/* </Grid.Column> */}
-//     </Segment>
-// )
-
-// export default AdminNav;
-
-// const Transparent = styled.div`
-//   padding: 40px 0px !important;
-//   background: transparent !important;
-//   // background-color: rgba(52,52,52, 0.3) !important;
-//   // position: sticky;
-// `

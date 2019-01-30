@@ -68,7 +68,6 @@ class Items extends React.Component {
           </div>
           <Card.Header>{i.name}</Card.Header> 
           <p>${i.price}</p> 
-          {/* <p>Spicy: {spicy}</p> */}
           </Card.Content>
           <Card.Content>
 

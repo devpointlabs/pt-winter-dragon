@@ -32,7 +32,6 @@ class Cart extends React.Component {
     axios.get('/api/taxnfees')
         .then(res => {
             this.setState({taxnfees: {delivery: res.data[0].delivery, tax: res.data[0].tax }})
-            // this.setState({taxnfees: {delivery: 2.00, tax: 7}})
             this.compareItems()
             this.findSubTotal()
             this.total()

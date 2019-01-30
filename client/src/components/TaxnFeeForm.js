@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Header, Grid, Segment } from 'semantic-ui-react';
+import { Form, Header, Grid, } from 'semantic-ui-react';
 
 
 class TaxnFeeForm extends React.Component {

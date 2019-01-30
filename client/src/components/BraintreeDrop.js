@@ -15,7 +15,6 @@ class BraintreeDrop extends Component {
   };
 
   componentDidMount() {
-    const { dispatch } = this.props;
 
     axios.get('/api/braintree_token')
       .then( res => {
@@ -28,7 +27,7 @@ class BraintreeDrop extends Component {
   }
 
   handlePaymentMethod = (payload) => {
-    const { dispatch, amount } = this.props;
+    const { amount } = this.props;
 
     axios.post('/api/payment', { amount, ...payload })
       .then(res => {

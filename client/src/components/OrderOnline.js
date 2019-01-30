@@ -8,7 +8,6 @@ import '../index.css'
 
 const timeoutLength = 1500
 
-
 // CLIENT SIDE
 
 class OrderOnline extends React.Component { 
@@ -96,7 +95,6 @@ class OrderOnline extends React.Component {
   }
 
   render() {
-    // debugger
     return (
       <div>
         <Hero>

@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { Card } from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
 
 class Users extends React.Component {
     state = { users: [],  }
