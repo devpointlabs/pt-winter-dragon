@@ -14,8 +14,12 @@ const Home = () => (
             <Hero>
                 <div>
                 <h1 style={{fontSize: '50px', fontStyle: 'bold'}}>
+                <center><Logo/></center>
                 NEW GOLDEN DRAGON</h1>
-                <h5 style={{fontSize: '20px'}}>TRADITION NEVER TASTED SO GOOD</h5></div>
+                <h5 style={{fontSize: '20px'}}>
+                TRADITION NEVER TASTED SO GOOD
+                </h5>
+                </div>
             </Hero>
             <Section style={{marginTop:"5%"}}>
                 <h1 style={{fontSize: '50px', fontStyle: 'bold'}}>GREAT FOOD. BETTER COMPANY</h1>
@@ -46,7 +50,7 @@ const Home = () => (
                 </Grid.Column>
                 <Grid.Column style={{maxWidth: '500px', margin: '50px'}}>
                     <Link to='/reservationform'>
-                    <Image src={food2} alt='reservation-form' />
+                    <Image src={food2} alt='reservationform' />
                     </Link>
                     <Link to='/reservationform'>
                     <SubTitle>Happy Hour</SubTitle>
